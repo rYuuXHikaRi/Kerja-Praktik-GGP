@@ -1,8 +1,7 @@
-<footer class="footer">
-    <div class="container">
-      <div class="text-center">
-        <p>Copiright @2023</p>
-      </div>
+
+  <footer>
+    <div class="footer-image">
+      <img alt="footer header" src="https://www.greatgiantfoods.com/wp-content/themes/ggf/images/footer-wave.png">
     </div>
   </footer>
   

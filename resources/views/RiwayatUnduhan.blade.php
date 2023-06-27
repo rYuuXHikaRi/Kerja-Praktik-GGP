@@ -7,7 +7,6 @@
 </div>
 <br>
   <div class="data">
-
     <table border="2" cellpadding="10">
         <thead>
           <tr>

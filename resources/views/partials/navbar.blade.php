@@ -23,7 +23,6 @@
 
   <body>
     <div>
-    
      <div class="sidebar p-4 bg-white" id="sidebar">
             <h4 class="mb-5 text-black"><img src="img/logo.png" alt="logo" width="100"></h4>
             <li>
@@ -86,7 +85,6 @@
         <i class="bi bi-list"></i>
       </button>
     </div>
-
     <script>
 
       // event will be executed when the toggle-button is clicked
