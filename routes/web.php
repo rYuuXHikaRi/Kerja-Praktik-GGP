@@ -3,6 +3,7 @@
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -22,3 +23,4 @@ Route::resource('begalin', AdminBegalinController::class);
 Route::get('/user', [UserController::class, 'index'])->name('IndexUser');
 Route::get('/tambah-user', [UserController::class, 'create'])->name('CreateUser');
 Route::post('/store-user',[UserController::class,'store'])->name('StoreUser');
+
