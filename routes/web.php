@@ -15,12 +15,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('test');
+Route::get('/Dashboard', function () {
+    return view('Dashboard');
 });
 
-Route::resource('begalin', AdminBegalinController::class);
-Route::get('/user', [UserController::class, 'index'])->name('IndexUser');
-Route::get('/tambah-user', [UserController::class, 'create'])->name('CreateUser');
-Route::post('/store-user',[UserController::class,'store'])->name('StoreUser');
+Route::get('/TambahAkun', function () {
+    return view('TambahAkun');
+});
 
