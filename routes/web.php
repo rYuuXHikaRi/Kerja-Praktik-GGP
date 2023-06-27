@@ -26,3 +26,19 @@ Route::get('/TambahAkun', function () {
 Route::get('/KelolaArsip', function () {
     return view('KelolaArsip');
 });
+
+Route::get('/DataPetugas', function () {
+    return view('DataPetugas');
+});
+
+Route::get('/DataUser', function () {
+    return view('DataUser');
+});
+
+Route::get('/RiwayatUnduhan', function () {
+    return view('RiwayatUnduhan');
+});
+
+Route::get('/Folder', function () {
+    return view('Folder');
+});

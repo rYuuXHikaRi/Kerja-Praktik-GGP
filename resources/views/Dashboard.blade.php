@@ -1,7 +1,7 @@
 @extends('layouts.App')
 
 @section('container')
-<div class="card mt-5" style="margin-left: 15%">
+<div class="card mt-5" style="margin-left: 15%;margin-bottom:10%;">
     <div class="card-body">
         <div class="border"><h3>Dashboard</h3></div>
           <br>

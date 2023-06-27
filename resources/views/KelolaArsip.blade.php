@@ -1,14 +1,14 @@
 @extends('layouts.App')
 
 @section('container')
-
-  <div class="Kelolaarsip"> <h3 style="font: bolder;border-radius: 10px;margin-left:15%;display:flex;">Kelola Arsip</h3></div>
+<link rel="stylesheet" type="text/css" href="/css/style.css">
+  <div class="Kelolaarsip"> <h3 style="font: bolder;border-radius: 10px;display:flex;">Kelola Arsip</h3></div>
     <form action="/action" method="POST">
         <div class="card mt-5" style="margin-left: 15%;padding: 10px;border-radius: 10px">
             <div class="panel-body">
               <form action="proses.php" method="POST">
                 <div class="control-group after-add-more">
-                    <h3>Tambah Dokumen</h3>
+                    <h5>Tambah Dokumen</h5>
                     <hr>
                     <label for="namadokumen" class="nama-dokumen">Nama Dokumen</label>
                     <input id="namadokumen" type="text"><br>
@@ -39,15 +39,5 @@
       
     </div>
   </div>
-<style>
-    label {
-    float: left;
-    width: 200px;
-    padding-right: 24px;
-}
-input {
-    float: left;
-    width: calc(100% - 200px);
-}
-</style>
+
 @endsection

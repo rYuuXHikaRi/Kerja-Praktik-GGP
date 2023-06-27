@@ -2,11 +2,12 @@
 
 @section('container')
 
-  <div class="tambah"> <h3 style="font: bolder; padding: 10px;border-radius: 10px;margin-left:15%">Tambah Akun</h3></div>
+  <div class="tambah"> <h3 >Tambah Akun</h3></div>
   <div class="card mt-5" style="margin-left: 15%;padding: 10px;border-radius: 10px">
       <div class="panel-body">
         <form action="proses.php" method="POST">
           <div class="control-group after-add-more">
+            <h5>Input Data Akun</h5>
             <label>Nama</label>
             <input type="text" name="nama[]" class="form-control">
             <label>Username</label>
