@@ -247,6 +247,92 @@ th {
     text-align: inherit;
 }
 
+#logo-great-giant-pineapple {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    width: 94px;
+    height: 100px;
+    flex-shrink: 0;
+    /* Tambahkan properti styling lain sesuai kebutuhan */
+  
+    /* Responsif untuk layar desktop */
+    @media (max-width: 1024px) {
+      position: static;
+      margin: 30px;
+    }
+  }
+
+  .button-container {
+    position: absolute;
+    top: 16px;
+    right: 24px;
+    z-index: 2;
+    font-size: 15px;
+    font-family: Inter;
+  }
+  
+  .button-container button {
+    margin-bottom: 24px;
+    margin-right: 24px;
+    border: none;
+    background-color: transparent; 
+    color: #F0E5E5;
+    
+
+    /* Tambahkan properti styling lain sesuai kebutuhan */
+  }
+  
+#circlecoak{
+        position: absolute;
+        z-index: 3;
+        top: 18px;
+        right: 93px;
+        /* Tambahkan properti styling lain sesuai kebutuhan */
+      
+}
+
+#arrow-img-login{
+    position: absolute;
+    z-index: 4;
+    top: 21px;
+    right: 93px;
+}
+
+#btn-login{
+    margin-right: 78.26;
+}
+
+#circle1{
+    position: absolute;
+    top: 209px;
+    left: 149px;
+}
+#circle2{
+    position: absolute;
+    top: 259px;
+    left: 222px;
+}
+#circle3{
+    position: absolute;
+    top: 404px;
+    right: 77px;
+}
+
+#icon-half-circle {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+  }
+
+  #footer-wave {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+    /* Tambahkan properti styling lain sesuai kebutuhan */
+  }
+  
 label {
     display: inline-block;
     margin-bottom: 0.5rem;
@@ -289,15 +375,12 @@ select {
   position: absolute;
   top: 0;
   right: 0;
-  transform: translate(-50%, 50%);
 }
 
 button,
 [type="button"],
 [type="reset"],
-[type="submit"] {
-    -webkit-appearance: button;
-}
+[type="submit"]
 
 button:not(:disabled),
 [type="button"]:not(:disabled),
@@ -324,9 +407,9 @@ input[type="checkbox"] {
 input[type="date"],
 input[type="time"],
 input[type="datetime-local"],
-input[type="month"] {
-    -webkit-appearance: listbox;
-}
+input[type="month"]
+
+
 
 textarea {
     overflow: auto;
@@ -363,7 +446,6 @@ progress {
 
 [type="search"] {
     outline-offset: -2px;
-    -webkit-appearance: none;
 }
 
 [type="search"]::-webkit-search-decoration {
@@ -2481,7 +2563,7 @@ input[type="password"] {
 						  border-right: none;
 						  border-radius:0;
 						  font-size: 20px;
-						  width:100%;"
+						  width:100%;
 }
 .invalid-tooltip {
     position: absolute;
