@@ -23,3 +23,6 @@ Route::get('/TambahAkun', function () {
     return view('TambahAkun');
 });
 
+Route::get('/KelolaArsip', function () {
+    return view('KelolaArsip');
+});
