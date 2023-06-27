@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
     <head>
-
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Bootstrap 5 Side Bar Navigation</title>
@@ -19,66 +17,23 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css"
     />
-    <style>
-      li {
-        list-style: none;
-        margin: 20px 0 20px 0;
-      }
 
-      a {
-        text-decoration: none;
-      }
-
-      .sidebar {
-        width: 250px;
-        height: 100vh;
-        margin-left: -300px;
-        transition: 0.4s;
-      }
-
-      .active-main-content {
-        margin-left: 250px;
-      }
-
-      .active-sidebar {
-        margin-left: 0;
-      }
-
-      #main-content {
-        transition: 0.4s;
-      }
-
-      .grid-container {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: repeat(2, 1fr);
-        gap: 10px;
-
-}
-
-    .grid-item {
-    border: 2px solid black;
-    padding: 10px;
-    border-radius: 10px;
-}
-
-    </style>
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
   </head>
 
   <body>
     <div>
     
-       
-     <div class="sidebar p-4 bg-white" id="sidebar" style=" position: absolute;z-index: 3;">
+     <div class="sidebar p-4 bg-white" id="sidebar">
             <h4 class="mb-5 text-black"><img src="img/logo.png" alt="logo" width="100"></h4>
             <li>
-              <a class="text-green" href="#">
+              <a class="menu-item active" href="#">
                 <i class="bi bi-house mr-2"></i>
                 Dashboard
               </a>
             </li>
             <li>
-              <a class="text-green" href="#">
+              <a class="menu-item" href="#">
                 <i class="bi bi-folder mr-2"></i>
                 Folder
               </a>
@@ -120,34 +75,16 @@
               </a>
             </li>
           </div>
-    
-
 
     </div >
-    <nav class="navbar " style="position :absolute; background: #A6D17A;z-index:1;border:#A6D17A solid 4px;width:100%;height:10%"> 
-            
-        <div class="corner-text" style="position: absolute;right: 0;transform: translate(-100%, 0);font-weight: bold;size:48;">
+    <nav class="navbar"> 
+        <div class="corner-text">
              <img src="img/administrator.png" alt="admin" width="40">| Administrator| </div>
     </nav>
-        
-    
     <div class="p-4" id="main-content">
-      <button class="btn btn" id="button-toggle" style="position: absolute;z-index:4;">
+      <button class="btn" id="button-toggle" >
         <i class="bi bi-list"></i>
       </button>
-
-      <div class="card mt-5">
-        <div class="card-body">
-            <div class="border" style="border:#A6D17A solid 4px;width:100%;height:10%"></div><h2>Dashboard</h4>
-
-            <div class="grid-container">
-                <div class="grid-item"><h4>Petugas</h4><img src="img/grafik.png" alt="statistik" width="130"><h6 style="text-align: center;">4</h6></div>
-                <div class="grid-item"><h4>User</h4><img src="img/grafik.png" alt="statistik" width="130"><h6 style="text-align: center;">5</h6></div>
-                <div class="grid-item"><h4>Total Arsip</h4><img src="img/grafik.png" alt="statistik" width="130"><h6 style="text-align: center;">10</h6></div>
-                <div class="grid-item"><h4>Kategori Arsip</h4><img src="img/grafik.png" alt="statistik" width="130"><h6 style="text-align: center;">6</h6></div>
-              </div>
-        </div>
-      </div>
     </div>
 
     <script>
