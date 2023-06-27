@@ -44,7 +44,7 @@
 						  required >
 						  <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
 						</div>
-						<div class="form-group">
+						<div class="form-group mt-3">
 							<button type="submit" class="lanjutkan form-control btn btn-primary submit px-3" style="border-color: none;"" 
 							><svg width="27" height="27"  viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-right: 5px">
 								<path d="M27 13.5C27 20.9558 20.9558 27 13.5 27C6.04416 27 0 20.9558 0 13.5C0 6.04416 6.04416 0 13.5 0C20.9558 0 27 6.04416 27 13.5Z" fill="#D9D9D9"/>

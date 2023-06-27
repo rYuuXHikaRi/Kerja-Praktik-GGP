@@ -2454,6 +2454,10 @@ input[type="text"]::placeholder {
   color: rgba(128, 128, 128, 1);
   
 }
+input[type="text"]:focus {
+  margin-bottom: 5px;
+  outline: none;
+}
 
 input[type="text"] {
     background-color: transparent;
@@ -2462,12 +2466,16 @@ input[type="text"] {
     border-right: none;
     border-radius:0;
     font-size: 20px;
-    font-family: Inter;
     width:100%;
 }
+
+input[type="password"]:focus {
+  outline: none;
+  border: none;
+}
+
 input[type="password"] {
     background-color: transparent;
-    border: none;
    border-bottom: 2px solid black;
 						  border-left: none;
 						  border-top: none;
