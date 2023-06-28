@@ -15,7 +15,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/Dashboard', function () {
+
+Route::get('/', function () {
     return view('Dashboard');
 });
 
