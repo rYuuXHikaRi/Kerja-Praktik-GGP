@@ -48,4 +48,6 @@ class UserController extends Controller
         $file->move(public_path($location), $filename);
         return view('admin.user.index',compact('users'));
     }
+    
 }
+

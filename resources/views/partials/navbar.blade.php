@@ -38,7 +38,7 @@
               </a>
             </li>
             <li>
-              <a class="text-green" href="/KelolaArsip">
+              <a class="text-green" href="{{ Route('arsip.create') }}">
                 <i class="bi bi-newspaper mr-2"></i>
                 Kelola Arsip
               </a>
