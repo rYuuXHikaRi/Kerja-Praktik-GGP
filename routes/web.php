@@ -42,3 +42,7 @@ Route::get('/RiwayatUnduhan', function () {
 Route::get('/Folder', function () {
     return view('Folder');
 });
+
+Route::get('/LihatDokumen', function () {
+    return view('LihatDokumen');
+});

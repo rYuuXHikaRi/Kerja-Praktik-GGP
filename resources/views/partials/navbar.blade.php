@@ -80,6 +80,8 @@
         <div class="corner-text">
              <img src="img/administrator.png" alt="admin" width="40">| Administrator| </div>
     </nav>
+
+    
     <div class="p-4" id="main-content">
       <button class="btn" id="button-toggle" >
         <i class="bi bi-list"></i>
