@@ -15,31 +15,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-
 Route::get('/', function () {
     return view('Dashboard');
 });
 
-Route::get('/TambahAkun', function () {
-    return view('TambahAkun');
-});
+Route::resource('begalin', AdminBegalinController::class);
+Route::get('/user', [UserController::class, 'index'])->name('IndexUser');
+Route::get('/tambah-user', [UserController::class, 'create'])->name('CreateUser');
+Route::post('/store-user',[UserController::class,'store'])->name('StoreUser');
+Route::get('/edit-user/{id}',[UserController::class,'edit'])->name('EditUser');
+Route::put('/update-user/{id}',[UserController::class,'update'])->name('UpdateUser');
+Route::delete('/user/{id}', [UserController::class, 'destroy'])->name('DestroyUser');
 
-Route::get('/KelolaArsip', function () {
-    return view('KelolaArsip');
-});
 
-Route::get('/DataPetugas', function () {
-    return view('DataPetugas');
-});
 
-Route::get('/DataUser', function () {
-    return view('DataUser');
-});
 
-Route::get('/RiwayatUnduhan', function () {
-    return view('RiwayatUnduhan');
-});
-
-Route::get('/Folder', function () {
-    return view('Folder');
-});
