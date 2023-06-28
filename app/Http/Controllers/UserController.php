@@ -44,7 +44,8 @@ class UserController extends Controller
             'Roles' => $request->Roles
         ]);
 
+        $users = User::all();
         $file->move(public_path($location), $filename);
-        return view('admin.user.index');
+        return view('admin.user.index',compact('users'));
     }
 }

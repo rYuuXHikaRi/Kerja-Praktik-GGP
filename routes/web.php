@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('test');
+    return view('Dashboard');
 });
 
 Route::resource('begalin', AdminBegalinController::class);
