@@ -88,9 +88,9 @@ border-radius: 10px;
   size:48;
 }
 .navbar{
-  position :absolute; background: #A6D17A;
+  position :absolute; background: #A6CE39;
   z-index:1;
-  border:#A6D17A solid 4px;
+  border:#A6CE39 solid 4px;
   width:100%;
   height:10%;
 }
@@ -158,6 +158,7 @@ margin-left:15%;}
     margin-left:15%;}
 
     .search-box {
+      margin-bottom: 15px;
       float: right;
       background-color: rgb(255, 255, 255);
       padding: 5px;
@@ -167,7 +168,7 @@ margin-left:15%;}
     .search-input {
       width: 200px;
       border: none;
-      background-color: rgb(28, 235, 9);
+      background-color: #F0E5E5;
       padding: 5px;
       color: black;
       border-radius: 15px; 
@@ -300,7 +301,7 @@ margin-left:15%;}
           footer {
             position: fixed;
             left: 0;
-            bottom: 0;
+            bottom: -5%;
             width: 100%;
             height: 100px; 
             padding: 20px 0;
@@ -427,3 +428,6 @@ margin-left:15%;}
                   bottom: 0;
                   right: 0;
                 }
+body{
+  background: #F0E5E5;
+}
