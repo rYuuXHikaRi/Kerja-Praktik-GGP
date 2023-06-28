@@ -2,13 +2,12 @@
 
 @section('container')
 <link rel="stylesheet" type="text/css" href="/css/style.css">
-<div class="folder">
-  <h3>Folder</h3>
+<div class="lihat">
+  <h3>Lihat Dokumen</h3>
 </div>
-
 <br>
-  <div class="Folder">
-    <h4>Folder</h4>
+  <div class="Lihat">
+    <h4>Semua Arsip</h4>
 <hr>
 <br>
 <div class="search-box">
@@ -19,9 +18,6 @@
       <tr>
         <th>No</th>
         <th>Nama</th>
-        <th>Tahun</th>
-        <th>Desa</th>
-        <th>Lokasi Penyimpanan</th>
         <th>Keterangan</th>
         <th>Opsi</th>
       </tr>
@@ -29,40 +25,27 @@
     <tbody>
       <tr>
         <td>1</td>
-        <td>Data 1</td>
-        <td>2023</td>
-        <td>Desa A</td>
-        <td>Loker A</td>
+        <td>Surat Izin Pengelolaan Perkebunan Pisang</td>
         <td>Surat Izin Pengelolaan</td>
         <td>
-          <li>
-          <a class="menu-item active" href="/LihatDokumen">
-          <button class="lihat-btn">Preview | <i class="bi bi-eye"></i></button>
-        </li>
+            <button class="unduh-btn"><i class="bi bi-cloud-download"></i></button>
+            <button class="lihat-btn"><i class="bi bi-eye"></i></button>
+            <button class="hapus-btn"><i class="bi bi-trash"></i></button>
         </td>
       </tr>
       <tr>
         <td>2</td>
-        <td>Data 2</td>
-        <td>2022</td>
-        <td>Desa B</td>
-        <td>Loker B</td>
+        <td>Surat Pernyataan Status Lahan Tidak Sengketa</td>
         <td>Surat Sengketa</td>
         <td>
-          <li>
-            <a class="menu-item active" href="/LihatDokumen">
-            <button class="lihat-btn">Preview | <i class="bi bi-eye"></i></button>
-          </li>
+            <button class="unduh-btn"><i class="bi bi-cloud-download"></i></button>
+            <button class="lihat-btn"><i class="bi bi-eye"></i></button>
+            <button class="hapus-btn"><i class="bi bi-trash"></i></button>
         </td>
       </tr>
       
     </tbody>
   </table>
-  
-
-
-
-
       <div class="pagination">
         <a href="#">&laquo;</a>
         <a href="#">1</a>
@@ -71,5 +54,9 @@
         <a href="#">&raquo;</a>
       </div>
   </div>
+
+
+
+
      </div>
 @endsection

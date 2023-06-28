@@ -16,6 +16,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
+    return view('Login');
+});
+
+Route::get('/Dashboard', function () {
     return view('Dashboard');
 });
 
@@ -26,6 +30,7 @@ Route::resource('user', UserController::class);
 // Route::get('/edit-user/{id}',[UserController::class,'edit'])->name('EditUser');
 // Route::put('/update-user/{id}',[UserController::class,'update'])->name('UpdateUser');
 // Route::delete('/user/{id}', [UserController::class, 'destroy'])->name('DestroyUser');
+
 
 
 
