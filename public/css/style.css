@@ -368,5 +368,62 @@ margin-left:15%;}
                 cursor: pointer;
                 border-radius: 15px;
               }
-            
-          
+              .hapus-btn {
+                background-color: rgb(255, 0, 0);
+                color: white;
+                padding: 8px 16px;
+                border: none;
+                cursor: pointer;
+                border-radius: 15px;}
+
+                .update-btn {
+                  position: absolute;
+                  margin-top: 20px;
+                  margin-right: 50px;
+                  background-color: rgb(47, 0, 255);
+                  color: white;
+                  padding: 8px 16px;
+                  border: none;
+                  cursor: pointer;
+                  border-radius: 15px;}
+
+              .profil{
+                border: solid 1px #111010; 
+                background: #ffffff; 
+                padding: 15px; 
+                -moz-border-radius: 15px; 
+                -khtml-border-radius: 15px; 
+                -webkit-border-radius: 15px; 
+                border-radius: 15px; 
+                margin: 0; 
+                text-align: left; 
+                line-height: 23px; 
+                color: black; 
+                font-size: 18px;
+                margin-left:15%;} 
+                
+                .profile-container {
+                  display: flex;
+                  align-items: flex-start;
+                }
+                
+                .profile-image {
+                  margin-right: 20px;
+                }
+                
+                .profile-form {
+                  flex-grow: 1;
+                }
+                
+                .profile-form h3 {
+                  margin-top: 0;
+                }
+                
+                .profile-form form {
+                  width: 100%;
+                }
+                .form-actions {
+                  position: absolute;
+                  bottom: 0;
+                  right: 0;
+                }

@@ -30,6 +30,7 @@
         <td>
             <button class="unduh-btn"><i class="bi bi-cloud-download"></i></button>
             <button class="lihat-btn"><i class="bi bi-eye"></i></button>
+            <button class="hapus-btn"><i class="bi bi-trash"></i></button>
         </td>
       </tr>
       <tr>
@@ -39,6 +40,7 @@
         <td>
             <button class="unduh-btn"><i class="bi bi-cloud-download"></i></button>
             <button class="lihat-btn"><i class="bi bi-eye"></i></button>
+            <button class="hapus-btn"><i class="bi bi-trash"></i></button>
         </td>
       </tr>
       

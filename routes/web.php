@@ -51,3 +51,6 @@ Route::get('/Folder', function () {
 Route::get('/LihatDokumen', function () {
     return view('LihatDokumen');
 });
+Route::get('/Profil', function () {
+    return view('Profil');
+});
