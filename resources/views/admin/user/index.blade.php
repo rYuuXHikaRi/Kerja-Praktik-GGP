@@ -34,7 +34,7 @@
               <td>{{ $user->NomorHp }}</td>
               <td>{{ $user->Roles }}</td>
               <td>
-                <a href="{{ route('EditUser',$user->id) }}" class="edit-button">
+                <a href="{{ route('user.edit',$user->id) }}" class="edit-button">
                     <button class="edit-btn" >Edit</button>
                 </a>
                 <a role="button"  class="delete-button" data-bs-toggle="modal" data-bs-target=".bd-example-modal-sm{{$user->id}}">
@@ -50,12 +50,12 @@
                                 </button>
                             </div>
                             <div class="modal-body">Apakah anda yakin ingin menghapus data?</div>
-                            <div class="modal-footer">
-                                <form action="{{route('DestroyUser', $user->id)}}" method="POST">
+                            <div class="modal-footer" style="left:0px;">
+                                <form action="{{route('user.destroy', $user->id)}}" method="POST">
                                 @method('DELETE')
                                 @csrf
-                                <input type="submit" class="btn btn-danger light" name="" id="" value="Hapus">
-                                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Tidak</button>
+                                <input type="submit" class="btn btn-danger" name="" id="" value="Hapus" style="left:5%;width:20%;">
+                                <button type="button" class="btn btn-primary" data-bs-dismiss="modal" style="left:30%;width:20%;">Tidak</button>
                               </form>
                             </div>
                         </div>

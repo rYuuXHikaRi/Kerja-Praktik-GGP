@@ -83,8 +83,9 @@ class UserController extends Controller
             // File upload location
             $location = '../public/assets/images/';
             $file->move(public_path($location), $filename);
+            $user->Foto = $filename;
         }
-        $user->Foto = $filename;
+        
 
         $user->save();
 
@@ -100,4 +101,6 @@ class UserController extends Controller
         $users=User::all();
         return view('admin.user.index',compact('users'));
     }
+
+
 }

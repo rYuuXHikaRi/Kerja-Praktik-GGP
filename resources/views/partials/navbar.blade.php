@@ -62,7 +62,7 @@
                 </a>
               </li>
             <li>
-              <a class="text-green" href="/TambahAkun">
+              <a class="text-green" href="{{ route('user.create') }}">
                 <i class="bi bi-plus mr-2"></i>
                 Tambah Akun
               </a>
