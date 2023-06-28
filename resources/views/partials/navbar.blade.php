@@ -23,47 +23,46 @@
 
   <body>
     <div>
-    
      <div class="sidebar p-4 bg-white" id="sidebar">
             <h4 class="mb-5 text-black"><img src="img/logo.png" alt="logo" width="100"></h4>
             <li>
-              <a class="menu-item active" href="#">
+              <a class="menu-item active" href="/Dashboard">
                 <i class="bi bi-house mr-2"></i>
                 Dashboard
               </a>
             </li>
             <li>
-              <a class="menu-item" href="#">
+              <a class="menu-item" href="/Folder">
                 <i class="bi bi-folder mr-2"></i>
                 Folder
               </a>
             </li>
             <li>
-              <a class="text-green" href="#">
+              <a class="text-green" href="/KelolaArsip">
                 <i class="bi bi-newspaper mr-2"></i>
                 Kelola Arsip
               </a>
             </li>
             <li>
-              <a class="text-green" href="#">
+              <a class="text-green" href="/RiwayatUnduhan">
                 <i class="bi bi-clock-history mr-2"></i>
                 Riwayat Unduhan
               </a>
             </li>
             <li>
-              <a class="text-green" href="#">
+              <a class="text-green" href="/DataPetugas">
                 <i class="bi bi-person mr-2"></i>
                 Data Petugas
               </a>
             </li>
             <li>
-                <a class="text-green" href="#">
+                <a class="text-green" href="/DataUser">
                   <i class="bi bi-person mr-2"></i>
                   Data User
                 </a>
               </li>
             <li>
-              <a class="text-green" href="#">
+              <a class="text-green" href="/TambahAkun">
                 <i class="bi bi-plus mr-2"></i>
                 Tambah Akun
               </a>
@@ -86,7 +85,6 @@
         <i class="bi bi-list"></i>
       </button>
     </div>
-
     <script>
 
       // event will be executed when the toggle-button is clicked

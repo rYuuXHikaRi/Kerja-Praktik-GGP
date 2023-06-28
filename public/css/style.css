@@ -1,5 +1,33 @@
-
-
+.dsbrd{
+  border: solid 1px #111010; 
+        background: #ffffff; 
+        padding: 15px; 
+        -moz-border-radius: 15px; 
+        -khtml-border-radius: 15px; 
+        -webkit-border-radius: 15px; 
+        border-radius: 15px; 
+        margin: 0; 
+        text-align: left; 
+        line-height: 23px; 
+        color: black; 
+        font-size: 18px;
+        margin-left:15%;
+}
+.Statistik{
+  border: solid 1px #111010; 
+          background: #ffffff; 
+          padding: 15px; 
+          -moz-border-radius: 15px; 
+          -khtml-border-radius: 15px; 
+          -webkit-border-radius: 15px; 
+          border-radius: 15px; 
+          margin: 0; 
+          text-align: left; 
+          line-height: 23px; 
+          color: black; 
+          font-size: 18px;
+          margin-left:15%;
+}
   li {
     list-style: none;
     margin: 20px 0 20px 0;
@@ -32,21 +60,24 @@
 
   .grid-container {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(2, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 10px;
+  }
+  
+  .grid-item {
+    background-color: #f2f2f2;
+    padding: 10px;
+    border: 2px solid black;
+    border-radius: 10px;
+      }
+  
+  
 
-}
+
 .border{
 border: 2px solid black;
 padding: 10px;
 border-radius: 10px;  
-}
-
-.grid-item {
-border: 2px solid black;
-padding: 10px;
-border-radius: 10px;
 }
 
 .corner-text{
@@ -70,3 +101,227 @@ border-radius: 10px;
 .tambah{
   border: 10%
 }
+  
+label {
+    float: left;
+    width: 200px;
+    padding-right: 24px;
+}
+input {
+    float: left;
+    width: calc(100% - 200px);
+}
+
+.Kelolaarsip{
+border: solid 1px #111010; 
+background: #ffffff; 
+padding: 15px; 
+-moz-border-radius: 15px; 
+-khtml-border-radius: 15px; 
+-webkit-border-radius: 15px; 
+border-radius: 15px; 
+margin: 0; 
+text-align: right; 
+line-height: 23px; 
+color: black; 
+font-size: 18px;
+margin-left:15%;}
+
+.tambah{
+  border: solid 1px #111010; 
+  background: #ffffff; 
+  padding: 15px; 
+  -moz-border-radius: 15px; 
+  -khtml-border-radius: 15px; 
+  -webkit-border-radius: 15px; 
+  border-radius: 15px; 
+  margin: 0; 
+  text-align: left; 
+  line-height: 23px; 
+  color: black; 
+  font-size: 18px;
+  margin-left:15%;}
+
+  .datapetugas{
+    border: solid 1px #111010; 
+    background: #ffffff; 
+    padding: 15px; 
+    -moz-border-radius: 15px; 
+    -khtml-border-radius: 15px; 
+    -webkit-border-radius: 15px; 
+    border-radius: 15px; 
+    margin: 0; 
+    text-align: left; 
+    line-height: 23px; 
+    color: black; 
+    font-size: 18px;
+    margin-left:15%;}
+
+    .search-box {
+      float: right;
+      background-color: rgb(255, 255, 255);
+      padding: 5px;
+      border-radius: 15px; 
+    }
+    
+    .search-input {
+      width: 200px;
+      border: none;
+      background-color: rgb(28, 235, 9);
+      padding: 5px;
+      color: black;
+      border-radius: 15px; 
+    }
+    .data{
+      border: solid 1px #111010; 
+      background: #ffffff; 
+      padding: 15px; 
+      -moz-border-radius: 15px; 
+      -khtml-border-radius: 15px; 
+      -webkit-border-radius: 15px; 
+      border-radius: 15px; 
+      margin: 0; 
+      text-align: left; 
+      line-height: 23px; 
+      color: black; 
+      font-size: 18px;
+      margin-left:15%;}
+
+      .datauser{
+        border: solid 1px #111010; 
+        background: #ffffff; 
+        padding: 15px; 
+        -moz-border-radius: 15px; 
+        -khtml-border-radius: 15px; 
+        -webkit-border-radius: 15px; 
+        border-radius: 15px; 
+        margin: 0; 
+        text-align: left; 
+        line-height: 23px; 
+        color: black; 
+        font-size: 18px;
+        margin-left:15%;}
+
+      table {
+        border-collapse: collapse;
+        width: 100%;
+      }
+      
+      th, td {
+        border: 1px solid black;
+        padding: 8px;
+      }
+      
+      th {
+        background-color: #f2f2f2;
+      }
+      
+      tr:nth-child(even) {
+        background-color: #f9f9f9;
+      }
+      
+      .edit-btn {
+        background-color: blue;
+        color: white;
+        padding: 8px 16px;
+        border: none;
+        cursor: pointer;
+      }
+      .delete-btn {
+        background-color: rgb(255, 0, 0);
+        color: white;
+        padding: 8px 16px;
+        border: none;
+        cursor: pointer;
+      }
+    
+      .pagination {
+        display: flex;
+        justify-content: flex-end;
+        margin-top: 20px;
+      }
+      
+      .pagination a {
+        color: black;
+        float: left;
+        padding: 8px 16px;
+        text-decoration: none;
+        border: 1px solid #ddd;
+      }
+      
+      .pagination a.active {
+        background-color: #4CAF50;
+        color: white;
+        border: 1px solid #4CAF50;
+      }
+      
+      .pagination a:hover:not(.active) {background-color: #ddd;}
+      
+      .pagination a:first-child {
+        border-top-left-radius: 5px;
+        border-bottom-left-radius: 5px;
+      }
+      
+      .pagination a:last-child {
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
+      }
+      
+      .folder{
+        border: solid 1px #111010; 
+        background: #ffffff; 
+        padding: 15px; 
+        -moz-border-radius: 15px; 
+        -khtml-border-radius: 15px; 
+        -webkit-border-radius: 15px; 
+        border-radius: 15px; 
+        margin: 0; 
+        text-align: left; 
+        line-height: 23px; 
+        color: black; 
+        font-size: 18px;
+        margin-left:15%;}
+
+        .Folder{
+          border: solid 1px #111010; 
+          background: #ffffff; 
+          padding: 15px; 
+          -moz-border-radius: 15px; 
+          -khtml-border-radius: 15px; 
+          -webkit-border-radius: 15px; 
+          border-radius: 15px; 
+          margin: 0; 
+          text-align: left; 
+          line-height: 23px; 
+          color: black; 
+          font-size: 18px;
+          margin-left:15%;}
+
+          footer {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 100px; 
+            padding: 20px 0;
+            object-fit: cover;
+          }
+          
+          .footer-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+          }
+          
+          .footer-image img {
+            width: 100%;
+            height: auto;
+          }
+          
+          
+          
+          .text-center {
+            text-align: center; 
+          }
+          
