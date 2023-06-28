@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Arsip;
+
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Hash;
@@ -44,6 +45,4 @@ class ArsipController extends Controller
     }
 
 }
-
-
 

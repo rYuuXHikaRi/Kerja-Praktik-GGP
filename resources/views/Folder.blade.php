@@ -47,6 +47,7 @@
                 @endforeach
             </tbody>
          </table>
+
   
               <div class="pagination">
                 <a href="#">&laquo;</a>

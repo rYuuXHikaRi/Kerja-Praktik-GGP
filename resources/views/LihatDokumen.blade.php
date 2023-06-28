@@ -1,9 +1,22 @@
 @extends('layouts.App')
 
 @section('container')
-    <link rel="stylesheet" type="text/css" href="/css/style.css">
 
 <table>
+
+<link rel="stylesheet" type="text/css" href="/css/style.css">
+<div class="lihat">
+  <h3>Lihat Dokumen</h3>
+</div>
+<br>
+  <div class="Lihat">
+    <h4>Semua Arsip</h4>
+<hr>
+<br>
+<div class="search-box">
+    <input type="text" class="search-input" placeholder= " Search..." >
+  </div>
+  <table>
     <thead>
       <tr>
         <th>No</th>
@@ -36,4 +49,20 @@
       
     </tbody>
   </table
+
+  </table>
+      <div class="pagination">
+        <a href="#">&laquo;</a>
+        <a href="#">1</a>
+        <a class="active" href="#">2</a>
+        <a href="#">3</a>
+        <a href="#">&raquo;</a>
+      </div>
+  </div>
+
+
+
+
+     </div>
+
 @endsection

@@ -6,7 +6,7 @@
   <div class="card mt-5" style="margin-left: 15%;padding: 10px;border-radius: 10px">
       <div class="panel-body">
 
-        <form action=" {{ route('StoreUser') }}" method="POST" enctype="multipart/form-data">
+        <form action=" {{ route('user.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
           <div class="control-group after-add-more">
             <label>Nama</label>
