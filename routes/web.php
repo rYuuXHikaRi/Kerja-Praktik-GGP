@@ -1,8 +1,9 @@
 <?php
 
-use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\ArsipController;
+use App\Models\Arsip;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,6 +31,12 @@ Route::resource('user', UserController::class);
 // Route::get('/edit-user/{id}',[UserController::class,'edit'])->name('EditUser');
 // Route::put('/update-user/{id}',[UserController::class,'update'])->name('UpdateUser');
 // Route::delete('/user/{id}', [UserController::class, 'destroy'])->name('DestroyUser');
+
+
+Route::resource('arsip', ArsipController::class);
+
+// Route::get('/KelolaArsip', [ArsipController::class ,'create'] )->name('KelolaArsip');
+// Route::post('/KelolaArsip', [ArsipController::class ,'store'])->name('TambahArsip');
 
 
 

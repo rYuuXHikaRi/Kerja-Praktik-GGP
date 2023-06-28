@@ -50,6 +50,7 @@ class UserController extends Controller
         return view('admin.user.index',compact('users'));
     }
 
+
     public function edit($id)
     {
      
@@ -63,8 +64,6 @@ class UserController extends Controller
         $user->NamaLengkap = $request->input('NamaLengkap');
         $user->NomorHp = $request->input('NomorHp');
         $user->Roles = $request->input('Roles');
-
-
 
         if ($request->hasFile('Foto')) {
 
@@ -102,5 +101,5 @@ class UserController extends Controller
         return view('admin.user.index',compact('users'));
     }
 
-
 }
+

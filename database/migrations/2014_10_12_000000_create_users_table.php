@@ -11,15 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('arsips', function (Blueprint $table) {
             $table->id();
-            $table->string('UserName');
-            $table->string('Password');
-            $table->string('NamaLengkap');
-            $table->string('NomorHp');
-            $table->string('Foto');
-            $table->string('Roles');
-  
+            $table->text('NamaDokumen');
+            $table->text('Keterangan');
+            $table->text('NamaDesa');
+            $table->text('Tahun');
+            $table->text('LokasiPenyimpanan');
+            $table->text('NamaFile') -> nullable();
+            $table->string('created_at');
+            $table->string('updated_at');
         });
     }
 
@@ -28,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('arsips');
     }
 };
