@@ -22,6 +22,8 @@
   </head>
 
   <body>
+
+  <!-- Sidebar -->
     <div>
      <div class="sidebar p-4 bg-white" id="sidebar">
             <h4 class="mb-5 text-black"><img src="img/logo.png" alt="logo" width="100"></h4>
@@ -76,15 +78,21 @@
           </div>
 
     </div >
+
+    <!-- Navbar -->
     <nav class="navbar"> 
         <div class="corner-text">
              <img src="img/administrator.png" alt="admin" width="40">| Administrator| </div>
     </nav>
+
+    <!-- Toogle Button -->
     <div class="p-4" id="main-content">
       <button class="btn" id="button-toggle" >
         <i class="bi bi-list"></i>
       </button>
     </div>
+
+    
     <script>
 
       // event will be executed when the toggle-button is clicked
