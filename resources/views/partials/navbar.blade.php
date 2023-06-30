@@ -43,7 +43,7 @@
             </button>
           </li>
           <li>
-            <button class="menu-item isactive" href="/KelolaArsip">
+            <button class="menu-item isactive" href="{{ route('arsip.create') }}">
                   <a class="Icon KelolaArsip" href="/KelolaArsip"> <!-- SVG Code Here --> </a>
             </button>
           </li>
