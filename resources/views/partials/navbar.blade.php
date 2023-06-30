@@ -27,6 +27,7 @@
 
   <!-- Sidebar -->
     <div>
+
       <div class="sidebar bg-white" id="sidebar">
         <h4 class="mb-5 p-4 text-black"><img src="img/logo.png" alt="logo" width="100"></h4>
 
@@ -76,6 +77,7 @@
 
       </div>
 
+
     </div >
 
     <!-- Navbar -->
@@ -92,9 +94,6 @@
             </a>
       </div>
     </nav>
-
-    <!-- Toogle Button -->
-
 
 
     <script>
