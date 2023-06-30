@@ -88,9 +88,9 @@ border-radius: 10px;
   size:48;
 }
 .navbar{
-  position :absolute; background: #A6D17A;
-  z-index:1;
-  border:#A6D17A solid 4px;
+  position: sticky;
+  top: 0;
+  background: #A6D17A;
   width:100%;
   height:10%;
 }
