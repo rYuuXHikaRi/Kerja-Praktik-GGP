@@ -1,0 +1,445 @@
+.dsbrd{
+  border: solid 1px #111010; 
+        background: #ffffff; 
+        padding: 15px; 
+        -moz-border-radius: 15px; 
+        -khtml-border-radius: 15px; 
+        -webkit-border-radius: 15px; 
+        border-radius: 15px; 
+        margin: 0; 
+        text-align: left; 
+        line-height: 23px; 
+        color: black; 
+        font-size: 18px;
+        margin-left:15%;
+}
+.Statistik{
+  border: solid 1px #111010; 
+          background: #ffffff; 
+          padding: 15px; 
+          -moz-border-radius: 15px; 
+          -khtml-border-radius: 15px; 
+          -webkit-border-radius: 15px; 
+          border-radius: 15px; 
+          margin: 0; 
+          text-align: left; 
+          line-height: 23px; 
+          color: black; 
+          font-size: 18px;
+          margin-left:15%;
+}
+  li {
+    list-style: none;
+    margin: 20px 0 20px 0;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  .sidebar {
+    width: 250px;
+    height: 100vh;
+    margin-left: -300px;
+    transition: 0.4s;
+    position: absolute;
+    z-index: 3;
+  }
+
+  .active-main-content {
+    margin-left: 250px;
+  }
+
+  .active-sidebar {
+    margin-left: 0;
+  }
+
+  #main-content {
+    transition: 0.4s;
+  }
+
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+  }
+  
+  .grid-item {
+    background-color: #f2f2f2;
+    padding: 10px;
+    border: 2px solid black;
+    border-radius: 10px;
+      }
+  
+  
+
+
+.border{
+border: 2px solid black;
+padding: 10px;
+border-radius: 10px;  
+}
+
+.corner-text{
+  position: absolute;
+  right: 0;
+  transform: translate(-100%, 0);
+  font-weight: bold;
+  size:48;
+}
+.navbar{
+  position :absolute; background: #A6CE39;
+  z-index:1;
+  border:#A6CE39 solid 4px;
+  width:100%;
+  height:10%;
+}
+.btn{
+  position: absolute;
+  z-index:4;
+}
+.tambah{
+  border: 10%
+}
+  
+label {
+    float: left;
+    width: 200px;
+    padding-right: 24px;
+}
+input {
+    float: left;
+    width: calc(100% - 200px);
+}
+
+.Kelolaarsip{
+border: solid 1px #111010; 
+background: #ffffff; 
+padding: 15px; 
+-moz-border-radius: 15px; 
+-khtml-border-radius: 15px; 
+-webkit-border-radius: 15px; 
+border-radius: 15px; 
+margin: 0; 
+text-align: right; 
+line-height: 23px; 
+color: black; 
+font-size: 18px;
+margin-left:15%;}
+
+.tambah{
+  border: solid 1px #111010; 
+  background: #ffffff; 
+  padding: 15px; 
+  -moz-border-radius: 15px; 
+  -khtml-border-radius: 15px; 
+  -webkit-border-radius: 15px; 
+  border-radius: 15px; 
+  margin: 0; 
+  text-align: left; 
+  line-height: 23px; 
+  color: black; 
+  font-size: 18px;
+  margin-left:15%;}
+
+  .datapetugas{
+    border: solid 1px #111010; 
+    background: #ffffff; 
+    padding: 15px; 
+    -moz-border-radius: 15px; 
+    -khtml-border-radius: 15px; 
+    -webkit-border-radius: 15px; 
+    border-radius: 15px; 
+    margin: 0; 
+    text-align: left; 
+    line-height: 23px; 
+    color: black; 
+    font-size: 18px;
+    margin-left:15%;}
+
+    .search-box {
+      margin-bottom: 15px;
+      float: right;
+      background-color: rgb(255, 255, 255);
+      padding: 5px;
+      border-radius: 15px; 
+    }
+    
+    .search-input {
+      font-size: 15px;
+      float: right;
+      border: none;
+      width: 120px;
+      background-color: #F0E5E5;
+      padding: 5px;
+      color: black;
+      border-radius: 15px; 
+    }
+    .data{
+      border: solid 1px #111010; 
+      background: #ffffff; 
+      padding: 15px; 
+      -moz-border-radius: 15px; 
+      -khtml-border-radius: 15px; 
+      -webkit-border-radius: 15px; 
+      border-radius: 15px; 
+      margin: 0; 
+      text-align: left; 
+      line-height: 23px; 
+      color: black; 
+      font-size: 18px;
+      margin-left:15%;}
+
+      .datauser{
+        border: solid 1px #111010; 
+        background: #ffffff; 
+        padding: 15px; 
+        -moz-border-radius: 15px; 
+        -khtml-border-radius: 15px; 
+        -webkit-border-radius: 15px; 
+        border-radius: 15px; 
+        margin: 0; 
+        text-align: left; 
+        line-height: 23px; 
+        color: black; 
+        font-size: 18px;
+        margin-left:15%;}
+
+      table {
+        border-collapse: collapse;
+        width: 100%;
+      }
+      
+      th, td {
+        border: 1px solid black;
+        padding: 8px;
+      }
+      
+      th {
+        background-color: #f2f2f2;
+      }
+      
+      tr:nth-child(even) {
+        background-color: #f9f9f9;
+      }
+      
+      .edit-btn {
+        background-color: blue;
+        color: white;
+        padding: 8px 16px;
+        border: none;
+        cursor: pointer;
+      }
+      .delete-btn {
+        background-color: rgb(255, 0, 0);
+        color: white;
+        padding: 8px 16px;
+        border: none;
+        cursor: pointer;
+      }
+    
+      .pagination {
+        display: flex;
+        justify-content: flex-end;
+        margin-top: 20px;
+      }
+      
+      .pagination a {
+        color: black;
+        float: left;
+        padding: 8px 16px;
+        text-decoration: none;
+        border: 1px solid #ddd;
+      }
+      
+      .pagination a.active {
+        background-color: #4CAF50;
+        color: white;
+        border: 1px solid #4CAF50;
+      }
+      
+      .pagination a:hover:not(.active) {background-color: #ddd;}
+      
+      .pagination a:first-child {
+        border-top-left-radius: 5px;
+        border-bottom-left-radius: 5px;
+      }
+      
+      .pagination a:last-child {
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
+      }
+      
+      .folder{
+        border: solid 1px #111010; 
+        background: #ffffff; 
+        padding: 15px; 
+        -moz-border-radius: 15px; 
+        -khtml-border-radius: 15px; 
+        -webkit-border-radius: 15px; 
+        border-radius: 15px; 
+        margin: 0; 
+        text-align: left; 
+        line-height: 23px; 
+        color: black; 
+        font-size: 18px;
+        margin-left:15%;}
+
+        .Folder{
+          border: solid 1px #111010; 
+          background: #ffffff; 
+          padding: 15px; 
+          -moz-border-radius: 15px; 
+          -khtml-border-radius: 15px; 
+          -webkit-border-radius: 15px; 
+          border-radius: 15px; 
+          margin: 0; 
+          text-align: left; 
+          line-height: 23px; 
+          color: black; 
+          font-size: 18px;
+          margin-left:15%;}
+
+          footer {
+            position: fixed;
+            left: 0;
+            bottom: -5%;
+            width: 100%;
+            height: 100px; 
+            padding: 20px 0;
+            object-fit: cover;
+          }
+          
+          .footer-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+          }
+          
+          .footer-image img {
+            width: 100%;
+            height: auto;
+          }
+          .text-center {
+            text-align: center; 
+          }
+
+          .lihat{
+            border: solid 1px #111010; 
+            background: #ffffff; 
+            padding: 15px; 
+            -moz-border-radius: 15px; 
+            -khtml-border-radius: 15px; 
+            -webkit-border-radius: 15px; 
+            border-radius: 15px; 
+            margin: 0; 
+            text-align: left; 
+            line-height: 23px; 
+            color: black; 
+            font-size: 18px;
+            margin-left:15%;}
+    
+            .Lihat{
+              border: solid 1px #111010; 
+              background: #ffffff; 
+              padding: 15px; 
+              -moz-border-radius: 15px; 
+              -khtml-border-radius: 15px; 
+              -webkit-border-radius: 15px; 
+              border-radius: 15px; 
+              margin: 0; 
+              text-align: left; 
+              line-height: 23px; 
+              color: black; 
+              font-size: 18px;
+              margin-left:15%;}
+
+              .unduh-btn {
+                background-color: blue;
+                color: white;
+                padding: 8px 16px;
+                border: none;
+                cursor: pointer;
+                border-radius: 15px;
+              }
+              .lihat-btn {
+                background-color: rgb(47, 0, 255);
+                color: white;
+                padding: 8px 16px;
+                border: none;
+                cursor: pointer;
+                border-radius: 15px;
+              }
+
+              .ubah-btn {
+                background-color: rgb(47, 0, 255);
+                color: white;
+                padding: 8px 16px;
+                border: none;
+                cursor: pointer;
+                border-radius: 15px;
+              }
+
+              .hapus-btn {
+                background-color: rgb(255, 0, 0);
+                color: white;
+                padding: 8px 16px;
+                border: none;
+                cursor: pointer;
+                border-radius: 15px;}
+
+                .update-btn {
+                  position: absolute;
+                  margin-top: 20px;
+                  margin-right: 50px;
+                  background-color: rgb(47, 0, 255);
+                  color: white;
+                  padding: 8px 16px;
+                  border: none;
+                  cursor: pointer;
+                  border-radius: 15px;}
+
+              .profil{
+                border: solid 1px #111010; 
+                background: #ffffff; 
+                padding: 15px; 
+                -moz-border-radius: 15px; 
+                -khtml-border-radius: 15px; 
+                -webkit-border-radius: 15px; 
+                border-radius: 15px; 
+                margin: 0; 
+                text-align: left; 
+                line-height: 23px; 
+                color: black; 
+                font-size: 18px;
+                margin-left:15%;} 
+                
+                .profile-container {
+                  display: flex;
+                  align-items: flex-start;
+                }
+                
+                .profile-image {
+                  margin-right: 20px;
+                }
+                
+                .profile-form {
+                  flex-grow: 1;
+                }
+                
+                .profile-form h3 {
+                  margin-top: 0;
+                }
+                
+                .profile-form form {
+                  width: 100%;
+                }
+                .form-actions {
+                  position: absolute;
+                  bottom: 0;
+                  right: 0;
+                }
+body{
+  background: #F0E5E5;
+}
