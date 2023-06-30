@@ -16,6 +16,10 @@ button {
     background: none;
 }
 
+.isactive:hover {
+    background-color: #C0EB95;
+}
+
 .isTextActive.yes {
     color: white;
 }
