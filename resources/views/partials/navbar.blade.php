@@ -80,13 +80,16 @@
 
     <!-- Navbar -->
     <nav class="navbar"> 
-      <div class="p-4" id="main-content">
-        <button class="btn" id="button-toggle" >
-          <i class="bi bi-list" style="font-size: 50px;"></i>
+      <div id="main-content">
+        <button class="navbar-toggler" id="button-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="bi bi-list" style="font-size: 2rem;"></span>
         </button>
       </div>
-      <div class="corner-text">
-            <img src="img/administrator.png" alt="admin" width="40">| Administraator| 
+      <div class="corner-text" style="justify-content: center; ">
+            <a href="/Profile" style="text-decoration: none; color: inherit;"> Administrator | </a>
+            <a href="/Profile">
+              <img src="img/administrator.png" alt="admin" width="40">
+            </a>
       </div>
     </nav>
 
@@ -98,7 +101,7 @@
 
       // event will be executed when the toggle-button is clicked
       document.getElementById("button-toggle").addEventListener("click", () => {
-
+        
         // when the button-toggle is clicked, it will add/remove the active-sidebar class
         document.getElementById("sidebar").classList.toggle("active-sidebar");
 
