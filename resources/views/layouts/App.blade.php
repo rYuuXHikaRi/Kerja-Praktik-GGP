@@ -23,7 +23,7 @@
 
     @include('partials.navbar')
 
-    <div class="container mt-5">
+    <div class="container mt-5" style="margin-bottom: 10rem;">
       @yield('container')
     </div>
     
