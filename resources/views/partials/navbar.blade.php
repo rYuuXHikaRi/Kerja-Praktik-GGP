@@ -54,17 +54,17 @@
           </li>
           <li>
             <button class="menu-item isactive">
-                    <a class="Icon DataPetugas" href="{{ route(admin.index) }}"> <!-- SVG Code Here --> </a>
+                    <a class="Icon DataPetugas" href="{{ route('user.index') }}"> <!-- SVG Code Here --> </a>
             </button>
           </li>
           <li>
             <button class="menu-item isactive" >
-                      <a class="Icon DataUser" href="{{ route(admin.index) }}"> <!-- SVG Code Here --> </a>
+                      <a class="Icon DataUser" href="{{ route('user.index') }}"> <!-- SVG Code Here --> </a>
             </button>
           </li>
           <li>
             <button class="menu-item isactive" >
-                        <a class="Icon TambahAkun" href="{{ route(admin.create) }}"> <!-- SVG Code Here --> </a>
+                        <a class="Icon TambahAkun" href="{{ route('user.create') }}"> <!-- SVG Code Here --> </a>
             </button>
           </li>
           <li>

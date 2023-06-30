@@ -42,7 +42,15 @@
                     <td>{{ $arsip->NamaDesa }}</td>
                     <td>{{ $arsip->LokasiPenyimpanan }}</td>
                     <td>{{ $arsip->Keterangan }}</td>
-                    <td><button><a href="/LihatDokumen">priview</a></button></td>
+                    <td>
+                        <li>
+                          <a class="menu-item active" href="/LihatDokumen">
+                          <button class="ubah-btn"><i class="bi bi-pencil"></i></button>
+                          <button class="lihat-btn"><i class="bi bi-eye"></i></button>
+                          <button class="hapus-btn"><i class="bi bi-trash"></i></button>
+                      </li>
+                    </td>
+
                 </tr>
                 @endforeach
             </tbody>
