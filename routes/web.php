@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', function () {
-    return view('Dashboard'); // Change to login again
+    return view('Login'); // Change to login again
 });
 
 Route::get('/Dashboard', function () {
