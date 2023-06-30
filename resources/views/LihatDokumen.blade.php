@@ -48,7 +48,7 @@
       </tr>
       
     </tbody>
-  </table
+    </table>
 
   </table>
       <div class="pagination">

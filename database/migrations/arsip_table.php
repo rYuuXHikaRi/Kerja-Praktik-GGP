@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('arsips', function (Blueprint $table) {
             $table->id();
-            $table->text('NamaDokumen');
+            $table->text('NamaDokumen') -> unique();
             $table->text('Keterangan');
             $table->text('NamaDesa');
             $table->text('Tahun');

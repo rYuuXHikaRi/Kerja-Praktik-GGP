@@ -32,7 +32,7 @@
               </a>
             </li>
             <li>
-              <a class="menu-item" href="/Folder">
+              <a class="menu-item" href="{{ route('arsip.index') }}">
                 <i class="bi bi-folder mr-2"></i>
                 Folder
               </a>
