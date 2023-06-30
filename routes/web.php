@@ -56,23 +56,23 @@ Route::resource('arsip', ArsipController::class);
 
 
 
-Route::get('/LihatDokumen', function () {
-    return view('LihatDokumen');
-});
+// Route::get('/LihatDokumen', function () {
+//     return view('LihatDokumen');
+// });
 
-Route::get('/Login', function () {
-    return view('Login');
-});
+// Route::get('/Login', function () {
+//     return view('Login');
+// });
 
-Route::get('/Profil', function () {
-    return view('Profil');
-});
+// Route::get('/Profil', function () {
+//     return view('Profil');
+// });
 
-Route::get('/RiwayatUnduhan', function () {
-    return view('RiwayatUnduhan');
-});
+// Route::get('/RiwayatUnduhan', function () {
+//     return view('RiwayatUnduhan');
+// });
 
-Route::get('/TambahAkun', function () {
-    return view('TambahAkun');
-});
+// Route::get('/TambahAkun', function () {
+//     return view('TambahAkun');
+// });
 

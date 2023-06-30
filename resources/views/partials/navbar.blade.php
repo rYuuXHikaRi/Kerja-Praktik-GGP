@@ -38,13 +38,13 @@
             </button>
           </li>
           <li>
-            <button class="menu-item isactive" href="/Folder">
-                <a class="Icon Folders" href="/Folder"> <!-- SVG Code Here --> </a>
+            <button class="menu-item isactive">
+                <a class="Icon Folders" href="{{ route('arsip.index') }}"> <!-- SVG Code Here --> </a>
             </button>
           </li>
           <li>
-            <button class="menu-item isactive" href="{{ route('arsip.create') }}">
-                  <a class="Icon KelolaArsip" href="/KelolaArsip"> <!-- SVG Code Here --> </a>
+            <button class="menu-item isactive">
+                  <a class="Icon KelolaArsip" href="{{ route('arsip.create') }}"> <!-- SVG Code Here --> </a>
             </button>
           </li>
           <li>
@@ -53,22 +53,22 @@
             </button>
           </li>
           <li>
-            <button class="menu-item isactive" href="/DataPetugas">
-                    <a class="Icon DataPetugas" href="/DataPetugas"> <!-- SVG Code Here --> </a>
+            <button class="menu-item isactive">
+                    <a class="Icon DataPetugas" href="{{ route(admin.index) }}"> <!-- SVG Code Here --> </a>
             </button>
           </li>
           <li>
-            <button class="menu-item isactive" href="/DataUser">
-                      <a class="Icon DataUser" href="/DataUser"> <!-- SVG Code Here --> </a>
+            <button class="menu-item isactive" >
+                      <a class="Icon DataUser" href="{{ route(admin.index) }}"> <!-- SVG Code Here --> </a>
             </button>
           </li>
           <li>
-            <button class="menu-item isactive" href="/RanbahAkun">
-                        <a class="Icon TambahAkun" href="/TambahAkun"> <!-- SVG Code Here --> </a>
+            <button class="menu-item isactive" >
+                        <a class="Icon TambahAkun" href="{{ route(admin.create) }}"> <!-- SVG Code Here --> </a>
             </button>
           </li>
           <li>
-          <button class="menu-item isactive" href="/">
+          <button  class="menu-item isactive" href="/">
                         <a class="Icon LogOut" href="/"> <!-- SVG Code Here --> </a>
             </button>
           </li>
