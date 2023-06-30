@@ -45,9 +45,9 @@ Route::resource('user', UserController::class);
 // });
 
 
-// Route::get('/KelolaArsip', function () {
-//     return view('KelolaArsip');
-// });
+Route::get('/KelolaArsip', function () {
+     return view('KelolaArsip');
+});
 
 Route::resource('arsip', ArsipController::class);
 

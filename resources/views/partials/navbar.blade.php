@@ -98,14 +98,28 @@
 
     <script>
 
-      // event will be executed when the toggle-button is clicked
-      document.getElementById("button-toggle").addEventListener("click", () => {
-        
-        // when the button-toggle is clicked, it will add/remove the active-sidebar class
-        document.getElementById("sidebar").classList.toggle("active-sidebar");
+      const sidebarToggler = document.getElementById('button-toggle');
+      const sidebar = document.getElementById('sidebar');
+      const button = document.getElementById('main-content');
 
-        // when the button-toggle is clicked, it will add/remove the active-main-content class
-        document.getElementById("main-content").classList.toggle("active-main-content");
+      // Memeriksa status sidebar pada saat memuat halaman
+      window.addEventListener('DOMContentLoaded', () => {
+        const sidebarStatus = localStorage.getItem('sidebarStatus');
+
+        if (sidebarStatus === 'active') {
+          sidebar.classList.add('active-sidebar');
+          button.classList.add('active-main-content');
+        }
+      });
+
+      // event will be executed when the toggle-button is clicked
+      sidebarToggler.addEventListener("click", () => {
+        sidebar.classList.toggle('active-sidebar');
+        button.classList.toggle('active-main-content');
+  
+        // Menyimpan status sidebar pada penyimpanan browser
+        const sidebarStatus = sidebar.classList.contains('active-sidebar') ? 'active' : 'inactive';
+        localStorage.setItem('sidebarStatus', sidebarStatus);
       });
 
     </script>
