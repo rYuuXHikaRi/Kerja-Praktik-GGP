@@ -21,8 +21,7 @@ class UserRequest extends FormRequest
      */
     public function rules(): array
     {
-        return [
-            
+        return [   
             'UserName'=>['string','required'],
             'Password'=>['string'],
             'NamaLengkap'=>['string','required'],

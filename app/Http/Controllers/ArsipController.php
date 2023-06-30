@@ -3,64 +3,51 @@
 namespace App\Http\Controllers;
 
 use App\Models\Arsip;
-use App\Http\Requests\StoreArsipRequest;
-use App\Http\Requests\UpdateArsipRequest;
+use Illuminate\Http\Request;
+use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\Hash;
 
 class ArsipController extends Controller
-{
-    /**
-     * Display a listing of the resource.
-     */
+{   
+
     public function index()
     {
-        //
+        $arsips = Arsip::all();
+        return view('admin.archive.index', compact('arsips'));
     }
-
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
-        //
+        return view('admin.archive.create');
+    }
+    //data store
+    public function store(Request $request)
+    {
+        $validatedData = $request->validate([
+            
+            'NamaFile' => 'mimes:jpeg,png,jpg,gif|max:5120 ',
+        ]);
+        $file = $validatedData[('NamaFile')];
+        $filename =  $file->getClientOriginalName();
+        // File upload location
+        
+        $location = '../public/assets/images/';
+        Arsip::create([
+            'NamaDokumen' => $request->NamaDokumen,
+            'Keterangan' => $request->Keterangan,
+            'NamaDesa' =>$request->NamaDesa,
+            'Tahun' => $request->Tahun,
+            'LokasiPenyimpanan' => $request->LokasiPenyimpanan,
+         
+        ]);
+        // $file->move(public_path($location), $filename);
+        return view('KelolaArsip')->with('success', 'User berhasil ditambahkan!');
+    }
+    public function edit($id){
+        $archive = Arsip::where('id', $id)->first();
+        return view('admin.archive.edit', compact('archive'));
+
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(StoreArsipRequest $request)
-    {
-        //
-    }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Arsip $arsip)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Arsip $arsip)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(UpdateArsipRequest $request, Arsip $arsip)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Arsip $arsip)
-    {
-        //
-    }
 }
+

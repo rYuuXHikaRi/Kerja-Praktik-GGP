@@ -1,8 +1,9 @@
 <?php
 
-use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\ArsipController;
+use App\Models\Arsip;
 
 /*
 |--------------------------------------------------------------------------
@@ -43,9 +44,17 @@ Route::get('/Folder', function () {
     return view('Folder');
 });
 
-Route::get('/KelolaArsip', function () {
-    return view('KelolaArsip');
-});
+
+// Route::get('/KelolaArsip', function () {
+//     return view('KelolaArsip');
+// });
+
+Route::resource('arsip', ArsipController::class);
+
+// Route::get('/KelolaArsip', [ArsipController::class ,'create'] )->name('KelolaArsip');
+// Route::post('/KelolaArsip', [ArsipController::class ,'store'])->name('TambahArsip');
+
+
 
 Route::get('/LihatDokumen', function () {
     return view('LihatDokumen');

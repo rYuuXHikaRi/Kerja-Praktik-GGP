@@ -30,7 +30,7 @@
                     <br>
                     <br>
                   <label>Upload File</label>
-                  <input type='file' name='NamaFile' accept='image/*'>
+                  <input type='file' name='NamaFile[]' accept='image/*'>
                   <br>
                   <hr>
       <div>        <button type="submit" class="btn btn-primary">Simpan</button>

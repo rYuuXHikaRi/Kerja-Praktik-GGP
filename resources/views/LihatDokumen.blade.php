@@ -1,6 +1,9 @@
 @extends('layouts.App')
 
 @section('container')
+
+<table>
+
 <link rel="stylesheet" type="text/css" href="/css/style.css">
 <div class="lihat">
   <h3>Lihat Dokumen</h3>
@@ -42,6 +45,8 @@
       </tr>
       
     </tbody>
+    </table>
+
   </table>
       <div class="pagination">
         <a href="#">&laquo;</a>
@@ -56,4 +61,5 @@
 
 
      </div>
+
 @endsection

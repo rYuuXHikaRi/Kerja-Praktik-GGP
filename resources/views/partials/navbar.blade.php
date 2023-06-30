@@ -32,13 +32,13 @@
               </a>
             </li>
             <li>
-              <a class="menu-item" href="/Folder">
+              <a class="menu-item" href="{{ route('arsip.index') }}">
                 <i class="bi bi-folder mr-2"></i>
                 Folder
               </a>
             </li>
             <li>
-              <a class="text-green" href="/KelolaArsip">
+              <a class="text-green" href="{{ Route('arsip.create') }}">
                 <i class="bi bi-newspaper mr-2"></i>
                 Kelola Arsip
               </a>
