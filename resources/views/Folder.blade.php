@@ -8,11 +8,11 @@
 
 <br>
   <div class="Folder">
-    <h4>Folder</h4>
+    <h4>Folder <input type="text" class="search-input" placeholder= " Search..." ></h4>
+    
 <hr>
 <br>
 <div class="search-box">
-    <input type="text" class="search-input" placeholder= " Search..." >
   </div>
   <table>
     <thead>
@@ -36,8 +36,10 @@
         <td>Surat Izin Pengelolaan</td>
         <td>
           <li>
-          <a class="menu-item active" href="/LihatDokumen">
-          <button class="lihat-btn">Preview | <i class="bi bi-eye"></i></button>
+            <a class="menu-item active" href="/LihatDokumen">
+            <button class="ubah-btn"><i class="bi bi-pencil"></i></button>
+            <button class="lihat-btn"><i class="bi bi-eye"></i></button>
+            <button class="hapus-btn"><i class="bi bi-trash"></i></button>
         </li>
         </td>
       </tr>
@@ -51,7 +53,9 @@
         <td>
           <li>
             <a class="menu-item active" href="/LihatDokumen">
-            <button class="lihat-btn">Preview | <i class="bi bi-eye"></i></button>
+            <button class="ubah-btn"><i class="bi bi-pencil"></i></button>
+            <button class="lihat-btn"><i class="bi bi-eye"></i></button>
+            <button class="hapus-btn"><i class="bi bi-trash"></i></button>
           </li>
         </td>
       </tr>
