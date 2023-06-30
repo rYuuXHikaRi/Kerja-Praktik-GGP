@@ -81,18 +81,22 @@ border-radius: 10px;
 }
 
 .corner-text{
-  position: absolute;
-  right: 0;
-  transform: translate(-100%, 0);
   font-weight: bold;
-  size:48;
+  size: 20px;
 }
 .navbar{
-  position :absolute; background: #A6CE39;
-  z-index:1;
-  border:#A6CE39 solid 4px;
-  width:100%;
-  height:10%;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  position: sticky;
+  background: #A6D17A;
+  height: 5rem;
+
+  padding-left: 2rem;
+  padding-right: 2rem;
+
 }
 .btn{
   position: absolute;

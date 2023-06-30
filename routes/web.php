@@ -17,7 +17,7 @@ use App\Models\Arsip;
 */
 
 Route::get('/', function () {
-    return view('Login');
+    return view('Login'); // Change to login again
 });
 
 Route::get('/Dashboard', function () {

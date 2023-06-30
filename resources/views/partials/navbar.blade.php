@@ -11,87 +11,96 @@
       integrity="sha384-DhY6onE6f3zzKbjUPRc2hOzGAdEf4/Dz+WJwBvEYL/lkkIsI3ihufq9hk9K4lVoK"
       crossorigin="anonymous"
     />
-    <!-- custom css -->
+    
     <!-- <link rel="stylesheet" href="style.css" /> -->
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css"
     />
 
+    <!-- custom css -->
     <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/css/sidebar.css">
   </head>
 
   <body>
+
+  <!-- Sidebar -->
     <div>
-     <div class="sidebar p-4 bg-white" id="sidebar">
-            <h4 class="mb-5 text-black"><img src="img/logo.png" alt="logo" width="100"></h4>
-            <li>
-              <a class="menu-item active" href="/Dashboard">
-                <i class="bi bi-house mr-2"></i>
-                Dashboard
-              </a>
-            </li>
-            <li>
-              <a class="menu-item" href="{{ route('arsip.index') }}">
-                <i class="bi bi-folder mr-2"></i>
-                Folder
-              </a>
-            </li>
-            <li>
-              <a class="text-green" href="{{ Route('arsip.create') }}">
-                <i class="bi bi-newspaper mr-2"></i>
-                Kelola Arsip
-              </a>
-            </li>
-            <li>
-              <a class="text-green" href="/RiwayatUnduhan">
-                <i class="bi bi-clock-history mr-2"></i>
-                Riwayat Unduhan
-              </a>
-            </li>
-            <li>
-              <a class="text-green" href="/DataPetugas">
-                <i class="bi bi-person mr-2"></i>
-                Data Petugas
-              </a>
-            </li>
-            <li>
-                <a class="text-green" href="/DataUser">
-                  <i class="bi bi-person mr-2"></i>
-                  Data User
-                </a>
-              </li>
-            <li>
-              <a class="text-green" href="{{ route('user.create') }}">
-                <i class="bi bi-plus mr-2"></i>
-                Tambah Akun
-              </a>
-            </li>
-            <li>
-              <a class="text-green" href="#">
-                <i class="bi bi-box-arrow-right mr-2"></i>
-                Log Out
-              </a>
-            </li>
-          </div>
+
+      <div class="sidebar bg-white" id="sidebar">
+        <h4 class="mb-5 p-4 text-black"><img src="img/logo.png" alt="logo" width="100"></h4>
+
+        <ul class="p-3">
+          <li>
+            <button class="menu-item isactive" href="/Dashboard">
+              <a class="Icon Dashboard" href="/Dashboard"> <!-- SVG Code Here --> </a>
+            </button>
+          </li>
+          <li>
+            <button class="menu-item isactive" href="/Folder">
+                <a class="Icon Folders" href="/Folder"> <!-- SVG Code Here --> </a>
+            </button>
+          </li>
+          <li>
+            <button class="menu-item isactive" href="/KelolaArsip">
+                  <a class="Icon KelolaArsip" href="/KelolaArsip"> <!-- SVG Code Here --> </a>
+            </button>
+          </li>
+          <li>
+          <button class="menu-item isactive" href="/RiwayatUnduhan">
+                  <a class="Icon RiwayatUnduhan" href="/RiwayatUnduhan"> <!-- SVG Code Here --> </a>
+            </button>
+          </li>
+          <li>
+            <button class="menu-item isactive" href="/DataPetugas">
+                    <a class="Icon DataPetugas" href="/DataPetugas"> <!-- SVG Code Here --> </a>
+            </button>
+          </li>
+          <li>
+            <button class="menu-item isactive" href="/DataUser">
+                      <a class="Icon DataUser" href="/DataUser"> <!-- SVG Code Here --> </a>
+            </button>
+          </li>
+          <li>
+            <button class="menu-item isactive" href="/RanbahAkun">
+                        <a class="Icon TambahAkun" href="/TambahAkun"> <!-- SVG Code Here --> </a>
+            </button>
+          </li>
+          <li>
+          <button class="menu-item isactive" href="/">
+                        <a class="Icon LogOut" href="/"> <!-- SVG Code Here --> </a>
+            </button>
+          </li>
+        
+        </ul>
+
+      </div>
+
 
     </div >
+
+    <!-- Navbar -->
     <nav class="navbar"> 
-        <div class="corner-text">
-             <img src="img/administrator.png" alt="admin" width="40">| Administrator| </div>
+      <div id="main-content">
+        <button class="navbar-toggler" id="button-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="bi bi-list" style="font-size: 2rem;"></span>
+        </button>
+      </div>
+      <div class="corner-text" style="justify-content: center; ">
+            <a href="/Profile" style="text-decoration: none; color: inherit;"> Administrator | </a>
+            <a href="/Profile">
+              <img src="img/administrator.png" alt="admin" width="40">
+            </a>
+      </div>
     </nav>
 
-    
-    <div class="p-4" id="main-content">
-      <button class="btn" id="button-toggle" >
-        <i class="bi bi-list"></i>
-      </button>
-    </div>
+
     <script>
 
       // event will be executed when the toggle-button is clicked
       document.getElementById("button-toggle").addEventListener("click", () => {
-
+        
         // when the button-toggle is clicked, it will add/remove the active-sidebar class
         document.getElementById("sidebar").classList.toggle("active-sidebar");
 
