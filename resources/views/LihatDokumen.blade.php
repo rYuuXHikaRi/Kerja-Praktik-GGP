@@ -10,12 +10,9 @@
 </div>
 <br>
   <div class="Lihat">
-    <h4>Semua Arsip</h4>
+    <h4>Semua Arsip <input type="text" class="search-input" placeholder= " Search..." ></h4>
 <hr>
 <br>
-<div class="search-box">
-    <input type="text" class="search-input" placeholder= " Search..." >
-  </div>
   <table>
     <thead>
       <tr>
