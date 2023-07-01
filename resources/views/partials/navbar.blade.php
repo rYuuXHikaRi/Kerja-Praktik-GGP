@@ -11,8 +11,8 @@
         </button>
       </li>
       <li>
-        <button class="menu-item isactive" href="/Folder">
-            <a class="Icon Folders" href="/Folder"> <!-- SVG Code Here --> </a>
+        <button class="menu-item isactive" href="{{ route('arsip.index') }}">
+            <a class="Icon Folders" href="{{ route('arsip.index') }}"> <!-- SVG Code Here --> </a>
         </button>
       </li>
       <li>

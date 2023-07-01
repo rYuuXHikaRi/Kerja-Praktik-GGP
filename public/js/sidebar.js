@@ -28,8 +28,7 @@ sidebarToggler.addEventListener("click", () => {
 
 
 // Mendapatkan alamat URL saat ini
-var currentURL = window.location.href;
-alert(currentURL);
+var pageLocation = window.location.href;
 
 // Mendapatkan elemen <a> dengan kelas "link"
 
