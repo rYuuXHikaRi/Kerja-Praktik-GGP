@@ -1,3 +1,29 @@
+// Sidebar Toggle Mechanism
+const sidebarToggler = document.getElementById('button-toggle');
+const sidebar = document.getElementById('sidebar');
+const button = document.getElementById('main-content');
+
+// Memeriksa status sidebar pada saat memuat halaman
+window.addEventListener('DOMContentLoaded', () => {
+  const sidebarStatus = localStorage.getItem('sidebarStatus');
+
+  if (sidebarStatus === 'active') {
+    sidebar.classList.add('active-sidebar');
+    button.classList.add('active-main-content');
+  }
+});
+
+// event will be executed when the toggle-button is clicked
+sidebarToggler.addEventListener("click", () => {
+  sidebar.classList.toggle('active-sidebar');
+  button.classList.toggle('active-main-content');
+
+  // Menyimpan status sidebar pada penyimpanan browser
+  const sidebarStatus = sidebar.classList.contains('active-sidebar') ? 'active' : 'inactive';
+  localStorage.setItem('sidebarStatus', sidebarStatus);
+});
+
+
 // Mendapatkan alamat URL saat ini
 var currentURL = window.location.href;
 var pageLocation = currentURL.substring(currentURL.lastIndexOf("/"));

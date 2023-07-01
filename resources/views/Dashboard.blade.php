@@ -1,7 +1,6 @@
 @extends('layouts.App')
 
 @section('container')
-<link rel="stylesheet" type="text/css" href="/css/style.css">
 <div class="dsbrd">
   <h3>Dashboard</h3>
 </div>
