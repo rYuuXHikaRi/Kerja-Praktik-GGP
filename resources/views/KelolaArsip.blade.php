@@ -1,11 +1,10 @@
 @extends('layouts.App')
 
 @section('container')
-<link rel="stylesheet" type="text/css" href="/css/style.css">
   <div class="Kelolaarsip"> <h3 style="font: bolder;border-radius: 10px;display:flex;">Kelola Arsip</h3></div>
     <form method="POST"  action="{{ route('arsip.store') }}" enctype="multipart/form-data">
       @csrf
-        <div class="card mt-5" style="margin-left: 15%;padding: 10px;border-radius: 10px">
+        <div class="card mt-5" style="padding: 10px;border-radius: 10px">
             <div class="panel-body">
                 <div class="control-group after-add-more">
                     <h5>Tambah Dokumen</h5>
@@ -39,5 +38,4 @@
       
     </div>
   </div>
-
 @endsection

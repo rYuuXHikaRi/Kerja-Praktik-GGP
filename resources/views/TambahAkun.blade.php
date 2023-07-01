@@ -3,7 +3,7 @@
 @section('container')
 
   <div class="tambah"> <h3 >Tambah Akun</h3></div>
-  <div class="card mt-2" style="margin-left: 15%;padding: 10px;border-radius: 10px">
+  <div class="card mt-2" style="padding: 10px;border-radius: 10px">
       <div class="panel-body">
         <form action="proses.php" method="POST">
           <div class="control-group after-add-more">
