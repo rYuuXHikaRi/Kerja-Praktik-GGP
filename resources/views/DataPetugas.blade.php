@@ -70,9 +70,4 @@
         <a href="#">&raquo;</a>
       </div>
   </div>
-  
- 
-  
-  
-    
 @endsection
