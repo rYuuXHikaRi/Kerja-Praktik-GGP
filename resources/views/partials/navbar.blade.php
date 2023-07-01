@@ -2,7 +2,7 @@
 <div>
 
   <div class="sidebar bg-white" id="sidebar">
-    <h4 class="mb-5 p-4 text-black"><img src="img/logo.png" alt="logo" width="100"></h4>
+    <h4 class="text-black" style="margin-left: 7px; margin-top: 7px;"><img src="/img/logo.png" alt="logo" width="45"></h4>
 
     <ul class="p-3">
       <li>
@@ -17,7 +17,7 @@
       </li>
       <li>
         <button class="menu-item isactive" href="{{ route('arsip.create') }}">
-              <a class="Icon KelolaArsip" href="/KelolaArsip"> <!-- SVG Code Here --> </a>
+              <a class="Icon KelolaArsip" href="{{ route('arsip.create') }}"> <!-- SVG Code Here --> </a>
         </button>
       </li>
       <li>
@@ -41,29 +41,25 @@
         </button>
       </li>
       <li>
-      <button class="menu-item isactive" href="/">
-                    <a class="Icon LogOut" href="/"> <!-- SVG Code Here --> </a>
+        <button class="menu-item isactive" href="/">
+                      <a class="Icon LogOut" href="/"> <!-- SVG Code Here --> </a>
         </button>
       </li>
-    
     </ul>
-
   </div>
-
-
 </div >
 
 <!-- Navbar -->
-<nav class="navbar"> 
+<nav class="navbar sticky-top"> 
   <div id="main-content">
     <button class="navbar-toggler" id="button-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="bi bi-list" style="font-size: 2rem;"></span>
+      <span class="bi bi-list" style="font-size: 1.5rem;"></span>
     </button>
   </div>
   <div class="corner-text" style="justify-content: center; ">
-        <a href="/Profile" style="text-decoration: none; color: inherit;"> Administrator | </a>
+        <a href="/Profile" style="text-decoration: none; color: inherit; font-size: 12px;"> Administrator | </a>
         <a href="/Profile">
-          <img src="img/administrator.png" alt="admin" width="40">
+          <img src="https://demos.wrappixel.com/free-admin-templates/bootstrap/ample-bootstrap-free/html/plugins/images/users/varun.jpg" alt="admin" width="36" class="img-circle">
         </a>
   </div>
 </nav>
