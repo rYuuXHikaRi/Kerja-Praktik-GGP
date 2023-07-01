@@ -2,6 +2,7 @@
 const sidebarToggler = document.getElementById('button-toggle');
 const sidebar = document.getElementById('sidebar');
 const button = document.getElementById('main-content');
+const contentArea = document.getElementById('content-area');
 
 // Memeriksa status sidebar pada saat memuat halaman
 window.addEventListener('DOMContentLoaded', () => {
@@ -10,6 +11,7 @@ window.addEventListener('DOMContentLoaded', () => {
   if (sidebarStatus === 'active') {
     sidebar.classList.add('active-sidebar');
     button.classList.add('active-main-content');
+    contentArea.classList.add('content-active');
   }
 });
 
@@ -17,6 +19,7 @@ window.addEventListener('DOMContentLoaded', () => {
 sidebarToggler.addEventListener("click", () => {
   sidebar.classList.toggle('active-sidebar');
   button.classList.toggle('active-main-content');
+  contentArea.classList.toggle('content-active');
 
   // Menyimpan status sidebar pada penyimpanan browser
   const sidebarStatus = sidebar.classList.contains('active-sidebar') ? 'active' : 'inactive';
@@ -26,7 +29,7 @@ sidebarToggler.addEventListener("click", () => {
 
 // Mendapatkan alamat URL saat ini
 var currentURL = window.location.href;
-var pageLocation = currentURL.substring(currentURL.lastIndexOf("/"));
+alert(currentURL);
 
 // Mendapatkan elemen <a> dengan kelas "link"
 
@@ -50,8 +53,7 @@ for (var i = 0; i < svgSelector.length; i++) {
         }
 
     } else if (svgSelector[i].classList[1] === "KelolaArsip") {
-
-        if(svgSelector[i].getAttribute('href') != pageLocation) { // Invert Logic, karena malas mindah
+        if(svgSelector[i].getAttribute('href') != pageLocation) {
             svgSelector[i].innerHTML = ' <svg width="28" height="36" viewBox="0 0 28 36" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0.991577 5.04214C0.991577 2.28072 3.23015 0.0421448 5.99158 0.0421448H18.4067C19.7509 0.0421448 21.0384 0.583373 21.9789 1.54374L23.936 3.54214L25.9716 5.57768C26.9092 6.51536 27.436 7.78713 27.436 9.11321V30.0421C27.436 32.8036 25.1974 35.0421 22.436 35.0421H5.99157C3.23015 35.0421 0.991577 32.8036 0.991577 30.0421V5.04214Z" fill="url(#paint0_linear_6_88)"/><path d="M4.88046 13.2644H10.3249" stroke="white" stroke-width="2" stroke-linecap="round"/><path d="M18.1027 20.2644H23.5471" stroke="white" stroke-width="2" stroke-linecap="round"/><path d="M12.6582 13.2644H23.5471" stroke="white" stroke-width="2" stroke-linecap="round"/><path d="M4.88046 20.2644H15.7694" stroke="white" stroke-width="2" stroke-linecap="round"/><path d="M4.88046 27.2644H23.5471" stroke="white" stroke-width="2" stroke-linecap="round"/><path d="M20.436 0.819923V6.26437C20.436 6.52363 20.5916 7.04215 21.2138 7.04215H26.6582L23.5471 3.93103L20.436 0.819923Z" fill="white"/><defs><linearGradient id="paint0_linear_6_88" x1="14.2138" y1="0.0421448" x2="14.2138" y2="35.0421" gradientUnits="userSpaceOnUse"><stop stop-color="#A4CE3A"/><stop offset="1" stop-color="#218A41"/></linearGradient></defs></svg><a class="text-inactive">Arsip</a>';
         } else {
             svgSelector[i].innerHTML = ' <svg width="28" height="36" viewBox="0 0 28 36" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0.991577 5.04214C0.991577 2.28072 3.23015 0.0421448 5.99158 0.0421448H18.4067C19.7509 0.0421448 21.0384 0.583373 21.9789 1.54374L23.936 3.54214L25.9716 5.57768C26.9092 6.51536 27.436 7.78713 27.436 9.11321V30.0421C27.436 32.8036 25.1974 35.0421 22.436 35.0421H5.99157C3.23015 35.0421 0.991577 32.8036 0.991577 30.0421V5.04214Z" fill="white"/><path d="M4.88046 13.2644H10.3249" stroke="url(#paint0_linear_6_40)" stroke-width="2" stroke-linecap="round"/><path d="M18.1027 20.2644H23.5471" stroke="url(#paint1_linear_6_40)" stroke-width="2" stroke-linecap="round"/><path d="M12.6582 13.2644H23.5471" stroke="url(#paint2_linear_6_40)" stroke-width="2" stroke-linecap="round"/><path d="M4.88046 20.2644H15.7694" stroke="url(#paint3_linear_6_40)" stroke-width="2" stroke-linecap="round"/><path d="M4.88046 27.2644H23.5471" stroke="url(#paint4_linear_6_40)" stroke-width="2" stroke-linecap="round"/><path d="M20.436 0.819923V6.26437C20.436 6.52363 20.5916 7.04215 21.2138 7.04215H26.6582L23.5471 3.93103L20.436 0.819923Z" fill="url(#paint5_linear_6_40)"/><defs><linearGradient id="paint0_linear_6_40" x1="7.60268" y1="13.2644" x2="7.60268" y2="14.2644" gradientUnits="userSpaceOnUse"><stop stop-color="#A3CE3B"/><stop offset="1" stop-color="#248C41"/></linearGradient><linearGradient id="paint1_linear_6_40" x1="20.8249" y1="20.2644" x2="20.8249" y2="21.2644" gradientUnits="userSpaceOnUse"><stop stop-color="#A3CE3B"/><stop offset="1" stop-color="#248C41"/></linearGradient><linearGradient id="paint2_linear_6_40" x1="18.1027" y1="13.2644" x2="18.1027" y2="14.2644" gradientUnits="userSpaceOnUse"><stop stop-color="#A3CE3B"/><stop offset="1" stop-color="#248C41"/></linearGradient><linearGradient id="paint3_linear_6_40" x1="10.3249" y1="20.2644" x2="10.3249" y2="21.2644" gradientUnits="userSpaceOnUse"><stop stop-color="#A3CE3B"/><stop offset="1" stop-color="#248C41"/></linearGradient><linearGradient id="paint4_linear_6_40" x1="14.2138" y1="27.2644" x2="14.2138" y2="28.2644" gradientUnits="userSpaceOnUse"><stop stop-color="#A3CE3B"/><stop offset="1" stop-color="#248C41"/></linearGradient><linearGradient id="paint5_linear_6_40" x1="23.5471" y1="0.819923" x2="23.5471" y2="7.04215" gradientUnits="userSpaceOnUse"><stop stop-color="#A3CE3B"/><stop offset="1" stop-color="#248C41"/></linearGradient></defs></svg><a class="text-active">Arsip</a>';
