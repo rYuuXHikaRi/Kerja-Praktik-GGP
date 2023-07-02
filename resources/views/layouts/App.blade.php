@@ -21,13 +21,14 @@
     <!-- custom css -->
     <link rel="stylesheet" type="text/css" href="/css/style.css">
     <link rel="stylesheet" type="text/css" href="/css/sidebar.css">
+    <link rel="stylesheet" type="text/css" href="/css/style_with_media_screen.css">
   </head>
 
   <body>
 
     @include('partials.navbar')
 
-    <div class="mt-5 mb-5 " id="content-area">
+    <div class="mt-5 mb-3"  id="content-area" style="min-width: 800px;">
       @yield('container')
     </div>
 

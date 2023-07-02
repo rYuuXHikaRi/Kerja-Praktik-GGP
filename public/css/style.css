@@ -47,20 +47,20 @@
   }
 
   .sidebar {
-
     max-width: 20%;
     height: 120%;
     margin-left: -300px;
     transition: 0.4s;
     position: absolute;
     z-index: 1021;
+    overflow-x:visible;
 
-    overflow: scroll;
+    white-space: nowrap;
   }
 
 
   .active-main-content {
-    margin-left: 250px;
+    margin-left: 200px;
   }
 
   .active-sidebar {
@@ -98,6 +98,7 @@ border-radius: 10px;
 }
 .navbar{
 
+  min-width: 800px;
   display: flex;
   justify-content: space-between;
   align-items: center;
