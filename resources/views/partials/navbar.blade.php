@@ -4,46 +4,48 @@
   <div class="sidebar bg-white" id="sidebar">
     <h4 class="text-black" style="margin-left: 7px; margin-top: 7px;"><img src="/img/logo.png" alt="logo" width="45"></h4>
 
-    <ul class="p-3">
-      <li>
-        <button class="menu-item isactive" href="/Dashboard">
+
+    
+    <ul class="p-2">
+      <li class="menu-item" href="/Dashboard">
+        <a href="/Dashboard">
           <a class="Icon Dashboard" href="/Dashboard"> <!-- SVG Code Here --> </a>
-        </button>
+        </a>
       </li>
-      <li>
-        <button class="menu-item isactive" href="{{ route('arsip.index') }}">
+      <li class="menu-item" href="{{ route('arsip.index') }}">
+        <a href="{{ route('arsip.index') }}">
             <a class="Icon Folders" href="{{ route('arsip.index') }}"> <!-- SVG Code Here --> </a>
-        </button>
+        </a>
       </li>
-      <li>
-        <button class="menu-item isactive" href="{{ route('arsip.create') }}">
+      <li class="menu-item" href="{{ route('arsip.create') }}">
+        <a href="{{ route('arsip.create') }}">
               <a class="Icon KelolaArsip" href="{{ route('arsip.create') }}"> <!-- SVG Code Here --> </a>
-        </button>
+        </a>
       </li>
-      <li>
-      <button class="menu-item isactive" href="/RiwayatUnduhan">
-              <a class="Icon RiwayatUnduhan" href="/RiwayatUnduhan"> <!-- SVG Code Here --> </a>
-        </button>
+      <li class="menu-item" href="/RiwayatUnduhan">
+        <a href="/RiwayatUnduhan">
+                <a class="Icon RiwayatUnduhan" href="/RiwayatUnduhan"> <!-- SVG Code Here --> </a>
+        </a>
       </li>
-      <li>
-        <button class="menu-item isactive" href="/DataPetugas">
+      <li class="menu-item" href="/DataPetugas">
+        <a href="/DataPetugas">
                 <a class="Icon DataPetugas" href="/DataPetugas"> <!-- SVG Code Here --> </a>
-        </button>
+        </a>
       </li>
-      <li>
-        <button class="menu-item isactive" href="/DataUser">
+      <li class="menu-item" href="/DataUser">
+        <a href="/DataUser">
                   <a class="Icon DataUser" href="/DataUser"> <!-- SVG Code Here --> </a>
-        </button>
+        </a>
       </li>
-      <li>
-        <button class="menu-item isactive" href="/RanbahAkun">
+      <li class="menu-item" href="/TambahAkun">
+        <a href="/TambahAkun">
                     <a class="Icon TambahAkun" href="/TambahAkun"> <!-- SVG Code Here --> </a>
-        </button>
+        </a>
       </li>
-      <li>
-        <button class="menu-item isactive" href="/">
+      <li class="menu-item">
+        <a  href="/">
                       <a class="Icon LogOut" href="/"> <!-- SVG Code Here --> </a>
-        </button>
+        </a>
       </li>
     </ul>
   </div>
