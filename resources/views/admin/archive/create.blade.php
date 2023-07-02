@@ -7,7 +7,7 @@
 
   <form method="POST"  action="{{ route('arsip.store') }}" enctype="multipart/form-data">
     @csrf
-    <div class="card mt-5" style="padding: 10px;border-radius: 10px">
+    <div class="card mt-5" style="padding: 10px;border-radius: 10px; height: 425px;">
       <div class="panel-body">
           <div class="control-group after-add-more">
               <h5>Tambah Dokumen</h5>
@@ -35,15 +35,12 @@
               <input type='file' name='NamaFile' accept='image/*'>
               <br>
               <hr>
+              <div>
+                <button type="submit" class="btn btn-primary">Simpan</button>
+                <button href="/cancel" class="btn btn-danger" style="margin-left: 100px;">Batal</button>
+              </div>
           </div>
-        <div>
-            <button type="submit" class="btn btn-primary">Simpan</button>
-            <button href="/cancel" class="btn btn-danger" style="margin-left: 100px;">Batal</button>
-        </div>
       </div>
     </div>
-  </form>
-    
-  </div>
-</div>
+  </form> 
 @endsection
