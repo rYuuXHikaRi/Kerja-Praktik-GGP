@@ -15,8 +15,14 @@ class UserController extends Controller
 {
     public function index()
     {
-        $users = User::all();
+        $users= User::where('Roles',1)->get();
         return view('admin.user.index', compact('users'));
+    }
+
+    public function showuser()
+    {
+        $users= User::where('Roles',2)->get();
+        return view('admin.user.index',compact('users'));
     }
 
     public function create()
