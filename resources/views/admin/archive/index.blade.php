@@ -43,9 +43,12 @@
                     <td>{{ $arsip->Keterangan }}</td>
                     <td>
                         <li>
-                          <a class="menu-item active" href="/LihatDokumen">
-                          <button class="ubah-btn"><i class="bi bi-pencil"></i></button>
-                          <button class="lihat-btn"><i class="bi bi-eye"></i></button>
+                          <a href="{{ route('arsip.edit',$arsip->id) }}" class="edit-button">
+                            <button class="lihat-btn"><i class="bi bi-pencil"></i></button>
+                          </a>
+                          <a href="{{ route('arsip.show',$arsip->id) }}" class="edit-button">
+                            <button class="lihat-btn"><i class="bi bi-eye"></i></button>
+                          </a>
                           <button class="hapus-btn"><i class="bi bi-trash"></i></button>
                       </li>
                     </td>

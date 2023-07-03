@@ -399,7 +399,6 @@ font-size: 18px;}
                 cursor: pointer;
                 border-radius: 15px;
               }
-
               .hapus-btn {
                 background-color: rgb(255, 0, 0);
                 color: white;
@@ -408,6 +407,15 @@ font-size: 18px;}
                 cursor: pointer;
                 border-radius: 15px;}
 
+                .plus-btn {
+                  float: right;
+                  font-size: 15px;
+                  background-color: rgb(2, 33, 206);
+                  color: white;
+                  padding: 8px 16px;
+                  border: none;
+                  cursor: pointer;
+                  border-radius: 15px;}
                 .update-btn {
                   position: absolute;
                   margin-top: 20px;

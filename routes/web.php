@@ -51,6 +51,11 @@ Route::get('/KelolaArsip', function () {
 });
 
 Route::resource('arsip', ArsipController::class);
+Route::get('/view-file/{file}/{id}', [ArsipController::class, 'view'])->name('view.arsip');
+Route::delete('/delete-file/{file}/{id}', [ArsipController::class, 'deleteFile'])->name('delete.arsip');
+// Route::get('/private-files/download/{file}', [PrivateFileController::class, 'download'])->name('private-files.download');
+// Route::get('/private-files/view/{file}', [PrivateFileController::class, 'view'])->name('private-files.view');
+
 
 // Route::get('/KelolaArsip', [ArsipController::class ,'create'] )->name('KelolaArsip');
 // Route::post('/KelolaArsip', [ArsipController::class ,'store'])->name('TambahArsip');
