@@ -32,9 +32,9 @@
                 <a class="Icon DataPetugas" href="{{ route('user.index') }}"> <!-- SVG Code Here --> </a>
         </a>
       </li>
-      <li class="menu-item" href="{{ route('user.index') }}">
-        <a href="{{ route('user.index') }}">
-                  <a class="Icon DataUser" href="{{ route('user.index') }}"> <!-- SVG Code Here --> </a>
+      <li class="menu-item" href="{{ route('showuser') }}">
+        <a href="{{ route('showuser') }}">
+                  <a class="Icon DataUser" href="{{ route('showuser') }}"> <!-- SVG Code Here --> </a>
         </a>
       </li>
       <li class="menu-item" href="{{ route('user.create') }}">

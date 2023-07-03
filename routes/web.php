@@ -25,6 +25,7 @@ Route::get('/Dashboard', function () {
 });
 
 Route::resource('user', UserController::class);
+Route::get('/showuser', [UserController::class, 'showuser'])->name('showuser');
 // Route::get('/user', [UserController::class, 'index'])->name('IndexUser');
 // Route::get('/tambah-user', [UserController::class, 'create'])->name('CreateUser');
 // Route::post('/store-user',[UserController::class,'store'])->name('StoreUser');
@@ -50,6 +51,11 @@ Route::get('/KelolaArsip', function () {
 });
 
 Route::resource('arsip', ArsipController::class);
+Route::get('/view-file/{file}/{id}', [ArsipController::class, 'view'])->name('view.arsip');
+Route::delete('/delete-file/{file}/{id}', [ArsipController::class, 'deleteFile'])->name('delete.arsip');
+// Route::get('/private-files/download/{file}', [PrivateFileController::class, 'download'])->name('private-files.download');
+// Route::get('/private-files/view/{file}', [PrivateFileController::class, 'view'])->name('private-files.view');
+
 
 // Route::get('/KelolaArsip', [ArsipController::class ,'create'] )->name('KelolaArsip');
 // Route::post('/KelolaArsip', [ArsipController::class ,'store'])->name('TambahArsip');
@@ -57,7 +63,9 @@ Route::resource('arsip', ArsipController::class);
 
 
 Route::get('/LihatDokumen', function () {
-    return view('LihatDokumen');
+
+return view('LihatDokumen');
+
 });
 
 // Route::get('/Login', function () {
@@ -68,9 +76,9 @@ Route::get('/LihatDokumen', function () {
 //     return view('Profil');
 // });
 
-// Route::get('/RiwayatUnduhan', function () {
-//     return view('RiwayatUnduhan');
-// });
+Route::get('/RiwayatUnduhan', function () {
+    return view('RiwayatUnduhan');
+});
 
 // Route::get('/TambahAkun', function () {
 //     return view('TambahAkun');

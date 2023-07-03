@@ -59,6 +59,7 @@ return [
             'driver' => 'local',
             'root' => storage_path('app/private'), // Path ke folder rahasia Anda
             'visibility' => 'private',
+            'throw' => false,
         ],
 
     ],

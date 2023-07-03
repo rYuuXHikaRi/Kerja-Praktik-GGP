@@ -6,7 +6,7 @@
     <form method="POST"  action="{{ route('arsip.update' ,$arsip->id) }}" enctype="multipart/form-data">
       @csrf
       @method('PUT')
-        <div class="card mt-5" style="margin-left: 15%;padding: 10px;border-radius: 10px">
+        <div class="card mt-5" style="padding: 10px;border-radius: 10px">
             <div class="panel-body">
                 <div class="control-group after-add-more">
                     <h5>Edit Dokumen</h5>
