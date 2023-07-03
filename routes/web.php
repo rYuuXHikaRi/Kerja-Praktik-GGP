@@ -56,9 +56,9 @@ Route::resource('arsip', ArsipController::class);
 
 
 
-// Route::get('/LihatDokumen', function () {
-//     return view('LihatDokumen');
-// });
+Route::get('/LihatDokumen', function () {
+    return view('LihatDokumen');
+});
 
 // Route::get('/Login', function () {
 //     return view('Login');
