@@ -43,10 +43,38 @@
                     <td>{{ $arsip->Keterangan }}</td>
                     <td>
                         <li>
-                          <a class="menu-item active" href="/LihatDokumen">
-                          <button class="ubah-btn"><i class="bi bi-pencil"></i></button>
-                          <button class="lihat-btn"><i class="bi bi-eye"></i></button>
-                          <button class="hapus-btn"><i class="bi bi-trash"></i></button>
+
+                          <div class="menu-item active"></div>
+                          <a href="{{ route('arsip.edit',$arsip->id) }}" class="edit-button">
+                            <button class="lihat-btn"><i class="bi bi-pencil"></i></button>
+                          </a>
+                          <a href="{{ route('arsip.show',$arsip->id) }}" class="edit-button">
+                            <button class="lihat-btn"><i class="bi bi-eye"></i></button>
+                          </a>
+                          <a role="button"  class="delete-button" data-bs-toggle="modal" data-bs-target=".bd-example-modal-sm{{$arsip->id}}">
+                            <button class="hapus-btn" >Hapus</button>
+                          </a>
+                          <div class="modal fade bd-example-modal-sm{{$arsip->id}}" tabindex="-1" role="dialog" aria-hidden="true">
+                            <div class="modal-dialog ">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title"><strong>Hapus Data</strong></h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal">
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">Apakah anda yakin ingin menghapus data?</div>
+                                    <div class="modal-footer" style="left:0px;">
+                                        <form action="{{route('arsip.destroy', $arsip->id)}}" method="POST">
+                                        @method('DELETE')
+                                        @csrf
+                                        <input type="submit" class="btn btn-danger" name="" id="" value="Hapus" style="left:5%;width:20%;">
+                                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" style="left:30%;width:20%;">Tidak</button>
+                                      </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                       </li>
                     </td>
 

@@ -2,8 +2,8 @@
 
 @section('container')
 
-  <div class="tambah"> <h3 style="font: bolder; padding: 10px;border-radius: 10px;margin-left:15%">Tambah Akun</h3></div>
-  <div class="card mt-5" style="margin-left: 15%;padding: 10px;border-radius: 10px">
+  <div class="tambah"> <h3>Tambah Akun</h3></div>
+  <div class="card mt-5" style="padding: 10px;border-radius: 10px">
       <div class="panel-body">
 
         <form action=" {{ route('user.store') }}" method="POST" enctype="multipart/form-data">
