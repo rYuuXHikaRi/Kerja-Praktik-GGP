@@ -43,13 +43,20 @@
                     <td>{{ $arsip->Keterangan }}</td>
                     <td>
                         <li>
+
+                          <div class="menu-item active"></div>
                           <a href="{{ route('arsip.edit',$arsip->id) }}" class="edit-button">
                             <button class="lihat-btn"><i class="bi bi-pencil"></i></button>
                           </a>
                           <a href="{{ route('arsip.show',$arsip->id) }}" class="edit-button">
                             <button class="lihat-btn"><i class="bi bi-eye"></i></button>
                           </a>
-                          <button class="hapus-btn"><i class="bi bi-trash"></i></button>
+                          <a href=""><form action="{{ route('arsip.destroy',$arsip->id) }}" method="POST">
+                            @method('DELETE')
+                            @csrf
+                            <button class="hapus-btn"><i class="bi bi-trash"></i></button></a>
+                        </form></a>
+
                       </li>
                     </td>
 
