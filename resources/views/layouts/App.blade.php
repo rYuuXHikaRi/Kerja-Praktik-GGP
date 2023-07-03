@@ -28,7 +28,7 @@
 
     @include('partials.navbar')
 
-    <div class="mt-5 mb-3"  id="content-area" style="min-width: 800px;">
+    <div class="mt-5 mb-3"  id="content-area">
       @yield('container')
     </div>
 
