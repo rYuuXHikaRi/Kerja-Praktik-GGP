@@ -1,0 +1,48 @@
+@media screen and (max-width: 1024px) {
+    .menu-item {
+        width: 145px;
+        height: 40px;
+        border-radius: 15px;
+
+        padding-top: 5px;
+        padding-left: 20px;
+    }
+    
+    .text-active {
+        margin-left: 2px;
+        font-size: 10pt;
+    
+        color: white;
+    }
+
+    .text-active {
+        margin-left: 2px;
+        font-size: 10pt;
+    }
+
+    .active-main-content {
+        margin-left: 145px;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .menu-item {
+        width: 70px;
+    }
+    
+    .sidebar {
+        min-width: 90px;
+    }
+
+    .text-active {
+        display: none;
+    }
+
+    .text-inactive {
+        display: none;
+    }
+
+    .active-main-content {
+        margin-left: 70px;
+    }
+}

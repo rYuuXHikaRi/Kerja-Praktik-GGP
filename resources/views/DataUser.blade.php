@@ -1,7 +1,6 @@
 @extends('layouts.App')
 
 @section('container')
-<link rel="stylesheet" type="text/css" href="/css/style.css">
 <div class="datauser">
   <h3>Data User</h3>
 </div>

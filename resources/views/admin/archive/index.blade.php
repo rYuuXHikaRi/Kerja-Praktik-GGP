@@ -1,7 +1,6 @@
 @extends('layouts.App')
 
 @section('container')
-    <link rel="stylesheet" type="text/css" href="/css/style.css">
     <div class="folder">
       <h3>Folder</h3>
     </div>

@@ -5,15 +5,23 @@ button {
 .menu-item {
     width: 200px;
     height: 63px;
-    border-radius: 15px;
+    border-radius: 20px;
+    
+    padding-top: 15px;
+    padding-left: 20px;
+
 }
 
-.isactive.yes {
+.menu-item.active {
     background-image: linear-gradient(#A6CE39, #128241);
 }
 
-.isactive.no {
+.menu-item.inactive {
     background: none;
+}
+
+.menu-item:hover {
+    background-color: #C0EB95;
 }
 
 .isTextActive.yes {
@@ -51,4 +59,9 @@ button {
 
 .navbar-toggler-icon {
     color: white;
+}
+
+.svg-size {
+    max-width: 60%;
+    max-height: 60%;
 }

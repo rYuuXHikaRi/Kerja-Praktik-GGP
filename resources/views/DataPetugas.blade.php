@@ -1,7 +1,6 @@
 @extends('layouts.App')
 
 @section('container')
-<link rel="stylesheet" type="text/css" href="/css/style.css">
 <div class="datapetugas">
   <h3>Data Petugas </h3>
 </div>
@@ -71,9 +70,4 @@
         <a href="#">&raquo;</a>
       </div>
   </div>
-  
- 
-  
-  
-    
 @endsection
