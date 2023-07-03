@@ -46,7 +46,11 @@
                           <div class="menu-item active"></div>
                           <a href="{{ route('arsip.edit',$arsip->id) }}"><button class="ubah-btn"><i class="bi bi-pencil"></i></button></a>
                           <a href="/LihatDokumen"><button class="lihat-btn"><i class="bi bi-eye"></i></button></a>
-                          <a href="/Delete"> <button class="hapus-btn"><i class="bi bi-trash"></i></button></a>
+                          <a href=""><form action="{{ route('arsip.destroy',$arsip->id) }}" method="POST">
+                            @method('DELETE')
+                            @csrf
+                            <button class="hapus-btn"><i class="bi bi-trash"></i></button></a>
+                        </form></a>
                       </li>
                     </td>
 

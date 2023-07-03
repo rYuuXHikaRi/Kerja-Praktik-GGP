@@ -45,7 +45,8 @@ class ArsipController extends Controller
          
         ]);
         // $file->move(public_path($location), $filename);
-        redirect()->back()->with("Berhasil cuy");
+        // redirect()->back()->with("Berhasil cuy");
+        return view('admin.archive.create');
     }
 
 
@@ -90,6 +91,14 @@ class ArsipController extends Controller
         $arsips=Arsip::all();
         return view('admin.archive.index',compact('arsips'));
 
+    }
+    public function destroy($id)
+    {
+        $data = Arsip::where('id', $id)->first();
+        $data->delete();
+
+        $arsips=Arsip::all();
+        return view('admin.archive.index',compact('arsips'));
     }
 
 }
