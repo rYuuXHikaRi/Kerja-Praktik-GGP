@@ -368,6 +368,10 @@ font-size: 18px;}
               line-height: 23px; 
               color: black; 
               font-size: 18px;
+              position: relative;
+            }
+            .tabellihat{
+              position: absolute;
             }
 
               .unduh-btn {
