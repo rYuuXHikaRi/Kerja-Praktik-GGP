@@ -27,19 +27,19 @@
                 <a class="Icon RiwayatUnduhan" href="/RiwayatUnduhan"> <!-- SVG Code Here --> </a>
         </a>
       </li>
-      <li class="menu-item" href="/DataPetugas">
-        <a href="/DataPetugas">
-                <a class="Icon DataPetugas" href="/DataPetugas"> <!-- SVG Code Here --> </a>
+      <li class="menu-item" href="{{ route('user.index') }}">
+        <a href="{{ route('user.index') }}">
+                <a class="Icon DataPetugas" href="{{ route('user.index') }}"> <!-- SVG Code Here --> </a>
         </a>
       </li>
-      <li class="menu-item" href="/DataUser">
-        <a href="/DataUser">
-                  <a class="Icon DataUser" href="/DataUser"> <!-- SVG Code Here --> </a>
+      <li class="menu-item" href="{{ route('user.index') }}">
+        <a href="{{ route('user.index') }}">
+                  <a class="Icon DataUser" href="{{ route('user.index') }}"> <!-- SVG Code Here --> </a>
         </a>
       </li>
-      <li class="menu-item" href="/TambahAkun">
-        <a href="/TambahAkun">
-                    <a class="Icon TambahAkun" href="/TambahAkun"> <!-- SVG Code Here --> </a>
+      <li class="menu-item" href="{{ route('user.create') }}">
+        <a href="{{ route('user.create') }}">
+                    <a class="Icon TambahAkun" href="{{ route('user.create') }}"> <!-- SVG Code Here --> </a>
         </a>
       </li>
       <li class="menu-item">
