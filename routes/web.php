@@ -76,9 +76,9 @@ return view('LihatDokumen');
 //     return view('Profil');
 // });
 
-// Route::get('/RiwayatUnduhan', function () {
-//     return view('RiwayatUnduhan');
-// });
+Route::get('/RiwayatUnduhan', function () {
+    return view('RiwayatUnduhan');
+});
 
 // Route::get('/TambahAkun', function () {
 //     return view('TambahAkun');

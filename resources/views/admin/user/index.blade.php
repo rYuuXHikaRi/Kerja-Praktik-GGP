@@ -1,19 +1,14 @@
 @extends('layouts.App')
 
 @section('container')
-<link rel="stylesheet" type="text/css" href="/css/style.css">
 <div class="datauser">
-  <h3>Data User</h3>
+  <h3>{{ $title }}</h3>
 </div>
-<div class="search-box">
-    <input type="text" class="search-input" placeholder= " Search..." >
-  </div>
 <br>
 <br>
   <div class="data">
-    <h6>Data User</h6>
-    <p style="font-size: 15px">Hasil Untuk “Data User" <br> Daya Tampung : 12/30</p>
-
+    <h6>{{ $title }}</h6>
+    <p style="font-size: 15px">Hasil Untuk “Data User" <input type="text" class="search-input" placeholder= " Search..." > <br> Daya Tampung : 12/30</p>
     <table border="2" cellpadding="15">
         <thead>
           <tr>
