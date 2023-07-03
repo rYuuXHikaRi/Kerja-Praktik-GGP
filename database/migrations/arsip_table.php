@@ -13,7 +13,14 @@ return new class extends Migration
     {
         Schema::create('arsips', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->text('NamaDokumen') -> unique();
+            $table->text('Keterangan');
+            $table->text('NamaDesa');
+            $table->text('Tahun');
+            $table->text('LokasiPenyimpanan');
+            $table->text('NamaFile') -> nullable();
+            $table->string('created_at');
+            $table->string('updated_at');
         });
     }
 

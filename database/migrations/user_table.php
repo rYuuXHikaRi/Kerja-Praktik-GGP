@@ -11,14 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('arsips', function (Blueprint $table) {
+        Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->text('NamaDokumen');
-            $table->text('Keterangan');
-            $table->text('NamaDesa');
-            $table->text('Tahun');
-            $table->text('LokasiPenyimpanan');
-            $table->text('NamaFile') -> nullable();
+            $table->text('UserName') -> unique();
+            $table->text('Password');
+            $table->text('NamaLengkap');
+            $table->text('NomorHp');
+            $table->text('Foto')-> nullable();
+            $table->text('Roles') ;
             $table->string('created_at');
             $table->string('updated_at');
         });
@@ -29,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('arsips');
+        Schema::dropIfExists('users');
     }
 };

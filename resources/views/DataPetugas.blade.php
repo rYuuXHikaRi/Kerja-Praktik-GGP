@@ -1,18 +1,14 @@
 @extends('layouts.App')
 
 @section('container')
-<link rel="stylesheet" type="text/css" href="/css/style.css">
 <div class="datapetugas">
-  <h3>Data Petugas</h3>
+  <h3>Data Petugas </h3>
 </div>
-<div class="search-box">
-    <input type="text" class="search-input" placeholder= " Search..." >
-  </div>
 <br>
 <br>
   <div class="data">
     <h6>Data Petugas</h6>
-    <p style="font-size: 15px">Hasil Untuk “Data Petugas" <br> Daya Tampung : 29/30</p>
+    <p style="font-size: 15px">Hasil Untuk “Data Petugas" <input type="text" class="search-input" placeholder= " Search..." ><br> Daya Tampung : 29/30</p>
 
     <table border="2" cellpadding="15">
         <thead>
@@ -74,9 +70,4 @@
         <a href="#">&raquo;</a>
       </div>
   </div>
-  
- 
-  
-  
-    
 @endsection

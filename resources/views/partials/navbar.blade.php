@@ -1,104 +1,67 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Bootstrap 5 Side Bar Navigation</title>
-    <!-- bootstrap 5 css -->
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/css/bootstrap.min.css"
-      integrity="sha384-DhY6onE6f3zzKbjUPRc2hOzGAdEf4/Dz+WJwBvEYL/lkkIsI3ihufq9hk9K4lVoK"
-      crossorigin="anonymous"
-    />
-    <!-- custom css -->
-    <!-- <link rel="stylesheet" href="style.css" /> -->
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css"
-    />
+<!-- Sidebar -->
+<div>
 
-    <link rel="stylesheet" type="text/css" href="/css/style.css">
-  </head>
+  <div class="sidebar bg-white" id="sidebar">
+    <h4 class="text-black" style="margin-left: 7px; margin-top: 7px;"><img src="/img/logo.png" alt="logo" width="45"></h4>
 
-  <body>
-    <div>
-     <div class="sidebar p-4 bg-white" id="sidebar">
-            <h4 class="mb-5 text-black"><img src="img/logo.png" alt="logo" width="100"></h4>
-            <li>
-              <a class="menu-item active" href="/Dashboard">
-                <i class="bi bi-house mr-2"></i>
-                Dashboard
-              </a>
-            </li>
-            <li>
-              <a class="menu-item" href="/Folder">
-                <i class="bi bi-folder mr-2"></i>
-                Folder
-              </a>
-            </li>
-            <li>
-              <a class="text-green" href="{{ Route('arsip.create') }}">
-                <i class="bi bi-newspaper mr-2"></i>
-                Kelola Arsip
-              </a>
-            </li>
-            <li>
-              <a class="text-green" href="/RiwayatUnduhan">
-                <i class="bi bi-clock-history mr-2"></i>
-                Riwayat Unduhan
-              </a>
-            </li>
-            <li>
-              <a class="text-green" href="/DataPetugas">
-                <i class="bi bi-person mr-2"></i>
-                Data Petugas
-              </a>
-            </li>
-            <li>
-                <a class="text-green" href="/DataUser">
-                  <i class="bi bi-person mr-2"></i>
-                  Data User
-                </a>
-              </li>
-            <li>
-              <a class="text-green" href="{{ route('user.create') }}">
-                <i class="bi bi-plus mr-2"></i>
-                Tambah Akun
-              </a>
-            </li>
-            <li>
-              <a class="text-green" href="#">
-                <i class="bi bi-box-arrow-right mr-2"></i>
-                Log Out
-              </a>
-            </li>
-          </div>
-
-    </div >
-    <nav class="navbar"> 
-        <div class="corner-text">
-             <img src="img/administrator.png" alt="admin" width="40">| Administrator| </div>
-    </nav>
 
     
-    <div class="p-4" id="main-content">
-      <button class="btn" id="button-toggle" >
-        <i class="bi bi-list"></i>
-      </button>
-    </div>
-    <script>
+    <ul class="p-2">
+      <li class="menu-item" href="/Dashboard">
+        <a href="/Dashboard">
+          <a class="Icon Dashboard" href="/Dashboard"> <!-- SVG Code Here --> </a>
+        </a>
+      </li>
+      <li class="menu-item" href="{{ route('arsip.index') }}">
+        <a href="{{ route('arsip.index') }}">
+            <a class="Icon Folders" href="{{ route('arsip.index') }}"> <!-- SVG Code Here --> </a>
+        </a>
+      </li>
+      <li class="menu-item" href="{{ route('arsip.create') }}">
+        <a href="{{ route('arsip.create') }}">
+              <a class="Icon KelolaArsip" href="{{ route('arsip.create') }}"> <!-- SVG Code Here --> </a>
+        </a>
+      </li>
+      <li class="menu-item" href="/RiwayatUnduhan">
+        <a href="/RiwayatUnduhan">
+                <a class="Icon RiwayatUnduhan" href="/RiwayatUnduhan"> <!-- SVG Code Here --> </a>
+        </a>
+      </li>
+      <li class="menu-item" href="/DataPetugas">
+        <a href="/DataPetugas">
+                <a class="Icon DataPetugas" href="/DataPetugas"> <!-- SVG Code Here --> </a>
+        </a>
+      </li>
+      <li class="menu-item" href="/DataUser">
+        <a href="/DataUser">
+                  <a class="Icon DataUser" href="/DataUser"> <!-- SVG Code Here --> </a>
+        </a>
+      </li>
+      <li class="menu-item" href="/TambahAkun">
+        <a href="/TambahAkun">
+                    <a class="Icon TambahAkun" href="/TambahAkun"> <!-- SVG Code Here --> </a>
+        </a>
+      </li>
+      <li class="menu-item">
+        <a  href="/">
+                      <a class="Icon LogOut" href="/"> <!-- SVG Code Here --> </a>
+        </a>
+      </li>
+    </ul>
+  </div>
+</div >
 
-      // event will be executed when the toggle-button is clicked
-      document.getElementById("button-toggle").addEventListener("click", () => {
-
-        // when the button-toggle is clicked, it will add/remove the active-sidebar class
-        document.getElementById("sidebar").classList.toggle("active-sidebar");
-
-        // when the button-toggle is clicked, it will add/remove the active-main-content class
-        document.getElementById("main-content").classList.toggle("active-main-content");
-      });
-
-    </script>
-  </body>
-</html>
+<!-- Navbar -->
+<nav class="navbar sticky-top"> 
+  <div id="main-content">
+    <button class="navbar-toggler" id="button-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="bi bi-list" style="font-size: 1.5rem;"></span>
+    </button>
+  </div>
+  <div class="corner-text" style="justify-content: center; ">
+        <a href="/Profile" style="text-decoration: none; color: inherit; font-size: 12px;"> Administrator | </a>
+        <a href="/Profile">
+          <img src="https://demos.wrappixel.com/free-admin-templates/bootstrap/ample-bootstrap-free/html/plugins/images/users/varun.jpg" alt="admin" width="36" class="img-circle">
+        </a>
+  </div>
+</nav>

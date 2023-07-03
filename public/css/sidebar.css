@@ -1,0 +1,67 @@
+button {
+    border: none;
+}
+
+.menu-item {
+    width: 200px;
+    height: 63px;
+    border-radius: 20px;
+    
+    padding-top: 15px;
+    padding-left: 20px;
+
+}
+
+.menu-item.active {
+    background-image: linear-gradient(#A6CE39, #128241);
+}
+
+.menu-item.inactive {
+    background: none;
+}
+
+.menu-item:hover {
+    background-color: #C0EB95;
+}
+
+.isTextActive.yes {
+    color: white;
+}
+
+.isTextActive.no {
+    background : linear-gradient(#A6CE39, #128241);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.text-active {
+    margin-left: 10px;
+    font-size: 13pt;
+
+    color: white;
+}
+
+.text-active:hover {
+    color:white;
+}
+
+.text-inactive {
+    background : linear-gradient(#A6CE39, #128241);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.text-inactive:hover {
+    background : linear-gradient(#A6CE39, #128241);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.navbar-toggler-icon {
+    color: white;
+}
+
+.svg-size {
+    max-width: 60%;
+    max-height: 60%;
+}
