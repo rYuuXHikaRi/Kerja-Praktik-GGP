@@ -32,17 +32,17 @@ Route::resource('user', UserController::class);
 // Route::put('/update-user/{id}',[UserController::class,'update'])->name('UpdateUser');
 // Route::delete('/user/{id}', [UserController::class, 'destroy'])->name('DestroyUser');
 
-Route::get('/DataPetugas', function () {
-    return view('DataPetugas');
-});
+// Route::get('/DataPetugas', function () {
+//     return view('DataPetugas');
+// });
 
-Route::get('/DataUser', function () {
-    return view('DataUser');
-});
+// Route::get('/DataUser', function () {
+//     return view('DataUser');
+// });
 
-Route::get('/Folder', function () {
-    return view('Folder');
-});
+// Route::get('/Folder', function () {
+//     return view('Folder');
+// });
 
 
 Route::get('/KelolaArsip', function () {
@@ -56,23 +56,23 @@ Route::resource('arsip', ArsipController::class);
 
 
 
-Route::get('/LihatDokumen', function () {
-    return view('LihatDokumen');
-});
+// Route::get('/LihatDokumen', function () {
+//     return view('LihatDokumen');
+// });
 
-Route::get('/Login', function () {
-    return view('Login');
-});
+// Route::get('/Login', function () {
+//     return view('Login');
+// });
 
-Route::get('/Profil', function () {
-    return view('Profil');
-});
+// Route::get('/Profil', function () {
+//     return view('Profil');
+// });
 
-Route::get('/RiwayatUnduhan', function () {
-    return view('RiwayatUnduhan');
-});
+// Route::get('/RiwayatUnduhan', function () {
+//     return view('RiwayatUnduhan');
+// });
 
-Route::get('/TambahAkun', function () {
-    return view('TambahAkun');
-});
+// Route::get('/TambahAkun', function () {
+//     return view('TambahAkun');
+// });
 

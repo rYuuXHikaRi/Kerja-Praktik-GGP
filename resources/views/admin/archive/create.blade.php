@@ -1,10 +1,10 @@
 @extends('layouts.App')
 
 @section('container')
+
 <div class="Kelolaarsip">
   <h3 style="font: bolder;border-radius: 10px;display:flex;">Kelola Arsip</h3>
 </div>
-
   <form method="POST"  action="{{ route('arsip.store') }}" enctype="multipart/form-data">
     @csrf
     <div class="card mt-5" style="padding: 10px;border-radius: 10px; height: 425px;">
