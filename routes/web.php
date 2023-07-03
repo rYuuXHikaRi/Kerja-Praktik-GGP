@@ -64,15 +64,15 @@ return view('LihatDokumen');
 //     return view('Login');
 // });
 
-// Route::get('/Profil', function () {
-//     return view('Profil');
-// });
+Route::get('/Profil', function () {
+return view('Profil');
+});
 
 // Route::get('/RiwayatUnduhan', function () {
 //     return view('RiwayatUnduhan');
 // });
 
-// Route::get('/TambahAkun', function () {
-//     return view('TambahAkun');
-// });
+Route::get('/TambahAkun', function () {
+    return view('TambahAkun');
+ });
 

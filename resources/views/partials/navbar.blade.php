@@ -59,8 +59,8 @@
     </button>
   </div>
   <div class="corner-text" style="justify-content: center; ">
-        <a href="/Profile" style="text-decoration: none; color: inherit; font-size: 12px;"> Administrator | </a>
-        <a href="/Profile">
+        <a href="/Profil" style="text-decoration: none; color: inherit; font-size: 12px;"> Administrator | </a>
+        <a href="/Profil">
           <img src="https://demos.wrappixel.com/free-admin-templates/bootstrap/ample-bootstrap-free/html/plugins/images/users/varun.jpg" alt="admin" width="36" class="img-circle">
         </a>
   </div>

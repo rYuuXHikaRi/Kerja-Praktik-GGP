@@ -1,17 +1,19 @@
 @extends('layouts.App')
-
 @section('container')
-
+<link rel="stylesheet" type="text/css" href="/css/style.css">
   
   <div class="card mt-3" style="margin-left: 15%;padding: 10px;border-radius: 10px">
     <div class="profile-container">
         <div class="profile-image">
-          <img src="img/profil.jpeg" alt="Foto Profil" width="200px;">
+          <img src="img/profil.jpeg" alt="Foto Profil" width="200px;"><br>
+          <form enctype="multipart/form-data">
+            <label>Ganti Foto</label><br>
+              <input input type='file' name='foto' accept='image/*'>
+          </form>
         </div>
         <div class="profile-form">
           <form action="proses.php" method="POST">
             <div class="control-group after-add-more">
-              <h5>Data Diri</h5>
               <label>Nama</label>
               <input type="text" name="nama[]" class="form-control">
               <label>Username</label>
@@ -22,17 +24,15 @@
               <input type="text" name="psswrd[]" class="form-control">
               <label>Password Lama</label>
               <input type="text" name="psswrd[]" class="form-control">
-              <label>Konfirmasi Password Baru</label>
+              <label>Password Baru</label>
               <input type="text" name="psswrd[]" class="form-control">
-              <label>Ganti Foto</label>
-              <input input type='file' name='foto' accept='image/*'>
             </div>
-            <div class="form-actions">
-                <br>
-                <button class="update-btn">Update</button>
-              </div>
           </form>
-          
+
+          <div class="submit-button">
+            <button type="submit" style="margin-top: 20px;margin-left:500px;background-color: blue;">Submit</button>
+          </div>
+        </div>
         </div>
       </div>
       

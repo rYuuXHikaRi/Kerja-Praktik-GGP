@@ -437,10 +437,13 @@ font-size: 18px;}
                 .profile-container {
                   display: flex;
                   align-items: flex-start;
+                  display: grid;
+                  grid-template-columns: 1fr 2fr;
+                  grid-gap: 20px;
                 }
                 
-                .profile-image {
-                  margin-right: 20px;
+                .profil-image{
+                  width: 500px;
                 }
                 
                 .profile-form {
@@ -459,6 +462,7 @@ font-size: 18px;}
                   bottom: 0;
                   right: 0;
                 }
-body{
-  background: #F0E5E5;
-}
+
+          body{
+           background: #F0E5E5;
+          }
