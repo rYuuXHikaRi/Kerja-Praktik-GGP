@@ -25,6 +25,7 @@ Route::get('/Dashboard', function () {
 });
 
 Route::resource('user', UserController::class);
+Route::get('/showuser', [UserController::class, 'showuser'])->name('showuser');
 // Route::get('/user', [UserController::class, 'index'])->name('IndexUser');
 // Route::get('/tambah-user', [UserController::class, 'create'])->name('CreateUser');
 // Route::post('/store-user',[UserController::class,'store'])->name('StoreUser');
@@ -57,7 +58,9 @@ Route::resource('arsip', ArsipController::class);
 
 
 Route::get('/LihatDokumen', function () {
+
 return view('LihatDokumen');
+
 });
 
 // Route::get('/Login', function () {
