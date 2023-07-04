@@ -24,6 +24,9 @@
 <a role="button"  class="delete-button" data-bs-toggle="modal" data-bs-target=".bd-example-modal-sm{{$arsip->id}}">
   <button class="plus-btn" ><i class="bi bi-plus"></i> Tambah Dokumen</button>
 </a>
+
+
+<!-- MODALS -->
 <div class="modal fade bd-example-modal-sm{{$arsip->id}}" tabindex="-1" role="dialog" aria-hidden="true">
   <div class="modal-dialog ">
       <div class="modal-content">

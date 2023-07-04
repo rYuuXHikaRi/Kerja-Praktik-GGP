@@ -183,5 +183,12 @@ class ArsipController extends Controller
     
         return redirect()->back()->with('success', 'File berhasil dihapus.');
     }  
+
+    public function addFile(request $request,$id){
+        
+
+    }
+
+    
 }
 
