@@ -15,13 +15,70 @@
 <p>Lokasi Penyimpanan : {{ $arsip->LokasiPenyimpanan }}</p>
 <p>Keterangan         : {{ $arsip->Keterangan }}</p>
 
-<button class="plus-btn"><i class="bi bi-plus"> Tambah Dokumen</i></button><br>
+
+<div id="uploadDialog" title="Upload Document" style="display: none;">
+
+</div>
+
+
+<a role="button"  class="delete-button" data-bs-toggle="modal" data-bs-target=".bd-example-modal-sm{{$arsip->id}}">
+  <button class="plus-btn" ><i class="bi bi-plus"></i> Tambah Dokumen</button>
+</a>
+<div class="modal fade bd-example-modal-sm{{$arsip->id}}" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog ">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title"><strong>Tambah Data</strong></h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">Tambah Dokumen</div>
+      <div class="modal-footer" style="left:0px;">
+        <form form action="{{ route('add.arsip',$arsip->id) }}" method="POST" enctype="multipart/form-data" style="width: 80vh;">
+          @csrf
+          @method('POST')
+          <input type='file' name='NamaFile[]' multiple>
+          <div style="display: flex; flex-direction: row;justify-content: space-between; ">
+              <input type="submit" class="btn btn-primary" name="" id="" value="Simpan" style="width: 10vh;margin-top:5vh;">
+              <button type="button"class="btn btn-danger"  data-bs-dismiss="modal" style="width: 10vh; margin-left: 12vh;margin-top:5vh;margin-right:10vh;">Tidak</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- MODALS -->
+{{-- <div class="modal fade bd-example-modal-sm{{$arsip->id}}" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog ">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h5 class="modal-title"><strong>Tambah Data</strong></h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal">
+              </button>
+          </div>
+          <div class="modal-body">Tambah Dokumen</div>
+          <div class="modal-footer" style="left:0px;">
+            <form form action=" {{ route('add.arsip',$arsip->id) }}" method="POST" enctype="multipart/form-data">
+              @csrf
+              @method('POST')
+              <div style="display: flex;flex-direction:row">
+              <input type='file' name='NamaFile[]'  multiple>
+              <input type="submit" class="btn btn-danger" name="" id="" value="Simpan" style="left:5%;width:20%;position:relative">
+              <button type="button" class="btn btn-primary" data-bs-dismiss="modal" style="left:30%;width:20%;position: relative;">Tidak</button>
+              </div>
+            </form>
+          </div>
+      </div>
+  </div>
+</div> --}}
+
 <table>
   <thead>
     <tr>
-      <th>No</th>
+      <th style="width:5vh ">No</th>
       <th>Nama</th>
-      <th>Opsi</th>
+      <th style="width: 20vh">Opsi</th>
     </tr>
   </thead>
   <tbody>
@@ -82,6 +139,8 @@
   <a href="#">&raquo;</a>
 </div>
 </div>
+
+
 
 
   
