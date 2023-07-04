@@ -10,13 +10,13 @@
             @csrf
           <div class="control-group after-add-more">
             <label>Nama</label>
-            <input type="text" name="NamaLengkap" class="form-control">
+            <input type="text" name="NamaLengkap" class="form-control" required>
             <label>Username</label>
-            <input type="text" name="UserName" class="form-control">
+            <input type="text" name="UserName" class="form-control" required>
             <label>Password</label>
-            <input type="text" name="Password" class="form-control">
+            <input type="text" name="Password" class="form-control" required>
             <label>Nomor HP</label>
-            <input type="text" name="NomorHp" class="form-control">
+            <input type="text" name="NomorHp" class="form-control" required>
             <label>Role</label>
             <select class="form-control" name="Roles">
                 <option value="1">Admin</option>

@@ -53,10 +53,10 @@ class UserController extends Controller
             'Foto' => $filename,
             'Roles' => $request->Roles
         ]);
-
+        $title="Data User";
         $users = User::all();
         $file->move(public_path($location), $filename);
-        return view('admin.user.index',compact('users'));
+        return view('admin.user.index',compact('users','title'));
     }
 
 
@@ -119,5 +119,58 @@ class UserController extends Controller
 
         return view('Dashboard',compact('JumlahAdmin','JumlahUser','TotalArsips'));
     }
+
+    public function ShowProfile()
+    {
+     
+        $user = User::where('id', 6)->first();
+        return view('profil', compact('user'));
+    }
+
+    public function EditProfile(Request $request, $id){
+
+        $user = User::where('id',6)->first();
+        $user->NamaLengkap = $request->input('NamaLengkap');
+        $user->UserName = $request->input('UserName');
+        $user->NomorHp = $request->input('NomorHp');
+        $password_lama = $user->Password;
+
+        if (Hash::check($request->input('Password_lama'), $password_lama)) {
+            if ($request->input('Password_lama') === $request->input('Password')) {
+                // Password baru sama dengan password lama, tampilkan pesan error
+                return redirect()->back()->withErrors(['Password' => 'Error: Password baru tidak boleh sama dengan password lama']);
+            }
+            // Pembaruan password baru
+            $user->Password = Hash::make($request->input('Password'));
+        } else {
+            // Password lama tidak cocok, tampilkan pesan error
+            return redirect()->back()->withErrors(['Password_lama' => 'Error: Password lama tidak cocok']);
+        }
+
+
+        if ($request->hasFile('Foto')) {
+
+            // Delete the previous photo if it exists
+            if ($user->Foto) {
+                $filePath = public_path('assets/images/' .$user->Foto);
+                File::delete($filePath);
+            }
+            // Store the uploaded file
+            $validatedData = $request->validate([
+            
+                'Foto' => 'required|mimes:jpeg,png,jpg,gif|max:5120 ',
+            ]);
+            $file = $validatedData[('Foto')];
+            $filename =  $file->getClientOriginalName();
+            // File upload location
+            $location = '../public/assets/images/';
+            $file->move(public_path($location), $filename);
+            $user->Foto = $filename;
+        }
+        $user->save();
+        $user=User::where('id',6)->first();
+        return view('Profil',compact('user'));
+    }
+
 }
 
