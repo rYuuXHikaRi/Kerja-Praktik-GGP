@@ -4,13 +4,16 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 use App\Http\Requests\UserRequest;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use App\Models\Arsip;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Validation\ValidationException;
 
 class UserController extends Controller
 {
@@ -38,7 +41,14 @@ class UserController extends Controller
         $validatedData = $request->validate([
             
             'Foto' => 'required|mimes:jpeg,png,jpg,gif|max:5120 ',
+            'UserName' => [
+                'required',
+                Rule::unique('users')->where(function ($query) use ($request) {
+                    return $query->where('UserName', $request->UserName);
+                }),
+            ],
         ]);
+        
         $file = $validatedData[('Foto')];
         $filename =  $file->getClientOriginalName();
         // File upload location
@@ -53,10 +63,11 @@ class UserController extends Controller
             'Foto' => $filename,
             'Roles' => $request->Roles
         ]);
-        $title="Data User";
-        $users = User::all();
+
         $file->move(public_path($location), $filename);
-        return view('admin.user.index',compact('users','title'));
+        Session::flash('success', 'Data User Berhasil Ditambahkan');
+        return view('admin.user.create');
+
     }
 
 
@@ -98,9 +109,8 @@ class UserController extends Controller
         
 
         $user->save();
-
-        $users=User::all();
-        return view('admin.user.index',compact('users'));
+        Session::flash('success', 'Data User Berhasil DiUbah');
+        return redirect()->back();
 
     }
     public function destroy($id)
@@ -108,8 +118,11 @@ class UserController extends Controller
         $data = User::where('id', $id)->first();
         $data->delete();
 
+
+
+        Session::flash('success', 'Data User Berhasil DiHapus');
         $users=User::all();
-        return view('admin.user.index',compact('users'));
+        return redirect()->back();
     }
     public function ShowCountDashboard(){
 

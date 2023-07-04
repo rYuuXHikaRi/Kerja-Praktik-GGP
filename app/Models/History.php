@@ -9,5 +9,5 @@ class History extends Model
 {
     use HasFactory;
     protected $table="histories";
-    protected $fillable=['UserName','created_at','size','updated_at'];
+    protected $fillable=['UserName','Ukuran','LokasiPenyimpanan','NamaFile','created_at','updated_at'];
 }

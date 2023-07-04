@@ -10,32 +10,25 @@
     <table border="2" cellpadding="10">
         <thead>
           <tr>
-            <th>Nama Dokumen</th>
+            <th>Nama User</th>
             <th>Tanggal Download</th>
             <th>Ukuran</th>
-            <th>Status</th>
+            <th>Lokasi Penyimpanan</th>
+            <th>Nama File</th>
           </tr>
         </thead>
         <tbody>
+            @foreach ($histories as $history)
+                
+            
           <tr>
-            <td>Contoh Dokumen 1</td>
-            <td>2023-06-28</td>
-            <td>2.5 MB</td>
-            <td>Selesai</td>
+            <td>{{ $history->UserName }}</td>
+            <td>{{ $history->created_at }} </td>
+            <td>{{ $history->Ukuran }} Mb</td>
+            <td>{{ $history->LokasiPenyimpanan }}</td>
+            <td>{{ $history->NamaFile }}</td>
           </tr>
-          <tr>
-            <td>Contoh Dokumen 2</td>
-            <td>2023-06-29</td>
-            <td>1.8 MB</td>
-            <td>Gagal</td>
-
-          </tr>
-          <tr>
-            <td>Contoh Dokumen 3</td>
-            <td>2023-06-29</td>
-            <td>30 MB</td>
-            <td>Selesai</td>
-          </tr>
+          @endforeach
         </tbody>
       </table>
       
