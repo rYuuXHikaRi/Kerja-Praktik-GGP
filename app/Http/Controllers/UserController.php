@@ -16,13 +16,15 @@ class UserController extends Controller
     public function index()
     {
         $users= User::where('Roles',1)->get();
-        return view('admin.user.index', compact('users'));
+        $title="Data Admin";
+        return view('admin.user.index', compact('users','title'));
     }
 
     public function showuser()
     {
         $users= User::where('Roles',2)->get();
-        return view('admin.user.index',compact('users'));
+        $title="Data User";
+        return view('admin.user.index',compact('users','title'));
     }
 
     public function create()
@@ -63,6 +65,8 @@ class UserController extends Controller
         $user = User::where('id', $id)->first();
         return view('admin.user.edit', compact('user'));
     }
+
+
 
     public function update(Request $request, $id)
     {

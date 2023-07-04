@@ -22,9 +22,9 @@
               <a class="Icon KelolaArsip" href="{{ route('arsip.create') }}"> <!-- SVG Code Here --> </a>
         </a>
       </li>
-      <li class="menu-item" href="/RiwayatUnduhan">
-        <a href="/RiwayatUnduhan">
-                <a class="Icon RiwayatUnduhan" href="/RiwayatUnduhan"> <!-- SVG Code Here --> </a>
+      <li class="menu-item" href="{{ route('history.index') }}">
+        <a href="{{ route('history.index') }}">
+                <a class="Icon RiwayatUnduhan" href="{{ route('history.index') }}"> <!-- SVG Code Here --> </a>
         </a>
       </li>
       <li class="menu-item" href="{{ route('user.index') }}">
