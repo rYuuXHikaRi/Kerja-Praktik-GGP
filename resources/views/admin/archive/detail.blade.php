@@ -5,6 +5,15 @@
   <h3>Lihat Dokumen</h3>
 </div>
 <br>
+@if (session('success'))
+<div class="alert alert-success">
+    {{ session('success') }}
+</div>
+@elseif (session('successdelete'))
+<div class="alert alert-success">
+  {{ session('successdelete') }}
+</div>
+@endif
   <div class="Lihat">
     <h4>Semua Arsip <input type="text" class="search-input" placeholder= " Search..." > </h4>
     
@@ -21,10 +30,11 @@
 </div>
 
 
-<a role="button"  class="delete-button" data-bs-toggle="modal" data-bs-target=".bd-example-modal-sm{{$arsip->id}}">
+<a role="button"  class="delete-button" data-bs-toggle="modal" data-bs-target=".bd-example-modal-sm1{{$arsip->id}}">
   <button class="plus-btn" ><i class="bi bi-plus"></i> Tambah Dokumen</button>
 </a>
-<div class="modal fade bd-example-modal-sm{{$arsip->id}}" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="modal fade bd-example-modal-sm1{{$arsip->id}} " id="modal1" tabindex="-1" role="dialog" aria-hidden="true">
   <div class="modal-dialog ">
     <div class="modal-content">
       <div class="modal-header">
@@ -48,31 +58,6 @@
 </div>
 
 
-<!-- MODALS -->
-{{-- <div class="modal fade bd-example-modal-sm{{$arsip->id}}" tabindex="-1" role="dialog" aria-hidden="true">
-  <div class="modal-dialog ">
-      <div class="modal-content">
-          <div class="modal-header">
-              <h5 class="modal-title"><strong>Tambah Data</strong></h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal">
-              </button>
-          </div>
-          <div class="modal-body">Tambah Dokumen</div>
-          <div class="modal-footer" style="left:0px;">
-            <form form action=" {{ route('add.arsip',$arsip->id) }}" method="POST" enctype="multipart/form-data">
-              @csrf
-              @method('POST')
-              <div style="display: flex;flex-direction:row">
-              <input type='file' name='NamaFile[]'  multiple>
-              <input type="submit" class="btn btn-danger" name="" id="" value="Simpan" style="left:5%;width:20%;position:relative">
-              <button type="button" class="btn btn-primary" data-bs-dismiss="modal" style="left:30%;width:20%;position: relative;">Tidak</button>
-              </div>
-            </form>
-          </div>
-      </div>
-  </div>
-</div> --}}
-
 <table>
   <thead>
     <tr>
@@ -95,8 +80,9 @@
          <td>
             <a href="{{ route('view.arsip', ['file' => $file, 'id' => $arsip->id]) }}"><button class="unduh-btn"><i class="bi bi-eye"></i></button></a>
 
-            <a role="button"  class="delete-button" data-bs-toggle="modal" data-bs-target=".bd-example-modal-sm{{$arsip->id}}"><button class="hapus-btn"><i class="bi bi-trash"></i></button></a>
-            <div class="modal fade bd-example-modal-sm{{$arsip->id}}" tabindex="-1" role="dialog" aria-hidden="true">
+            <a role="button"  class="delete-button" data-bs-toggle="modal" data-bs-target=".bd-example-modal-sm2{{$arsip->id}}"><button class="hapus-btn"><i class="bi bi-trash"></i></button></a>
+
+            <div class="modal fade bd-example-modal-sm2{{$arsip->id}}" id="modal2" tabindex="-1" role="dialog" aria-hidden="true">
                 <div class="modal-dialog ">
                     <div class="modal-content">
                         <div class="modal-header">

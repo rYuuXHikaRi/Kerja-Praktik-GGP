@@ -15,6 +15,11 @@
         <div class="search-box">
           <input type="text" class="search-input" placeholder= " Search..." >
         </div>
+        @if (session('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
+        @endif
 
         <table>
             <thead>

@@ -6,6 +6,11 @@
     <form method="POST"  action="{{ route('arsip.update' ,$arsip->id) }}" enctype="multipart/form-data">
       @csrf
       @method('PUT')
+      @if (session('success'))
+          <div class="alert alert-success">
+              {{ session('success') }}
+          </div>
+      @endif
         <div class="card mt-5" style="padding: 10px;border-radius: 10px">
             <div class="panel-body">
                 <div class="control-group after-add-more">
