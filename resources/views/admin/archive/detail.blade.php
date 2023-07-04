@@ -24,10 +24,32 @@
 <a role="button"  class="delete-button" data-bs-toggle="modal" data-bs-target=".bd-example-modal-sm{{$arsip->id}}">
   <button class="plus-btn" ><i class="bi bi-plus"></i> Tambah Dokumen</button>
 </a>
+<div class="modal fade bd-example-modal-sm{{$arsip->id}}" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog ">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title"><strong>Tambah Data</strong></h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">Tambah Dokumen</div>
+      <div class="modal-footer" style="left:0px;">
+        <form form action="{{ route('add.arsip',$arsip->id) }}" method="POST" enctype="multipart/form-data" style="width: 80vh;">
+          @csrf
+          @method('POST')
+          <input type='file' name='NamaFile[]' multiple>
+          <div style="display: flex; flex-direction: row;justify-content: space-between; ">
+              <input type="submit" class="btn btn-primary" name="" id="" value="Simpan" style="width: 10vh;margin-top:5vh;">
+              <button type="button"class="btn btn-danger"  data-bs-dismiss="modal" style="width: 10vh; margin-left: 12vh;margin-top:5vh;margin-right:10vh;">Tidak</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
 
 
 <!-- MODALS -->
-<div class="modal fade bd-example-modal-sm{{$arsip->id}}" tabindex="-1" role="dialog" aria-hidden="true">
+{{-- <div class="modal fade bd-example-modal-sm{{$arsip->id}}" tabindex="-1" role="dialog" aria-hidden="true">
   <div class="modal-dialog ">
       <div class="modal-content">
           <div class="modal-header">
@@ -37,7 +59,7 @@
           </div>
           <div class="modal-body">Tambah Dokumen</div>
           <div class="modal-footer" style="left:0px;">
-            <form form action=" {{ route('user.store') }}" method="POST" enctype="multipart/form-data">
+            <form form action=" {{ route('add.arsip',$arsip->id) }}" method="POST" enctype="multipart/form-data">
               @csrf
               @method('POST')
               <div style="display: flex;flex-direction:row">
@@ -49,7 +71,7 @@
           </div>
       </div>
   </div>
-</div>
+</div> --}}
 
 <table>
   <thead>

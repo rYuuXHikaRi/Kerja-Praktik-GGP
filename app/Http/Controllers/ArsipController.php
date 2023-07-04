@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Response;
 
@@ -72,6 +73,7 @@ class ArsipController extends Controller
         ]);
         // $file->move(public_path($location), $filename);
         // redirect()->back()->with("Berhasil cuy");
+        Session::flash('success', 'Data Arsip Berhasil Ditambahkan');
         return view('admin.archive.create');
     }
 
@@ -185,8 +187,28 @@ class ArsipController extends Controller
     }  
 
     public function addFile(request $request,$id){
-        
 
+
+        $arsip=Arsip::where('id',$id)->first();
+        $folderPath = storage_path('app/private/'.$arsip->NamaDokumen."-".$arsip->LokasiPenyimpanan);
+        $folderName = $arsip->NamaDokumen."-".$arsip->LokasiPenyimpanan;
+
+
+
+        if ($request->has('NamaFile')){
+            if (!file_exists($folderPath)) {
+                mkdir($folderPath, 0777, true);
+                $arsip->NamaFile ='private/'.$folderName;
+                $arsip->save();
+            }
+            
+            $files = $request->file('NamaFile');
+            foreach ($files as $file) {
+                $fileName = $file->getClientOriginalName();
+                Storage::putFileAs('private/' . $folderName, $file, $fileName);
+            }
+        }
+        
     }
 
     

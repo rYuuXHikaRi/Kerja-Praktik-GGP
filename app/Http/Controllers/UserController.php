@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Validation\ValidationException;
 
@@ -62,9 +63,9 @@ class UserController extends Controller
             'Roles' => $request->Roles
         ]);
 
-        $users = User::all();
         $file->move(public_path($location), $filename);
-        return view('admin.user.index',compact('users'));
+        Session::flash('success', 'Data User Berhasil Ditambahkan');
+        return view('admin.user.create');
     }
 
 
@@ -106,9 +107,8 @@ class UserController extends Controller
         
 
         $user->save();
-
-        $users=User::all();
-        return view('admin.user.index',compact('users'));
+        Session::flash('success', 'Data User Berhasil DiUbah');
+        return redirect()->back();
 
     }
     public function destroy($id)
@@ -116,8 +116,11 @@ class UserController extends Controller
         $data = User::where('id', $id)->first();
         $data->delete();
 
+
+
+        Session::flash('success', 'Data User Berhasil DiHapus');
         $users=User::all();
-        return view('admin.user.index',compact('users'));
+        return redirect()->back();
     }
 
 }

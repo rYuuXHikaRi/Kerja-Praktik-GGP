@@ -21,6 +21,11 @@
           </tr>
         </thead>
         <tbody>
+          @if (session('success'))
+              <div class="alert alert-success">
+                  {{ session('success') }}
+              </div>
+          @endif
           @foreach ($users as $user)
           <tr>
               <td>{{ $user->id }}</td>

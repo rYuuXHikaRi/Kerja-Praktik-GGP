@@ -9,6 +9,11 @@
         <form action=" {{ route('user.update',$user->id) }}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('PUT')
+            @if (session('success'))
+                <div class="alert alert-success">
+                    {{ session('success') }}
+                </div>
+            @endif
           <div class="control-group after-add-more">
             <label>Nama</label>
             <input type="text" name="NamaLengkap" class="form-control" value="{{ $user->NamaLengkap }}" placeholder="{{ $user->NamaLengkap }}">

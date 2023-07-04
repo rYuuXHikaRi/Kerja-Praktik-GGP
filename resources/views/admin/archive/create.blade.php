@@ -17,9 +17,16 @@
         @error('NamaDokumen')
         <div class="alert alert-danger">{{ $message }}</div>
         @enderror
+
+        @if (session('success'))
+            <div class="alert alert-success">
+                {{ session('success') }}
+            </div>
+        @endif
           <div class="control-group after-add-more">
               <h5>Tambah Dokumen</h5>
               <hr>
+              
               <label for="namadokumen" class="nama-dokumen">Nama Dokumen</label>
               <input id="namadokumen"  name='NamaDokumen' type="text" value="{{ old('NamaDokumen') }}" required><br>
               <br>

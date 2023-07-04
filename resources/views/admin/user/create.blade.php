@@ -12,6 +12,11 @@
             @error('UserName')
             <div class="alert alert-danger">{{ $message }}</div>
             @enderror
+            @if (session('success'))
+                <div class="alert alert-success">
+                    {{ session('success') }}
+                </div>
+            @endif
           <div class="control-group after-add-more">
             <label>Nama</label>
             <input type="text" name="NamaLengkap" class="form-control" required>
