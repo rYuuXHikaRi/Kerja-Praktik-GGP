@@ -19,9 +19,9 @@
 <table>
   <thead>
     <tr>
-      <th>No</th>
+      <th style="width:5vh ">No</th>
       <th>Nama</th>
-      <th>Opsi</th>
+      <th style="width: 20vh">Opsi</th>
     </tr>
   </thead>
   <tbody>

@@ -19,13 +19,13 @@
         <table>
             <thead>
               <tr>
-                <th>No</th>
+                <th style="width: 5vh">No</th>
                 <th>Nama</th>
                 <th>Tahun</th>
                 <th>Desa</th>
                 <th>Lokasi Penyimpanan</th>
                 <th>Keterangan</th>
-                <th>Opsi</th>
+                <th style="width: 30vh">Opsi</th>
               </tr>
             </thead>
 
