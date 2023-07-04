@@ -21,6 +21,16 @@
                 @csrf
                 @method('PUT')
                 
+                @error('Password')
+                <div class="alert alert-danger">{{ $message }}</div>
+                @enderror
+        
+                @if (session('success'))
+                    <div class="alert alert-success">
+                        {{ session('success') }}
+                    </div>
+                @endif
+                
                   <label for="name">Nama:</label>
                   <input class="mb-3" name="NamaLengkap" class="form-control" value="{{ $user->NamaLengkap }}" placeholder="{{ $user->NamaLengkap }}" required>
 
@@ -38,7 +48,7 @@
 
                   <label for="foto-input" class="btn">Ganti Foto</label>
                   <input type="file" id="foto-input" name='Foto' accept='image/*' style="display: none;">
-                  
+
                   <div class="button-container">
                     <button type="submit">Simpan</button>
                   </div>
