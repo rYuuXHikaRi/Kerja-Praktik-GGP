@@ -1,41 +1,49 @@
 @extends('layouts.App')
 @section('container')
 <link rel="stylesheet" type="text/css" href="/css/style.css">
-  
-  <div class="card mt-3" style="margin-left: 15%;padding: 10px;border-radius: 10px">
-    <div class="profile-container">
-        <div class="profile-image">
-          <img src="img/profil.jpeg" alt="Foto Profil" width="200px;"><br>
-          <form enctype="multipart/form-data">
-            <label>Ganti Foto</label><br>
-              <input input type='file' name='foto' accept='image/*'>
-          </form>
-        </div>
-        <div class="profile-form">
-          <form action="proses.php" method="POST">
-            <div class="control-group after-add-more">
-              <label>Nama</label>
-              <input type="text" name="nama[]" class="form-control">
-              <label>Username</label>
-              <input type="text" name="username[]" class="form-control">
-              <label>Nomor HP</label>
-              <input type="text" name="nohp[]" class="form-control">
-              <label>Role</label>
-              <input type="text" name="psswrd[]" class="form-control">
-              <label>Password Lama</label>
-              <input type="text" name="psswrd[]" class="form-control">
-              <label>Password Baru</label>
-              <input type="text" name="psswrd[]" class="form-control">
+<!DOCTYPE html>
+<html>
+<head>
+<div class="card mt-5" style="padding: 10px;border-radius: 10px">
+  <div class="panel-body">
+      <div class="control-group after-add-more">
+        <h5>Profile</h5>
+        <hr>
+          <div class="profile">
+            <div class="profile-image">
+              <img src="img/profil.jpeg" alt="Foto Profil" style="width: 20vh">
+              <br>
+              <br>
+              <label for="foto-input" class="btn">Ganti Foto</label>
+              <input type="file" id="foto-input" name="foto" accept="image/*" style="display: none;">
             </div>
-          </form>
+            <div class="profile-form">
+              <form>
+    
+                  <label for="name">Nama:</label>
+                  <input class="mb-3"type="text" id="name" name="name">
 
-          <div class="submit-button">
-            <button type="submit" style="margin-top: 20px;margin-left:500px;background-color: blue;">Submit</button>
+                  <label for="username">Username:</label>
+                  <input class="mb-3"type="username" id="username" name="username">
+
+                  <label for="phone">Nomor Telepon:</label>
+                  <input class="mb-3"type="text" id="phone" name="phone">
+
+                  <label for="PasswordLama">Password Lama:</label>
+                  <input class="mb-3"type="PasswordLama" id="PasswordLama" name="PasswordLama">
+
+                  <label for="PasswordBaru">Password Baru:</label>
+                  <input class="mb-3"type="PasswordBaru" id="PasswordBaru" name="PasswordBaru">
+              </form>
+            </div>
           </div>
-        </div>
-        </div>
+          <div class="button-container">
+            <button type="submit">Simpan</button>
+          </div>
+        <br>
+        <hr>
       </div>
-      
 </div>
+
 
 @endsection
