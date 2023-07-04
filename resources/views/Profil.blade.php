@@ -14,10 +14,10 @@
             @method('PUT')
             <div class="control-group after-add-more">
               <h5>Data Diri</h5>
-              <label>Nama Lengkap</label>
-              <input type="text" name="NamaLengkap" class="form-control" value="{{ $user->NamaLengkap }}" placeholder="{{ $user->NamaLengkap }}" readonly>
               <label>Username</label>
-              <input type="text" name="UserName" class="form-control" value="{{ $user->UserName }}" placeholder="{{ $user->UserName }}" required>
+              <input type="text" name="UserName" class="form-control" value="{{ $user->UserName }}" placeholder="{{ $user->UserName }}" readonly>
+              <label>Nama Lengkap</label>
+              <input type="text" name="NamaLengkap" class="form-control" value="{{ $user->NamaLengkap }}" placeholder="{{ $user->NamaLengkap }}" required>
               <label>Nomor HP</label>
               <input type="text" name="NomorHp" class="form-control" value="{{ $user->NomorHp }}" placeholder="{{ $user->NomorHp }}">
               <label>Password Lama</label>
