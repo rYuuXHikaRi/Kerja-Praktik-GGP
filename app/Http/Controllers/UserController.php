@@ -4,12 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 use App\Http\Requests\UserRequest;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Validation\ValidationException;
 
 class UserController extends Controller
 {
@@ -37,7 +39,14 @@ class UserController extends Controller
         $validatedData = $request->validate([
             
             'Foto' => 'required|mimes:jpeg,png,jpg,gif|max:5120 ',
+            'UserName' => [
+                'required',
+                Rule::unique('users')->where(function ($query) use ($request) {
+                    return $query->where('UserName', $request->UserName);
+                }),
+            ],
         ]);
+        
         $file = $validatedData[('Foto')];
         $filename =  $file->getClientOriginalName();
         // File upload location

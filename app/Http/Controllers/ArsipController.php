@@ -6,6 +6,7 @@ use App\Models\User;
 use App\Models\Arsip;
 use App\Models\History;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
@@ -36,19 +37,37 @@ class ArsipController extends Controller
         Storage::makeDirectory('private/' . $folderName);
 
         // Menyimpan multiple file dalam folder tersebut
-        $files = $request->file('NamaFile');
-        foreach ($files as $file) {
-            $fileName = $file->getClientOriginalName();
-            Storage::putFileAs('private/' . $folderName, $file, $fileName);
+
+        if ($request->has('NamaFile')){
+            $files = $request->file('NamaFile');
+            foreach ($files as $file) {
+                $fileName = $file->getClientOriginalName();
+                Storage::putFileAs('private/' . $folderName, $file, $fileName);
+                $folderdirectory='private/'.$folderName;
+     
+            }
         }
-        $folderdirectory='private/'.$folderName;
+        else{
+            $folderdirectory=NULL;
+        }
+
+        $validatedData = $request->validate([
+            'NamaDokumen' => [
+                'required',
+                Rule::unique('arsips')->where(function ($query) use ($request) {
+                    return $query->where('NamaDokumen', $request->NamaDokumen);
+                }),
+            ],
+        ]);
+  
         Arsip::create([
             'NamaDokumen' => $request->NamaDokumen,
             'Keterangan' => $request->Keterangan,
             'NamaDesa' =>$request->NamaDesa,
             'Tahun' => $request->Tahun,
             'LokasiPenyimpanan' => $request->LokasiPenyimpanan,
-            'NamaFile'=> $folderdirectory
+            'NamaFile'=>$folderdirectory
+
          
         ]);
         // $file->move(public_path($location), $filename);
@@ -163,9 +182,6 @@ class ArsipController extends Controller
         // Lakukan operasi lain setelah menghapus file
     
         return redirect()->back()->with('success', 'File berhasil dihapus.');
-
-    }
-
-   
+    }  
 }
 
