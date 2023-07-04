@@ -7,9 +7,9 @@
 
     
     <ul class="p-2">
-      <li class="menu-item" href="/Dashboard">
-        <a href="/Dashboard">
-          <a class="Icon Dashboard" href="/Dashboard"> <!-- SVG Code Here --> </a>
+      <li class="menu-item" href="{{ route('ShowCountDashboard') }}">
+        <a href="{{ route('ShowCountDashboard') }}">
+          <a class="Icon Dashboard" href="{{ route('ShowCountDashboard') }}"> <!-- SVG Code Here --> </a>
         </a>
       </li>
       <li class="menu-item" href="{{ route('arsip.index') }}">
@@ -59,8 +59,8 @@
     </button>
   </div>
   <div class="corner-text" style="justify-content: center; ">
-        <a href="/Profile" style="text-decoration: none; color: inherit; font-size: 12px;"> Administrator | </a>
-        <a href="/Profile">
+        <a href="{{ route('ShowProfile') }}" style="text-decoration: none; color: inherit; font-size: 12px;"> Administrator | </a>
+        <a href="{{ route('ShowProfile') }}">
           <img src="https://demos.wrappixel.com/free-admin-templates/bootstrap/ample-bootstrap-free/html/plugins/images/users/varun.jpg" alt="admin" width="36" class="img-circle">
         </a>
   </div>
