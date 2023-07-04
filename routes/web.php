@@ -20,12 +20,14 @@ Route::get('/', function () {
     return view('Login'); // Change to login again
 });
 
-Route::get('/Dashboard', function () {
-    return view('Dashboard');
-});
+// Route::get('/Dashboard', function () {
+//     return view('Dashboard');
+// });
+
 
 Route::resource('user', UserController::class);
 Route::get('/showuser', [UserController::class, 'showuser'])->name('showuser');
+Route::get('/Dashboard', [UserController::class, 'showCountDashboard'])->name('ShowCountDashboard');
 // Route::get('/user', [UserController::class, 'index'])->name('IndexUser');
 // Route::get('/tambah-user', [UserController::class, 'create'])->name('CreateUser');
 // Route::post('/store-user',[UserController::class,'store'])->name('StoreUser');

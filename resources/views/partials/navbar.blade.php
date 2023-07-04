@@ -7,9 +7,9 @@
 
     
     <ul class="p-2">
-      <li class="menu-item" href="/Dashboard">
-        <a href="/Dashboard">
-          <a class="Icon Dashboard" href="/Dashboard"> <!-- SVG Code Here --> </a>
+      <li class="menu-item" href="{{ 'ShowCountDashboard' }}">
+        <a href="{{ 'ShowCountDashboard' }}">
+          <a class="Icon Dashboard" href="{{ 'ShowCountDashboard' }}"> <!-- SVG Code Here --> </a>
         </a>
       </li>
       <li class="menu-item" href="{{ route('arsip.index') }}">

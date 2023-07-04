@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\UserRequest;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+use App\Models\Arsip;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
@@ -110,6 +111,13 @@ class UserController extends Controller
         $users=User::all();
         return view('admin.user.index',compact('users'));
     }
+    public function ShowCountDashboard(){
 
+        $JumlahAdmin = User::where('Roles' , 1)->count();
+        $JumlahUser = User::where('Roles' , 2)->count();
+        $TotalArsips = Arsip::count();;
+
+        return view('Dashboard',compact('JumlahAdmin','JumlahUser','TotalArsips'));
+    }
 }
 
