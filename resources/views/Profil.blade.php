@@ -1,6 +1,7 @@
 @extends('layouts.App')
 
 @section('container')
+{{-- <link rel="stylesheet" type="text/css" href="/css/style.css"> --}}
 
 <div class="card" style="border-radius: 10px;">
       <div class="card-header">
@@ -46,5 +47,6 @@
       </div>
       <!-- /.card-body -->
 </div>
+
 
 @endsection
