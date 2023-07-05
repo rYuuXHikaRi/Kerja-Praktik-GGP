@@ -182,6 +182,7 @@ class UserController extends Controller
         }
         $user->save();
         $user=User::where('id',6)->first();
+        Session::flash('success', 'Profile Berhasil Di Ubah');
         return view('Profil',compact('user'));
     }
 
