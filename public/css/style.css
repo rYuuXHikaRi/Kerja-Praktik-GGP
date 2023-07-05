@@ -39,7 +39,6 @@
 }
   li {
     list-style: none;
-    margin: 20px 0 20px 0;
   }
 
   a {
@@ -220,36 +219,14 @@ font-size: 18px;}
         color: black; 
         font-size: 18px;
       }
-
-      table {
-        border-collapse: collapse;
-        width: 100%;
-      }
-      
-      th, td {
-        border: 1px solid black;
-        padding: 8px;
-      }
-      
-      th {
-        background-color: #f2f2f2;
-      }
-      
-      tr:nth-child(even) {
-        background-color: #f9f9f9;
-      }
       
       .edit-btn {
-        background-color: blue;
         color: white;
-        padding: 8px 16px;
         border: none;
         cursor: pointer;
       }
       .delete-btn {
-        background-color: rgb(255, 0, 0);
         color: white;
-        padding: 8px 16px;
         border: none;
         cursor: pointer;
       }
@@ -286,19 +263,19 @@ font-size: 18px;}
         border-bottom-right-radius: 5px;
       }
       
-      .folder{
-        border: solid 1px #111010; 
+      .folder{ 
         background: #ffffff; 
         padding: 15px; 
         -moz-border-radius: 15px; 
         -khtml-border-radius: 15px; 
         -webkit-border-radius: 15px; 
-        border-radius: 15px; 
+        border-radius: 10px; 
         margin: 0; 
         text-align: left; 
         line-height: 23px; 
         color: black; 
         font-size: 18px;
+        margin-bottom: 20px;
       }
 
         .Folder{
@@ -383,12 +360,14 @@ font-size: 18px;}
                 border-radius: 15px;
               }
               .lihat-btn {
-                background-color: rgb(47, 0, 255);
+                background-color: #4CAF50;
                 color: white;
-                padding: 8px 16px;
                 border: none;
                 cursor: pointer;
-                border-radius: 15px;
+
+                width: 30px;
+                height: 30px;
+                border-radius: 10px;
               }
 
               .ubah-btn {
@@ -400,12 +379,15 @@ font-size: 18px;}
                 border-radius: 15px;
               }
               .hapus-btn {
-                background-color: rgb(255, 0, 0);
+                background-color: #FBA919;
                 color: white;
-                padding: 8px 16px;
                 border: none;
                 cursor: pointer;
-                border-radius: 15px;}
+
+                width: 30px;
+                height: 30px;
+                border-radius: 10px;
+              }
 
                 .plus-btn {
                   float: right;
@@ -469,4 +451,48 @@ font-size: 18px;}
                 }
 body{
   background: #F0E5E5;
+}
+
+table {
+  font-size: 13.5px;
+}
+thead {
+  background-color: #A6D17A;
+}
+
+tbody{
+  background-color: #e1fcc5;
+}
+
+.col-sm-12.col-md-6 > .dataTables_filter {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.buttons-colvis {
+  background-color: #A6D17A;
+  border-color: transparent;
+}
+
+.buttons-colvis:hover {
+  background-color: #8bb362;
+  border-color: transparent;
+}
+
+.dropdown-item.active {
+  background-color: #A6D17A;
+}
+
+.dropdown-item:active {
+  background-color: #8bb362;
+}
+
+.page-item.active .page-link {
+  background-color: #A6D17A;
+  border-color: transparent;
+}
+
+.page-item.active:hover .page-link:hover {
+  background-color: #8bb362;
+  border-color: transparent;
 }
