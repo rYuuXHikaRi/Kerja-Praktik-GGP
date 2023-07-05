@@ -55,7 +55,7 @@
                 <button href="/Dashboard" class="btn btn-danger" style="margin-left: 100px;">Batal</button>
                     
                     <!-- Model Popup starts -->
-                    <div  class="content-primary" data-toggle="modal" data-target="#ignismyModal">
+                    {{-- <div  class="content-primary" data-toggle="modal" data-target="#ignismyModal">
                       <div class="row">
                         <div class="modal" id="ignismyModal" role="dialog">
                           <div class="modal-dialog">
@@ -75,7 +75,7 @@
                           </div>
                         </div>
                       </div>
-                    </div>
+                    </div> --}}
                     <!-- Model Popup ends -->
               </div>
           </div>
