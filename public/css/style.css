@@ -118,10 +118,6 @@ border-radius: 10px;
   padding-right: 2rem;
 
 }
-.btn{
-  position: absolute;
-  z-index:4;
-}
 .tambah{
   border: 10%
 }
@@ -485,7 +481,14 @@ body{
   font-weight:200;
 }
 
-.save-btn {
+.submit-btn-no {
+  background-color: #FBA919;
+  color: white; 
+  font-size: 10px; 
+  font-weight:200;
+}
+
+.submit-btn {
   width: 13vh;
   font-size: small;
 }
