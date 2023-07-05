@@ -13,8 +13,6 @@
               <img src="{{ asset('assets/images/' . $user->Foto) }}" alt="Foto Profil" style="width: 20vh">
               <br>
               <br>
-              <label for="foto-input" class="btn" style="background-color: #4CAF50;width:15vh;color: white;">Ganti Foto</label>
-              <input type="file" id="foto-input" name="foto" accept="image/*" >
             </div>
             <div class="profile-form">
               <form action="{{ route('EditProfile',$user->id) }}"  method="POST" enctype="multipart/form-data">
@@ -46,8 +44,8 @@
                   <input class="mb-3"type="PasswordBaru" id="PasswordBaru" name="PasswordBaru" class="form-control">
                   <br><br><br><br><br><br><br><br><br><br><br>
 
-                  <label for="foto-input" class="btn">Ganti Foto</label>
-                  <input type="file" id="foto-input" name='Foto' accept='image/*' style="display: none;">
+                  <label for="foto-input" class="btn" style="background-color: #4CAF50;width:15vh;color: white;">Ganti Foto</label>
+                  <input type="file" id="foto-input" name="foto" accept="image/*" >
 
                   <div class="button-container">
                     <button type="submit">Simpan</button>
