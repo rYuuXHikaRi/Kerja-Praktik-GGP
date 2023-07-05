@@ -13,8 +13,8 @@
               <img src="img/profil.jpeg" alt="Foto Profil" style="width: 20vh">
               <br>
               <br>
-              <label for="foto-input" class="btn">Ganti Foto</label>
-              <input type="file" id="foto-input" name="foto" accept="image/*" style="display: none;">
+              <label for="foto-input" class="btn" style="background-color: #4CAF50;width:15vh;color: white;">Ganti Foto</label>
+              <input type="file" id="foto-input" name="foto" accept="image/*" >
             </div>
             <div class="profile-form">
               <form>
