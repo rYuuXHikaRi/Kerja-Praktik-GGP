@@ -92,7 +92,6 @@ for (var i = 0; i < svgSelector.length; i++) {
     }
 }
 
-
 var links = document.getElementsByClassName('menu-item');
 // Iterasi melalui setiap elemen <a> dan menentukan apakah alamat URL saat ini cocok dengan atribut href
 for (var i = 0; i < links.length; i++) {    

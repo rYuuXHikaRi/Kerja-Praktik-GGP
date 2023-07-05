@@ -32,7 +32,7 @@
                 <option value="2">User</option>
               </select> <br>
               <label>Foto</label>
-            <input input type='file' name='Foto' accept='image/*'>
+            <input input type='file' name='Foto' accept='image/*' required>
             <br>
             <hr>
 

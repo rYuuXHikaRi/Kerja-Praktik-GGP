@@ -110,7 +110,7 @@ class ArsipController extends Controller
             $arsip->NamaFile = $filename;
         }
         $arsip->save();
-
+        Session::flash('success', 'Data Arsip Berhasil DiUbah');
         $arsips=Arsip::all();
         return view('admin.archive.index',compact('arsips'));
 
@@ -121,6 +121,7 @@ class ArsipController extends Controller
     {
         $data = Arsip::where('id', $id)->first();
         $data->delete();
+        Session::flash('success', 'Data Arsip Berhasil Dihapus');
 
         $arsips=Arsip::all();
         return view('admin.archive.index',compact('arsips'));
@@ -182,7 +183,7 @@ class ArsipController extends Controller
         }
     
         // Lakukan operasi lain setelah menghapus file
-    
+        Session::flash('success', 'File Berhasil Dihapus');
         return redirect()->back()->with('success', 'File berhasil dihapus.');
     }  
 
@@ -208,6 +209,8 @@ class ArsipController extends Controller
                 Storage::putFileAs('private/' . $folderName, $file, $fileName);
             }
         }
+        Session::flash('successdelete', 'File Berhasil Ditambahkan');
+        return redirect()->back();
         
     }
 

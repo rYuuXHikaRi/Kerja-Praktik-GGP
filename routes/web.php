@@ -1,10 +1,12 @@
 <?php
 
+use App\Models\Arsip;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ArsipController;
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\HistoryController;
-use App\Models\Arsip;
+use App\Http\Controllers\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,7 +22,10 @@ use App\Models\Arsip;
 Route::get('/', function () {
     return view('Login'); // Change to login again
 });
+Route::get('/login', [LoginController::class, 'index'])->name('login');
+Route::post('/login', [LoginController::class, 'authenticate'])->name('auth');
 
+Route::post('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
 
 Route::resource('user', UserController::class);
@@ -75,9 +80,9 @@ return view('LihatDokumen');
 //     return view('Login');
 // });
 
-// Route::get('/Profil', function () {
-//     return view('Profil');
-// });
+Route::get('/Profil', function () {
+return view('Profil');
+ });
 
 Route::get('/RiwayatUnduhan', function () {
     return view('RiwayatUnduhan');
