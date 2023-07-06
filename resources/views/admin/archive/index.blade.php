@@ -48,7 +48,7 @@
                   </a>
                   
                   <div class="modal fade bd-example-modal-sm{{$arsip->id}}" tabindex="-1" role="dialog" aria-hidden="true">
-                    <div class="modal-dialog ">
+                    <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
                                 <h5 class="modal-title"><strong>Hapus Data</strong></h5>
@@ -56,12 +56,12 @@
                                 </button>
                             </div>
                             <div class="modal-body">Apakah anda yakin ingin menghapus data?</div>
-                            <div class="modal-footer" style="left:0px;">
+                            <div class="modal-footer" style="left:0px; height: 80px;">
                               <form action="{{route('arsip.destroy', $arsip->id)}}" method="POST">
                                 @method('DELETE')
                                 @csrf
-                                <input type="submit" class="btn btn-danger" name="" id="" value="Hapus" style="left:5%;width:20%;">
-                                <button type="button" class="btn btn-primary" data-bs-dismiss="modal" style="left:30%;width:20%;">Tidak</button>
+                                <button type="button" class=" btn submit-btn submit-btn-yes" data-bs-dismiss="modal" style="left:30%;width:20%;">Tidak</button>
+                                <input type="submit" class=" btn submit-btn submit-btn-no" name="" id="" value="Hapus" style="left:5%;width:20%;">
                               </form>
                             </div>
                         </div>
