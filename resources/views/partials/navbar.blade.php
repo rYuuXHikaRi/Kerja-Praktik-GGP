@@ -89,7 +89,7 @@
   <div class="corner-text" style="justify-content: center; ">
         <a href="{{ route('ShowProfile') }}" style="text-decoration: none; color: inherit; font-size: 12px;"> Administrator | </a>
         <a href="{{ route('ShowProfile') }}">
-          <img src="/img/profil.jpeg" alt="admin" width="36" class="img-circle">
+          <img src="{{ asset('assets/images/'.auth()->user()->Foto) }}" alt="admin" width="36" class="img-circle">
         </a>
   </div>
 </nav>
