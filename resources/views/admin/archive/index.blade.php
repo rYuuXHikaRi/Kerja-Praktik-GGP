@@ -82,8 +82,11 @@
                               
                                 @method('DELETE')
                                 @csrf
-                                <button type="button" class=" btn submit-btn submit-btn-yes" data-bs-dismiss="modal" style="left:30%;width:20%;">Tidak</button>
-                                <input type="submit" class=" btn submit-btn submit-btn-no" name="" id="" value="Hapus" style="left:5%;width:20%;">
+                                <div style="display: flex; justify-content: space-between;">
+                                  <button type="button" class="btn submit-btn submit-btn-yes" data-bs-dismiss="modal" style="width: 49%;">Tidak</button>
+                                  <input type="submit" class="btn submit-btn submit-btn-no" name="" id="" value="Hapus" style="width: 49%;">
+                              </div>
+                              
                               </form>
                             </div>
                         </div>

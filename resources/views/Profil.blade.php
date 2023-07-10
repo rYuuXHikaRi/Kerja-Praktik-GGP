@@ -10,7 +10,12 @@
       <!-- /.card-header -->
       <div class="card-body" style="height: 350px;">
         <div class="profile">
+          @if (auth()->user()->Roles==1)
+          <form action="{{ route('adminEditProfile',$user->id) }}"  method="POST" enctype="multipart/form-data">
+              
+          @elseif (auth()->user()->Roles==2)
           <form action="{{ route('EditProfile',$user->id) }}"  method="POST" enctype="multipart/form-data">
+          @endif
             @csrf
             @method('PUT')
             

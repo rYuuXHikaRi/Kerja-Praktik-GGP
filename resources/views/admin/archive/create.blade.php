@@ -56,8 +56,8 @@
               <br>
               <hr>
               <div>
-                <button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#ignismyModal">Simpan</button>
-                <button href="/Dashboard" class="btn btn-danger" style="margin-left: 100px;">Batal</button>
+                <button type="submit" class="btn submit-btn submit-btn-yes" data-toggle="modal" data-target="#ignismyModal">Simpan</button>
+                <button href="/Dashboard" class="btn submit-btn submit-btn-no" style="margin-left: 100px;">Batal</button>
                     
                     <!-- Model Popup starts -->
                     {{-- <div  class="content-primary" data-toggle="modal" data-target="#ignismyModal">

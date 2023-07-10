@@ -136,20 +136,20 @@ class UserController extends Controller
     public function ShowProfile()
     {
      
-        $user = User::where('id', 10)->first();
+        $user = User::where('id', auth()->user()->id)->first();
         return view('profil', compact('user'));
     }
 
     public function adminShowProfile()
     {
      
-        $user = User::where('id', 6)->first();
+        $user = User::where('id', auth()->user()->id)->first();
         return view('profil', compact('user'));
     }
 
     public function EditProfile(Request $request, $id){
 
-        $user = User::where('id',10)->first();
+        $user = User::where('id',auth()->user()->id)->first();
         $user->NamaLengkap = $request->input('NamaLengkap');
         $user->UserName = $request->input('UserName');
         $user->NomorHp = $request->input('NomorHp');
@@ -188,14 +188,14 @@ class UserController extends Controller
             $user->Foto = $filename;
         }
         $user->save();
-        $user=User::where('id',6)->first();
+        $user=User::where('id',auth()->user()->id)->first();
         Session::flash('success', 'Profile Berhasil Di Ubah');
         return view('Profil',compact('user'));
     }
 
     public function adminEditProfile(Request $request, $id){
 
-        $user = User::where('id',6)->first();
+        $user = User::where('id',auth()->user()->id)->first();
         $user->NamaLengkap = $request->input('NamaLengkap');
         $user->UserName = $request->input('UserName');
         $user->NomorHp = $request->input('NomorHp');
@@ -238,7 +238,7 @@ class UserController extends Controller
             $user->Foto = $filename;
         }
         $user->save();
-        $user=User::where('id',10)->first();
+        $user=User::where('id',auth()->user()->id)->first();
         Session::flash('success', 'Profile Berhasil Di Ubah');
         return view('Profil',compact('user'));
     }

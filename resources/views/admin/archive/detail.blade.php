@@ -65,10 +65,10 @@
                             @csrf
                             @method('POST')
                             <div style="display: flex; flex-direction: row;justify-content: space-between; ">
-                                <input type="submit" class="btn btn-primary" name="" id="" value="Simpan"
+                                <input type="submit" class="btn submit-btn submit-btn-yes" name="" id="" value="Simpan"
                                     style="width: 10vh;margin-top:5vh;">
-                                <button type="button" class="btn btn-danger" data-bs-dismiss="modal"
-                                    style="width: 10vh; margin-left: 12vh;margin-top:5vh;margin-right:10vh;">Tidak</button>
+                                <button type="button" class="btn submit-btn submit-btn-no" data-bs-dismiss="modal"
+                                    style="width: 10vh; margin-left: 2vh;margin-top:5vh;margin-right:10vh;">Tidak</button>
                             </div>
                       </div>
                     </form>
@@ -132,10 +132,10 @@
                                               
                                                   @method('DELETE')
                                                   @csrf
-                                                  <button type="button" class=" btn submit-btn submit-btn-yes"
-                                                      data-bs-dismiss="modal" style="left:30%;width:20%;">Tidak</button>
-                                                  <input type="submit" class=" btn submit-btn submit-btn-no" name="" id=""
-                                                      value="Hapus" style="left:5%;width:20%;">
+                                                  <div style="display: flex; justify-content: space-between;">
+                                                    <button type="button" class="btn submit-btn submit-btn-yes" data-bs-dismiss="modal" style="width: 49%;">Tidak</button>
+                                                    <input type="submit" class="btn submit-btn submit-btn-no" name="" id="" value="Hapus" style="width: 49%;">
+                                                </div>
                                               </form>
                                           </div>
                                       </div>
