@@ -136,7 +136,7 @@ class UserController extends Controller
     public function ShowProfile()
     {
      
-        $user = User::where('id', 6)->first();
+        $user = User::where('id', 10)->first();
         return view('profil', compact('user'));
     }
 
@@ -149,7 +149,7 @@ class UserController extends Controller
 
     public function EditProfile(Request $request, $id){
 
-        $user = User::where('id',6)->first();
+        $user = User::where('id',10)->first();
         $user->NamaLengkap = $request->input('NamaLengkap');
         $user->UserName = $request->input('UserName');
         $user->NomorHp = $request->input('NomorHp');
@@ -204,7 +204,10 @@ class UserController extends Controller
         if (Hash::check($request->input('Password_lama'), $password_lama)) {
             if ($request->input('Password_lama') === $request->input('Password')) {
                 // Password baru sama dengan password lama, tampilkan pesan error
-                return redirect()->back()->withErrors(['Password' => 'Error: Password baru tidak boleh sama dengan password lama']);
+                return redirect()->back()->withErrors([
+                    'Password' => 'Error: Password baru tidak boleh sama dengan password lama',
+                    'Password_lama' => 'Error: Password baru tidak boleh sama dengan password lama'
+                ]);
             }
             // Pembaruan password baru
             $user->Password = Hash::make($request->input('Password'));
@@ -212,6 +215,7 @@ class UserController extends Controller
             // Password lama tidak cocok, tampilkan pesan error
             return redirect()->back()->withErrors(['Password_lama' => 'Error: Password lama tidak cocok']);
         }
+        
 
 
         if ($request->hasFile('Foto')) {
@@ -234,7 +238,7 @@ class UserController extends Controller
             $user->Foto = $filename;
         }
         $user->save();
-        $user=User::where('id',6)->first();
+        $user=User::where('id',10)->first();
         Session::flash('success', 'Profile Berhasil Di Ubah');
         return view('Profil',compact('user'));
     }
