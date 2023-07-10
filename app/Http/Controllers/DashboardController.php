@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
+use App\Models\Arsip;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class DashboardController extends Controller
 {
@@ -11,7 +14,14 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        return view('Dashboard');
+        $JumlahAdmin = User::where('Roles' , 1)->count();
+        $JumlahUser = User::where('Roles' , 2)->count();
+        $TotalArsips = Arsip::count();
+        
+
+      
+
+        return view('index',compact('JumlahAdmin','JumlahUser','TotalArsips'));
     }
 
     /**

@@ -4,7 +4,12 @@
 <div class="Kelolaarsip">
     <h3 style="font: bolder;border-radius: 10px;display:flex;">Edit Arsip</h3>
 </div>
+@if (auth()->user()->Roles ==1 )
+<form method="POST" action="{{ route('archive.update' ,$arsip->id) }}" enctype="multipart/form-data">
+@elseif (auth()->user()->Roles ==2 )
 <form method="POST" action="{{ route('arsip.update' ,$arsip->id) }}" enctype="multipart/form-data">
+@endif
+
     @csrf
     @method('PUT')
     @if (session('success'))

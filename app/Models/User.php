@@ -20,10 +20,11 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'NamaLengkap','UserName','NomorHp','Foto','Roles','Password','id',
+        'NamaLengkap','UserName','NomorHp','Foto','Roles','password','id',
     ];
     
     protected $username = 'UserName';
+    
 
     
     /**
@@ -41,4 +42,9 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function hasAnyRole(...$roles)
+    {
+        return in_array($this->Roles, $roles);
+    }
 }

@@ -99,7 +99,7 @@
 
 							  	<div class="form-group">
 								  		<input id="UserName" name="UserName" type="text" class=" pl-1 mb-3"  placeholder="Nama Pengguna" required style="border-bottom: 2px solid black;" 
-										value="{{ old('UserName ') }}" autofocus required>
+										value="{{ old('UserName') }}" autofocus required>
 							  		</div>
 
 									<div class="form-group">

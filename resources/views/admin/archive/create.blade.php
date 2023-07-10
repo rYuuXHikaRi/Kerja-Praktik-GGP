@@ -10,7 +10,12 @@
   
   <link rel="stylesheet" href="/css/pup-ap.css" id="bootstrap-css">
 </div>
+  @if (auth()->user()->Roles ==1 )
+  <form method="POST"  action="{{ route('archive.store') }}" enctype="multipart/form-data">
+  @elseif (auth()->user()->Roles ==2 )
   <form method="POST"  action="{{ route('arsip.store') }}" enctype="multipart/form-data">
+  @endif
+  
     @csrf
     <div class="card mt-5" style="padding: 10px;border-radius: 10px; height: 425px;">
       <div class="panel-body">

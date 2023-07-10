@@ -4,49 +4,77 @@
   <div class="sidebar bg-white" id="sidebar">
     <h4 class="text-black" style="margin-left: 7px; margin-top: 7px;"><img src="/img/logo.png" alt="logo" width="45"></h4>
 
-
-    
     <ul class="p-2">
-      <li class="menu-item" href="{{ route('ShowCountDashboard') }}">
-        <a href="{{ route('ShowCountDashboard') }}">
-          <a class="Icon Dashboard" href="{{ route('ShowCountDashboard') }}"> <!-- SVG Code Here --> </a>
-        </a>
-      </li>
-      <li class="menu-item" href="{{ route('arsip.index') }}">
-        <a href="{{ route('arsip.index') }}">
-            <a class="Icon Folders" href="{{ route('arsip.index') }}"> <!-- SVG Code Here --> </a>
-        </a>
-      </li>
-      <li class="menu-item" href="{{ route('arsip.create') }}">
-        <a href="{{ route('arsip.create') }}">
-              <a class="Icon KelolaArsip" href="{{ route('arsip.create') }}"> <!-- SVG Code Here --> </a>
-        </a>
-      </li>
-      <li class="menu-item" href="{{ route('history.index') }}">
-        <a href="{{ route('history.index') }}">
-                <a class="Icon RiwayatUnduhan" href="{{ route('history.index') }}"> <!-- SVG Code Here --> </a>
-        </a>
-      </li>
-      <li class="menu-item" href="{{ route('user.index') }}">
-        <a href="{{ route('user.index') }}">
-                <a class="Icon DataPetugas" href="{{ route('user.index') }}"> <!-- SVG Code Here --> </a>
-        </a>
-      </li>
-      <li class="menu-item" href="{{ route('showuser') }}">
-        <a href="{{ route('showuser') }}">
-                  <a class="Icon DataUser" href="{{ route('showuser') }}"> <!-- SVG Code Here --> </a>
-        </a>
-      </li>
-      <li class="menu-item" href="{{ route('user.create') }}">
-        <a href="{{ route('user.create') }}">
-                    <a class="Icon TambahAkun" href="{{ route('user.create') }}"> <!-- SVG Code Here --> </a>
-        </a>
-      </li>
-      <li class="menu-item">
-        <a  href="/">
-                      <a class="Icon LogOut" href="/"> <!-- SVG Code Here --> </a>
-        </a>
-      </li>
+    @auth
+    @if (auth()->user()->Roles == 1)
+    <li class="menu-item" href="{{ route('dashboard') }}">
+      <a href="{{ route('dashboard') }}">
+        <a class="Icon Dashboard" href="{{ route('dashboard') }}"> <!-- SVG Code Here --> </a>
+      </a>
+    </li>
+    <li class="menu-item" href="{{ route('archive.index') }}">
+      <a href="{{ route('archive.index') }}">
+          <a class="Icon Folders" href="{{ route('archive.index') }}"> <!-- SVG Code Here --> </a>
+      </a>
+    </li>
+    <li class="menu-item" href="{{ route('archive.create') }}">
+      <a href="{{ route('archive.create') }}">
+            <a class="Icon KelolaArsip" href="{{ route('archive.create') }}"> <!-- SVG Code Here --> </a>
+      </a>
+    </li>
+    <li class="menu-item" href="{{ route('history.index') }}">
+      <a href="{{ route('history.index') }}">
+              <a class="Icon RiwayatUnduhan" href="{{ route('history.index') }}"> <!-- SVG Code Here --> </a>
+      </a>
+    </li>
+    <li class="menu-item" href="{{ route('user.index') }}">
+      <a href="{{ route('user.index') }}">
+              <a class="Icon DataPetugas" href="{{ route('user.index') }}"> <!-- SVG Code Here --> </a>
+      </a>
+    </li>
+    <li class="menu-item" href="{{ route('showuser') }}">
+      <a href="{{ route('showuser') }}">
+                <a class="Icon DataUser" href="{{ route('showuser') }}"> <!-- SVG Code Here --> </a>
+      </a>
+    </li>
+    <li class="menu-item" href="{{ route('user.create') }}">
+      <a href="{{ route('user.create') }}">
+                  <a class="Icon TambahAkun" href="{{ route('user.create') }}"> <!-- SVG Code Here --> </a>
+      </a>
+    </li>
+    <li class="menu-item">
+      <a  href="/">
+                    <a class="Icon LogOut" href="{{ route('logout') }}"> <!-- SVG Code Here --> </a>
+      </a>
+    </li>  
+    @elseif(auth()->user()->Roles == 2)
+    <li class="menu-item" href="{{ route('dashboard') }}">
+      <a href="{{ route('dashboard') }}">
+        <a class="Icon Dashboard" href="{{ route('dashboard') }}"> <!-- SVG Code Here --> </a>
+      </a>
+    </li>
+    <li class="menu-item" href="{{ route('arsip.index') }}">
+      <a href="{{ route('arsip.index') }}">
+          <a class="Icon Folders" href="{{ route('arsip.index') }}"> <!-- SVG Code Here --> </a>
+      </a>
+    </li>
+    <li class="menu-item" href="{{ route('arsip.create') }}">
+      <a href="{{ route('arsip.create') }}">
+            <a class="Icon KelolaArsip" href="{{ route('arsip.create') }}"> <!-- SVG Code Here --> </a>
+      </a>
+    </li>
+    <li class="menu-item">
+      <a  href="/">
+                    <a class="Icon LogOut" href="{{ route('logout') }}"> <!-- SVG Code Here --> </a>
+      </a>
+    </li>  
+    
+    @endif
+        
+    @endauth
+    
+    
+
     </ul>
   </div>
 </div >

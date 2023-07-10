@@ -24,7 +24,7 @@
       <label>Username</label>
       <input type="text" name="UserName" class="form-control" value="{{ old('UserName') }}" required>
       <label>Password</label>
-      <input type="password" name="Password" class="form-control" required>
+      <input type="password" name="password" class="form-control" required>
       <label>Nomor HP</label>
       <input type="number" name="NomorHp" class="form-control" required>
       <label>Role</label>

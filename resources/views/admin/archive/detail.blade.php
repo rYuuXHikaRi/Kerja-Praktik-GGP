@@ -49,8 +49,15 @@
                           <span aria-hidden="true">×</span>
                         </button>
                     </div>
+                    @if (auth()->user()->Roles == 1)
+                    <form action="{{ route('admin.add.arsip',$arsip->id) }}" method="POST"
+                        enctype="multipart/form-data" style="width: 80vh;">
+                        
+                    @elseif (auth()->user()->Roles == 2)
                     <form action="{{ route('add.arsip',$arsip->id) }}" method="POST"
-                            enctype="multipart/form-data" style="width: 80vh;">
+                        enctype="multipart/form-data" style="width: 80vh;">   
+                    @endif
+
                       <div class="modal-body">
                         <input type='file' name='NamaFile[]' multiple>
                       </div>
@@ -90,9 +97,17 @@
                       <td>{{ $file }}</td>
                       <td>
                           <li>
-                              <a href="{{ route('view.arsip', ['file' => $file, 'id' => $arsip->id]) }}" class="edit-button">
-                                  <button class="lihat-btn"><i class="bi bi-eye"></i></button>
-                              </a>
+                            @if (auth()->user()->Roles == 1)
+                            <a href="{{ route('admin.view.arsip', ['file' => $file, 'id' => $arsip->id]) }}" class="edit-button">
+                                <button class="lihat-btn"><i class="bi bi-eye"></i></button>
+                            </a>
+            
+                            @elseif (auth()->user()->Roles == 2)
+                            <a href="{{ route('view.arsip', ['file' => $file, 'id' => $arsip->id]) }}" class="edit-button">
+                                <button class="lihat-btn"><i class="bi bi-eye"></i></button>
+                            </a>
+                            @endif
+                   
                               <a role="button" class="delete-button" data-bs-toggle="modal"
                                   data-bs-target=".bd-example-modal-sm{{$arsip->id}}">
                                   <button class="hapus-btn bi bi-trash"></button>
@@ -109,7 +124,12 @@
                                           </div>
                                           <div class="modal-body">Apakah anda yakin ingin menghapus data?</div>
                                           <div class="modal-footer" style="left:0px; height: 80px;">
-                                              <form action="{{ route('delete.arsip', ['file' => $file, 'id' => $arsip->id]) }}" method="POST">
+                                            @if (auth()->user()->Roles ==1)
+                                            <form action="{{ route('admin.delete.arsip', ['file' => $file, 'id' => $arsip->id]) }}" method="POST">
+                                            @elseif (auth()->user()->Roles ==2)
+                                            <form action="{{ route('delete.arsip', ['file' => $file, 'id' => $arsip->id]) }}" method="POST">
+                                            @endif
+                                              
                                                   @method('DELETE')
                                                   @csrf
                                                   <button type="button" class=" btn submit-btn submit-btn-yes"

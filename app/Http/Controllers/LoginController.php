@@ -33,7 +33,7 @@ class LoginController extends Controller
           
     
  
-            return redirect()->intended('/Dashboard');
+            return redirect()->intended('/dashboard');
             
             # code...
         }
@@ -42,6 +42,12 @@ class LoginController extends Controller
         
         
         
+    }
+    public function logout()
+    {
+        Auth::logout();
+        return view('/Login');
+        // Logika lain setelah logout
     }
 
     /**

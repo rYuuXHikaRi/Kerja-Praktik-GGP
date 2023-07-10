@@ -37,12 +37,29 @@
               <td>{{ $arsip->Keterangan }}</td>
               <td>
                 <li>
+                  @if (auth()->user()->Roles ==1 )
+                  <a href="{{ route('archive.edit',$arsip->id) }}" class="edit-button">
+                    <button class="lihat-btn" ><i class="bi bi-pencil"></i></button>
+                  </a>
+
+                  <a href="{{ route('archive.show',$arsip->id) }}" class="edit-button">
+                    <button class="lihat-btn"><i class="bi bi-eye"></i></button>
+                  </a>
+
+                  @elseif (auth()->user()->Roles ==2 )
                   <a href="{{ route('arsip.edit',$arsip->id) }}" class="edit-button">
                     <button class="lihat-btn" ><i class="bi bi-pencil"></i></button>
                   </a>
+
                   <a href="{{ route('arsip.show',$arsip->id) }}" class="edit-button">
                     <button class="lihat-btn"><i class="bi bi-eye"></i></button>
                   </a>
+                  @endif
+
+
+
+
+
                   <a role="button"  class="delete-button" data-bs-toggle="modal" data-bs-target=".bd-example-modal-sm{{$arsip->id}}">
                     <button class="hapus-btn bi bi-trash" ></button>
                   </a>
@@ -57,7 +74,12 @@
                             </div>
                             <div class="modal-body">Apakah anda yakin ingin menghapus data?</div>
                             <div class="modal-footer" style="left:0px; height: 80px;">
+                              @if (auth()->user()->Roles ==1 )
+                              <form action="{{route('archive.destroy', $arsip->id)}}" method="POST"> 
+                              @elseif (auth()->user()->Roles ==2 )
                               <form action="{{route('arsip.destroy', $arsip->id)}}" method="POST">
+                              @endif
+                              
                                 @method('DELETE')
                                 @csrf
                                 <button type="button" class=" btn submit-btn submit-btn-yes" data-bs-dismiss="modal" style="left:30%;width:20%;">Tidak</button>

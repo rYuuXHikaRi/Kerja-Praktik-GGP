@@ -58,7 +58,7 @@ class UserController extends Controller
         User::create([
             'NamaLengkap' => $request->NamaLengkap,
             'UserName' => $request->UserName,
-            'Password' =>  Hash::make($request->Password),
+            'password' =>  Hash::make($request->password),
             'NomorHp' => $request->NomorHp,
             'Foto' => $filename,
             'Roles' => $request->Roles
@@ -146,7 +146,7 @@ class UserController extends Controller
         $user->NamaLengkap = $request->input('NamaLengkap');
         $user->UserName = $request->input('UserName');
         $user->NomorHp = $request->input('NomorHp');
-        $password_lama = $user->Password;
+        $password_lama = $user->password;
 
         if (Hash::check($request->input('Password_lama'), $password_lama)) {
             if ($request->input('Password_lama') === $request->input('Password')) {
