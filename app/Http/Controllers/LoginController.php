@@ -30,11 +30,12 @@ class LoginController extends Controller
         ]);
         if (Auth::attempt($credentials) ) {
             $request->session()->regenerate();
-          
-    
- 
-            return redirect()->intended('/dashboard');
-            
+            if(auth()->user()->Roles ==1 ){
+                return redirect()->intended('/dashboardadmin');
+            }
+            else{
+                return redirect()->intended('/dashboarduser');
+            }
             # code...
         }
         return back()->with('loginError','Username atau Password tidak valid!');
