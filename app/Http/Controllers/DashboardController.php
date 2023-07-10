@@ -12,15 +12,21 @@ class DashboardController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function adminindex()
     {
         $JumlahAdmin = User::where('Roles' , 1)->count();
         $JumlahUser = User::where('Roles' , 2)->count();
         $TotalArsips = Arsip::count();
         
+        return view('index',compact('JumlahAdmin','JumlahUser','TotalArsips'));
+    }
 
-      
-
+    public function userindex()
+    {
+        $JumlahAdmin = User::where('Roles' , 1)->count();
+        $JumlahUser = User::where('Roles' , 2)->count();
+        $TotalArsips = Arsip::count();
+        
         return view('index',compact('JumlahAdmin','JumlahUser','TotalArsips'));
     }
 

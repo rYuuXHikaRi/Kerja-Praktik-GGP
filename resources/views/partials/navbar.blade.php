@@ -7,9 +7,9 @@
     <ul class="p-2">
     @auth
     @if (auth()->user()->Roles == 1)
-    <li class="menu-item" href="{{ route('dashboard') }}">
-      <a href="{{ route('dashboard') }}">
-        <a class="Icon Dashboard" href="{{ route('dashboard') }}"> <!-- SVG Code Here --> </a>
+    <li class="menu-item" href="{{ route('admindashboard') }}">
+      <a href="{{ route('admindashboard') }}">
+        <a class="Icon Dashboard" href="{{ route('admindashboard') }}"> <!-- SVG Code Here --> </a>
       </a>
     </li>
     <li class="menu-item" href="{{ route('archive.index') }}">
@@ -48,9 +48,9 @@
       </a>
     </li>  
     @elseif(auth()->user()->Roles == 2)
-    <li class="menu-item" href="{{ route('dashboard') }}">
-      <a href="{{ route('dashboard') }}">
-        <a class="Icon Dashboard" href="{{ route('dashboard') }}"> <!-- SVG Code Here --> </a>
+    <li class="menu-item" href="{{ route('userdashboard') }}">
+      <a href="{{ route('userdashboard') }}">
+        <a class="Icon Dashboard" href="{{ route('userdashboard') }}"> <!-- SVG Code Here --> </a>
       </a>
     </li>
     <li class="menu-item" href="{{ route('arsip.index') }}">
@@ -87,9 +87,19 @@
     </button>
   </div>
   <div class="corner-text" style="justify-content: center; ">
-        <a href="{{ route('ShowProfile') }}" style="text-decoration: none; color: inherit; font-size: 12px;"> Administrator | </a>
-        <a href="{{ route('ShowProfile') }}">
-          <img src="{{ asset('assets/images/'.auth()->user()->Foto) }}" alt="admin" width="36" class="img-circle">
-        </a>
+    @if (auth()->user()->Roles == 1)
+    <a href="{{ route('adminShowProfile') }}" style="text-decoration: none; color: inherit; font-size: 12px;"> {{ auth()->user()->UserName }} | </a>
+    <a href="{{ route('adminShowProfile') }}">
+      <img src="{{ asset('assets/images/'.auth()->user()->Foto) }}" alt="admin" width="36" class="img-circle">
+    </a>
+        
+    @elseif (auth()->user()->Roles == 2)
+    <a href="{{ route('ShowProfile') }}" style="text-decoration: none; color: inherit; font-size: 12px;"> {{ auth()->user()->UserName }} | </a>
+    <a href="{{ route('ShowProfile') }}">
+      <img src="{{ asset('assets/images/'.auth()->user()->Foto) }}" alt="admin" width="36" class="img-circle">
+    </a>
+        
+    @endif
+
   </div>
 </nav>

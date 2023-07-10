@@ -33,12 +33,12 @@ Route::get('/', [LoginController::class, 'logout'])->name('logout');
 Route::middleware(['role:1'])->group(function () {
 
     
-    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard'); 
+    Route::get('/dashboardadmin', [DashboardController::class, 'adminindex'])->name('admindashboard'); 
     Route::resource('user', UserController::class);
     Route::get('/showuser', [UserController::class, 'showuser'])->name('showuser');
 // Route::get('/Dashboard', [UserController::class, 'showCountDashboard'])->name('ShowCountDashboard');
-    Route::put('/Profile/{id}', [UserController::class, 'EditProfile'])->name('EditProfile');
-    Route::get('/Profile', [UserController::class, 'ShowProfile'])->name('ShowProfile');
+    Route::put('/Profil/{id}', [UserController::class, 'adminEditProfile'])->name('adminEditProfile');
+    Route::get('/Profil', [UserController::class, 'adminShowProfile'])->name('adminShowProfile');
 
     Route::resource('archive', ArsipController::class);
     Route::get('/lihat-file/{file}/{id}', [ArsipController::class, 'view'])->name('admin.view.arsip');
@@ -55,7 +55,7 @@ Route::middleware(['role:1'])->group(function () {
 Route::middleware(['role:2'])->group(function () {
 
     
-
+    Route::get('/dashboarduser', [DashboardController::class, 'userindex'])->name('userdashboard'); 
 // Route::get('/Dashboard', [UserController::class, 'showCountDashboard'])->name('ShowCountDashboard');
     Route::put('/Profile/{id}', [UserController::class, 'EditProfile'])->name('EditProfile');
     Route::get('/Profile', [UserController::class, 'ShowProfile'])->name('ShowProfile');
