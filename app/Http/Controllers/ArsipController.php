@@ -6,8 +6,10 @@ use App\Models\User;
 use App\Models\Arsip;
 use App\Models\History;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Response;
 
@@ -36,23 +38,42 @@ class ArsipController extends Controller
         Storage::makeDirectory('private/' . $folderName);
 
         // Menyimpan multiple file dalam folder tersebut
-        $files = $request->file('NamaFile');
-        foreach ($files as $file) {
-            $fileName = $file->getClientOriginalName();
-            Storage::putFileAs('private/' . $folderName, $file, $fileName);
+
+        if ($request->has('NamaFile')){
+            $files = $request->file('NamaFile');
+            foreach ($files as $file) {
+                $fileName = $file->getClientOriginalName();
+                Storage::putFileAs('private/' . $folderName, $file, $fileName);
+                $folderdirectory='private/'.$folderName;
+     
+            }
         }
-        $folderdirectory='private/'.$folderName;
+        else{
+            $folderdirectory=NULL;
+        }
+
+        $validatedData = $request->validate([
+            'NamaDokumen' => [
+                'required',
+                Rule::unique('arsips')->where(function ($query) use ($request) {
+                    return $query->where('NamaDokumen', $request->NamaDokumen);
+                }),
+            ],
+        ]);
+  
         Arsip::create([
             'NamaDokumen' => $request->NamaDokumen,
             'Keterangan' => $request->Keterangan,
             'NamaDesa' =>$request->NamaDesa,
             'Tahun' => $request->Tahun,
             'LokasiPenyimpanan' => $request->LokasiPenyimpanan,
-            'NamaFile'=> $folderdirectory
+            'NamaFile'=>$folderdirectory
+
          
         ]);
         // $file->move(public_path($location), $filename);
         // redirect()->back()->with("Berhasil cuy");
+        Session::flash('success', 'Data Arsip Berhasil Ditambahkan');
         return view('admin.archive.create');
     }
 
@@ -89,7 +110,7 @@ class ArsipController extends Controller
             $arsip->NamaFile = $filename;
         }
         $arsip->save();
-
+        Session::flash('success', 'Data Arsip Berhasil DiUbah');
         $arsips=Arsip::all();
         return view('admin.archive.index',compact('arsips'));
 
@@ -100,6 +121,7 @@ class ArsipController extends Controller
     {
         $data = Arsip::where('id', $id)->first();
         $data->delete();
+        Session::flash('success', 'Data Arsip Berhasil Dihapus');
 
         $arsips=Arsip::all();
         return view('admin.archive.index',compact('arsips'));
@@ -161,11 +183,37 @@ class ArsipController extends Controller
         }
     
         // Lakukan operasi lain setelah menghapus file
-    
+        Session::flash('success', 'File Berhasil Dihapus');
         return redirect()->back()->with('success', 'File berhasil dihapus.');
+    }  
 
+    public function addFile(request $request,$id){
+
+
+        $arsip=Arsip::where('id',$id)->first();
+        $folderPath = storage_path('app/private/'.$arsip->NamaDokumen."-".$arsip->LokasiPenyimpanan);
+        $folderName = $arsip->NamaDokumen."-".$arsip->LokasiPenyimpanan;
+
+
+
+        if ($request->has('NamaFile')){
+            if (!file_exists($folderPath)) {
+                mkdir($folderPath, 0777, true);
+                $arsip->NamaFile ='private/'.$folderName;
+                $arsip->save();
+            }
+            
+            $files = $request->file('NamaFile');
+            foreach ($files as $file) {
+                $fileName = $file->getClientOriginalName();
+                Storage::putFileAs('private/' . $folderName, $file, $fileName);
+            }
+        }
+        Session::flash('successdelete', 'File Berhasil Ditambahkan');
+        return redirect()->back();
+        
     }
 
-   
+    
 }
 
