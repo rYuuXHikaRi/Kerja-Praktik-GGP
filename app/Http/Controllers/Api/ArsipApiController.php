@@ -1,18 +1,19 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
 
-use App\Models\User;
+use App\Http\Controllers\Controller;
+use App\Models\Arsip;
 use Illuminate\Http\Request;
 
-class ApiController extends Controller
+class ArsipApiController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $users = User::all();
+        $users = Arsip::all();
         return response()->json($users);
     }
 
@@ -27,7 +28,7 @@ class ApiController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(User $user)
+    public function show(Arsip $arsip)
     {
         //
     }
@@ -35,7 +36,7 @@ class ApiController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, User $user)
+    public function update(Request $request, Arsip $arsip)
     {
         //
     }
@@ -43,7 +44,7 @@ class ApiController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(User $user)
+    public function destroy(Arsip $arsip)
     {
         //
     }

@@ -3,7 +3,9 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ApiController;
+use App\Http\Controllers\Api\UserApiController;
+use App\Http\Controllers\Api\ArsipApiController;
+use App\Http\Controllers\Api\LoginApiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,4 +22,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/users', [ApiController::class, 'index']);
+Route::get('/users', [UserApiController::class, 'index']);
+Route::get('/arsips', [ArsipApiController::class, 'index']);
+Route::post('/login', [LoginApiController::class, 'login']);

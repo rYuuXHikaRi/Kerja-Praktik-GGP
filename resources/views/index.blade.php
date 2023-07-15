@@ -14,6 +14,7 @@
     <!-- /.card-header -->
     <div class="card-body">
       <div class="row" style="display: flex; flex-direction:row; justify-content:space-around;">
+        @if (auth()->user()->Roles ==1)
         <div class="col-lg-4 col-6">
           <!-- small box -->
           <div class="small-box bg-success">
@@ -56,6 +57,25 @@
             <a href="{{ route('showuser') }}" class="small-box-footer" style="color: white!important;">Lihat Daftar Staff <i class="fas fa-arrow-circle-right"></i></a>
           </div>
         </div>
+            
+        @else
+        <div class="col-lg-4 col-6">
+          <!-- small box -->
+          <div class="small-box bg-success">
+            <div class="inner">
+              <h3>{{ $TotalArsips }}<sup style="font-size: 20px;"></sup></h3>
+
+              <p>Jumlah Dokumen</p>
+            </div>
+            <div class="icon">
+              <i class="ion ion-stats-bars" style="color: white!important;"></i>
+            </div>
+            <a href="{{ route('arsip.index') }}" class="small-box-footer">Lihat Dokumen <i class="fas fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+            
+        @endif
+
       </div>
     </div>
     <!-- /.card-body -->
