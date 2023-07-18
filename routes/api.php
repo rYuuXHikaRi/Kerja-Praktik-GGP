@@ -25,3 +25,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::get('/users', [UserApiController::class, 'index']);
 Route::get('/arsips', [ArsipApiController::class, 'index']);
 Route::post('/login', [LoginApiController::class, 'login']);
+Route::get('/arsips/{id}', [ArsipApiController::class, 'show']);
+Route::post('/store', [ArsipApiController::class, 'store']);
