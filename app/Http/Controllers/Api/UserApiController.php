@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 use App\Http\Controllers\Controller;
 
 class UserApiController extends Controller
@@ -22,6 +23,21 @@ class UserApiController extends Controller
      */
     public function store(Request $request)
     {
+        $validatedData = $request->validate([
+            
+            'Foto' => 'required|mimes:jpeg,png,jpg,gif|max:5120 ',
+            'UserName' => [
+                'required',
+                Rule::unique('users')->where(function ($query) use ($request) {
+                    return $query->where('UserName', $request->UserName);
+                }),
+            ],
+        ]);
+        
+        $file = $validatedData[('Foto')];
+        $filename =  $file->getClientOriginalName();
+        // File upload location
+        $location = '../public/assets/images/';
         // Validasi request jika diperlukan
         $validatedData = $request->validate([
             'NamaLengkap' => 'required',
