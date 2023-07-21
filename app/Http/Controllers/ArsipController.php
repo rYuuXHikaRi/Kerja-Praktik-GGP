@@ -8,6 +8,7 @@ use App\Models\History;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
@@ -34,14 +35,20 @@ class ArsipController extends Controller
     public function store(Request $request)
     {
         // Membuat folder baru
+        Log::info('Received POST data:', $request->all());
         $folderName = $request->NamaDokumen."-".$request->LokasiPenyimpanan;
         Storage::makeDirectory('private/' . $folderName);
+        
+
 
         // Menyimpan multiple file dalam folder tersebut
 
         if ($request->has('NamaFile')){
             $files = $request->file('NamaFile');
+            
             foreach ($files as $file) {
+
+                
                 $fileName = $file->getClientOriginalName();
                 Storage::putFileAs('private/' . $folderName, $file, $fileName);
                 $folderdirectory='private/'.$folderName;
