@@ -26,4 +26,5 @@ Route::get('/users', [UserApiController::class, 'index']);
 Route::get('/arsips', [ArsipApiController::class, 'index']);
 Route::post('/login', [LoginApiController::class, 'login']);
 Route::get('/arsips/{id}', [ArsipApiController::class, 'show']);
-Route::post('/store', [ArsipApiController::class, 'store']);
+Route::post('/arsips/store', [ArsipApiController::class, 'store']);
+Route::post('/users/store', [UserApiController::class, 'store']);
