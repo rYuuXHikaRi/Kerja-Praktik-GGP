@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Http\Controllers\Controller;
 use App\Models\Arsip;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Storage;
 
 class ArsipApiController extends Controller
 {
@@ -23,21 +25,70 @@ class ArsipApiController extends Controller
      */
     public function store(Request $request)
     {
-       
+        Log::info('Received POST data:', $request->all());
+
+        $data = $request->only(['NamaDokumen', 'Keterangan', 'Tahun', 'NamaDesa', 'LokasiPenyimpanan','NamaFile']);
+        $createdData = Arsip::create($data);
+
+        $folderName = $request->NamaDokumen."-".$request->LokasiPenyimpanan;
+        Storage::makeDirectory('private/' . $folderName);
+
+        if ($request->hasFile('file')) {
+            $file = $request->file('file');
+
+            // Simpan file ke penyimpanan "private"
+            $path = $file->store('', 'private/' . $folderName); // Simpan di folder private dengan nama file yang di-generate otomatis
+
+            // Lakukan operasi lain yang diperlukan, misalnya menyimpan data ke database
+
+            return response()->json(['message' => 'Upload berhasil']);
+        }
+
+        // $uploadedFile = $request->file('file');
+        // $fileName = $uploadedFile->getClientOriginalName();
+
+        // $destinationPath = storage_path('app/private/'.$folderName); // You can change 'private' to your desired folder name
+
+        // // Move the file to the destination folder
+        // $uploadedFile->move($destinationPath, $fileName);
+
+
+
+
+        // if ($request->hasFile('file')) {
+        //     // foreach ($request->file('file') as $index) {
+        //     //     // Simpan file ke folder private dengan nama folder $folderName
+        //     //     $filename = $index->getClientOriginalName();
+        //     //     echo($filename);
+                
+        //     //     $index->storeAs("private/$folderName", $filename);
+        //     //     // Lakukan sesuatu dengan data file, seperti menyimpan informasi file ke database
+        //     // }
+        //     $files = $request->file('NamaFile');
+        //     foreach ($files as $file) {
+        //         $fileName = $file->getClientOriginalName();
+        //         Storage::putFileAs('private/' . $folderName, $file, $fileName);
+        //         $folderdirectory='private/'.$folderName;
+     
+        //     }
+        // }
+
+        
+
         // Validasi request jika diperlukan
-        Arsip::create([
-            'NamaDokumen' => $request->NamaDokumen,
-            'Keterangan' => $request->Keterangan,
-            'NamaDesa' =>$request->NamaDesa,
-            'Tahun' => $request->Tahun,
-            'LokasiPenyimpanan' => $request->LokasiPenyimpanan,
-            'NamaFile'=>$request->NamaFile
+        // Arsip::create([
+        //     'NamaDokumen' => $request->NamaDokumen,
+        //     'Keterangan' => $request->Keterangan,
+        //     'NamaDesa' =>$request->NamaDesa,
+        //     'Tahun' => $request->Tahun,
+        //     'LokasiPenyimpanan' => $request->LokasiPenyimpanan,
+        //     'NamaFile'=>$request->NamaFile
 
          
-        ]);
+        // ]);
 
         // Kirim respons
-        return response()->json(201);
+        //return response()->json(['message' => 'Data created successfully', 'data' => $createdData]);
         
 
     }
