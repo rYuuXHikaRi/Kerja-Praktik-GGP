@@ -36,12 +36,16 @@ class ArsipApiController extends Controller
         if ($request->hasFile('file')) {
             $file = $request->file('file');
 
-            // Simpan file ke penyimpanan "private"
-            $path = $file->store('', 'private/' . $folderName); // Simpan di folder private dengan nama file yang di-generate otomatis
+            // // Simpan file ke penyimpanan "private"
+            // $path = $file->store('', 'private/' . $folderName); // Simpan di folder private dengan nama file yang di-generate otomatis
 
-            // Lakukan operasi lain yang diperlukan, misalnya menyimpan data ke database
+            // // Lakukan operasi lain yang diperlukan, misalnya menyimpan data ke database
 
-            return response()->json(['message' => 'Upload berhasil']);
+            $fileName = $file->getClientOriginalName();
+            Storage::putFileAs('private/' . $folderName, $file, $fileName);
+            $folderdirectory='private/'.$folderName;
+
+            return response()->json(['message' => $file . 'Upload berhasil']);
         }
 
         // $uploadedFile = $request->file('file');
