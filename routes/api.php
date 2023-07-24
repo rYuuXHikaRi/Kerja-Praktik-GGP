@@ -3,6 +3,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\Api\UserApiController;
 use App\Http\Controllers\Api\ArsipApiController;
 use App\Http\Controllers\Api\LoginApiController;
@@ -27,3 +28,9 @@ Route::get('/arsips', [ArsipApiController::class, 'index']);
 Route::post('/login', [LoginApiController::class, 'login']);
 Route::get('/arsips/{id}', [ArsipApiController::class, 'show']);
 Route::post('/store', [ArsipApiController::class, 'store']);
+Route::get('/files/{folderName}', function ($folderName) {
+    $folderPath = "private/{$folderName}";
+    $files = Storage::files($folderPath);
+    
+    return response()->json($files);
+});

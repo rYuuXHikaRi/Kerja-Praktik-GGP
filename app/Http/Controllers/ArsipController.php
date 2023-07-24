@@ -93,28 +93,37 @@ class ArsipController extends Controller
 
     public function update(Request $request, $id)
     {
+        $arsip=Arsip::where('id',$request->input('id'))->first();
+        $sourceFilePath = 'private/'.$arsip->NamaDokumen."-".$arsip->LokasiPenyimpanan;
+        $destinationFolderPath ='private/'.$request->input('NamaDokumen')."-".$request->input('LokasiPenyimpanan');
+  
+
+        // Check if the source file exists before moving
+
+
         $arsip = Arsip::where('id', $id)->first();
         $arsip->NamaDokumen = $request->input('NamaDokumen');
         $arsip->Keterangan = $request->input('Keterangan');
         $arsip->NamaDesa = $request->input('NamaDesa');
         $arsip->Tahun = $request->input('Tahun');
         $arsip->LokasiPenyimpanan = $request->input('LokasiPenyimpanan');
-        $arsip->NamaFile = $request->input('NamaFile');
+        $arsip->NamaFile = $request->$destinationFolderPath;
         
+        Storage::makeDirectory('private/' . $request->input('NamaDokumen')."-".$request->input('LokasiPenyimpanan'));
 
-        if ($request->hasFile('NamaFile')) {
+  
+        if (Storage::exists($sourceFilePath)) {
 
- 
-            $validatedData = $request->validate([
-            
-                'NamaFile' => 'required|mimes:jpeg,png,jpg,gif|max:5120 ',
-            ]);
-            $file = $validatedData[('NamaFile')];
-            $filename =  $file->getClientOriginalName();
-            // File upload location
-            $location = '../public/assets/images/';
-            $file->move(public_path($location), $filename);
-            $arsip->NamaFile = $filename;
+            $filePaths = Storage::files($sourceFilePath);
+
+            // Move each file to the destination folder
+            foreach ($filePaths as $filePath) {
+                $fileName = pathinfo($filePath, PATHINFO_BASENAME);
+                Storage::move($filePath, $destinationFolderPath . '/' . $fileName);
+                Storage::deleteDirectory($sourceFilePath);
+            }
+        } else {
+            // The source file does not exist
         }
         $arsip->save();
         Session::flash('success', 'Data Arsip Berhasil DiUbah');
