@@ -22,6 +22,7 @@
         <div class="control-group after-add-more">
           <h5>Edit Dokumen</h5>
           <hr>
+          <input id="id" name="id" value="{{ $arsip->id }}" hidden>
           <label for="namadokumen" class="nama-dokumen">Nama Dokumen</label>
           <input id="namadokumen" name='NamaDokumen' type="text" value="{{ $arsip->NamaDokumen }}"
               placeholder="{{ $arsip->NamaDokumen }}"><br>
