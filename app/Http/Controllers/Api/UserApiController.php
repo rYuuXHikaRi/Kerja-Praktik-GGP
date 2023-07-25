@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Hash;
 
 class UserApiController extends Controller
 {
@@ -23,48 +24,57 @@ class UserApiController extends Controller
      */
     public function store(Request $request)
     {
-        $validatedData = $request->validate([
-            
-            'Foto' => 'required|mimes:jpeg,png,jpg,gif|max:5120 ',
-            'UserName' => [
-                'required',
-                Rule::unique('users')->where(function ($query) use ($request) {
-                    return $query->where('UserName', $request->UserName);
-                }),
-            ],
-        ]);
-        
-        $file = $validatedData[('Foto')];
-        $filename =  $file->getClientOriginalName();
-        // File upload location
-        $location = '../public/assets/images/';
-        // Validasi request jika diperlukan
-        $validatedData = $request->validate([
-            'NamaLengkap' => 'required',
-            'UserName' => 'required|unique:users',
-            'NomorHp' => 'required',
-            'Foto' => 'required',
-            'Roles' => 'required',
-            'password' => 'required|min:6',
-            'id' => 'required',
-        ]);
+        //     $validatedData = $request->validate([
 
-        // Buat data user baru
-        $user = User::create([
-            'NamaLengkap' => $validatedData['NamaLengkap'],
-            'UserName' => $validatedData['UserName'],
-            'NomorHp' => $validatedData['NomorHp'],
-            'Foto' => $validatedData['Foto'],
-            'Roles' => $validatedData['Roles'],
-            'password' => bcrypt($validatedData['password']),
-            'id' => $validatedData['id'],
-        ]);
+        //         'Foto' => 'required|mimes:jpeg,png,jpg,gif|max:5120 ',
+        //         'UserName' => [
+        //             'required',
+        //             Rule::unique('users')->where(function ($query) use ($request) {
+        //                 return $query->where('UserName', $request->UserName);
+        //             }),
+        //         ],
+        //     ]);
 
-        // Kirim respons
-        return response()->json([
-            'message' => 'User created successfully',
-            'user' => $user,
-        ], 201);
+        //     $file = $validatedData[('Foto')];
+        //     $filename =  $file->getClientOriginalName();
+        //     // File upload location
+        //     $location = '../public/assets/images/';
+        //     // Validasi request jika diperlukan
+        //     $validatedData = $request->validate([
+        //         'NamaLengkap' => 'required',
+        //         'UserName' => 'required|unique:users',
+        //         'NomorHp' => 'required',
+        //         'Foto' => 'required',
+        //         'Roles' => 'required',
+        //         'password' => 'required|min:6',
+        //         'id' => 'required',
+        //     ]);
+
+        //     // Buat data user baru
+        //     $user = User::create([
+        //         'NamaLengkap' => $validatedData['NamaLengkap'],
+        //         'UserName' => $validatedData['UserName'],
+        //         'NomorHp' => $validatedData['NomorHp'],
+        //         'Foto' => $validatedData['Foto'],
+        //         'Roles' => $validatedData['Roles'],
+        //         'password' => bcrypt($validatedData['password']),
+        //         // 'id' => $validatedData['id'],
+        //     ]);
+
+        //     // Kirim respons
+        //     return response()->json([
+        //         'message' => 'User created successfully',
+        //         'user' => $user,
+        //     ], 201);
+        User::create([
+            'NamaLengkap' => $request->NamaLengkap,
+            'UserName' => $request->UserName,
+            'password' =>  Hash::make($request->Password),
+            'NomorHp' => $request->NomorHp,
+            'Foto' => "foto",
+            'Roles' => "1"
+        ]);
+        return response()->json(201);
     }
 
     /**
@@ -72,7 +82,6 @@ class UserApiController extends Controller
      */
     public function show(User $user)
     {
-        
     }
 
     /**
@@ -83,7 +92,7 @@ class UserApiController extends Controller
         // Validasi request jika diperlukan
         $validatedData = $request->validate([
             'NamaLengkap' => 'required',
-            'UserName' => 'required|unique:users,UserName,'.$id,
+            'UserName' => 'required|unique:users,UserName,' . $id,
             'NomorHp' => 'required',
             'Foto' => 'required',
             'Roles' => 'required',
