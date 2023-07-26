@@ -125,4 +125,58 @@ class ArsipApiController extends Controller
     {
         //
     }
+
+
+    public function getFiles($id)
+    {
+
+        $arsip=Arsip::where('id',$id)->first();
+        // Set the known directory where files are stored (e.g., 'public/')
+        $directory = 'private/'.$arsip->NamaDokumen.'-'.$arsip->LokasiPenyimpanan;
+
+        // Get all files from the storage directory
+        $files = Storage::files($directory);
+        $id=$arsip->id;
+
+        // Map the files to an array of objects containing filename and URL
+        $fileList = array_map(function ($file) use ($directory) {
+            
+            return [
+                'filename' => basename($file),
+                'url' => asset('storage/' . $file), // Assuming you are using the 'public' disk in Laravel
+            ];
+        }, $files);
+
+        // Return the list of files as JSON
+        return response()->json($fileList);
+    }
+
+    public function downloadFile($filename,$id)
+    {
+        $arsip=Arsip::where('id',$id)->first();
+        // Set the known directory where files are stored (e.g., 'public/')
+        $directory = 'private/'.$arsip->NamaDokumen.'-'.$arsip->LokasiPenyimpanan.'/';
+        // Set the known directory where files are stored (e.g., 'public/')
+
+        // Full path to the file
+        $file = $directory . $filename;
+
+        // Check if the file exists in the storage
+        if (Storage::exists($file)) {
+            // Get the file's mime type
+            $mime = Storage::mimeType($file);
+
+            // Read the file content
+            $fileContent = Storage::get($file);
+
+            // Return the file data in the API response
+            return response()->make($fileContent, 200, [
+                'Content-Type' => $mime,
+                'Content-Disposition' => 'attachment; filename="' . $filename . '"',
+            ]);
+        } else {
+            // File not found, return an error response
+            return response()->json(['message' => 'File not found'], 404);
+        }
+    }
 }
