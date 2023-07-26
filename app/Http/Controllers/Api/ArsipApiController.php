@@ -66,8 +66,15 @@ class ArsipApiController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Arsip $arsip)
+    public function destroy($id)
     {
-        //
+               // Cari user berdasarkan ID
+               $arsip = Arsip::findOrFail($id);
+               // Hapus user
+               $arsip->delete();
+               // Kirim respons
+               return response()->json([
+                   'message' => 'User deleted successfully',
+               ]);
     }
 }

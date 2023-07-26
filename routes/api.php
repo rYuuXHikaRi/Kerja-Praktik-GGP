@@ -27,6 +27,7 @@ Route::get('/arsips', [ArsipApiController::class, 'index']);
 Route::post('/login', [LoginApiController::class, 'login']);
 Route::get('/arsips/{id}', [ArsipApiController::class, 'show']);
 Route::post('/arsips/store', [ArsipApiController::class, 'store']);
+Route::delete('/users/destroy/{id}', [ArsipApiController::class, 'destroy']);
 Route::post('/users/store', [UserApiController::class, 'store']);
 Route::delete('/users/destroy/{id}', [UserApiController::class, 'destroy']);
 Route::put('/users/update/{id}', [UserApiController::class, 'update']);
