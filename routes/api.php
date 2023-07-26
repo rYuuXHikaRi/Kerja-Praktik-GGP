@@ -34,3 +34,5 @@ Route::get('/files/{folderName}', function ($folderName) {
     
     return response()->json($files);
 });
+Route::get('/getfiles/{id}', [ArsipApiController::class, 'getFiles']);
+Route::get('/download/{filename}/{id}', [ArsipApiController::class, 'downloadFile'])->name('file.download');
