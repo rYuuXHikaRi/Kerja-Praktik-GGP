@@ -10,18 +10,12 @@ use Illuminate\Support\Facades\Hash;
 
 class UserApiController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
         $users = User::all();
         return response()->json($users);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
         //     $validatedData = $request->validate([
@@ -77,16 +71,10 @@ class UserApiController extends Controller
         return response()->json(201);
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(User $user)
     {
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, $id)
     {
         // Validasi request jika diperlukan
@@ -119,17 +107,12 @@ class UserApiController extends Controller
         ]);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy($id)
     {
         // Cari user berdasarkan ID
         $user = User::findOrFail($id);
-
         // Hapus user
         $user->delete();
-
         // Kirim respons
         return response()->json([
             'message' => 'User deleted successfully',
