@@ -36,7 +36,7 @@ class UserApiController extends Controller
             'UserName' => $request->UserName,
             'password' => Hash::make($request->Password),
             'NomorHp' => $request->NomorHp,
-            'Foto' => $fileName, // Menggunakan nama file yang disimpan dalam kolom 'Foto'
+            'Foto' => 'Foto', 
             'Roles' => $request->Roles,
         ]);
     
