@@ -18,17 +18,17 @@ class UserApiController extends Controller
 
     public function store(Request $request)
     {
-        // Validasi permintaan untuk memastikan file gambar diunggah
-        $request->validate([
-            'Foto' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
-        ]);
+        // // Validasi permintaan untuk memastikan file gambar diunggah
+        // $request->validate([
+        //     'Foto' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+        // ]);
     
-        // Mengambil file gambar dari permintaan
-        $file = $request->file('Foto');
+        // // Mengambil file gambar dari permintaan
+        // $file = $request->file('Foto');
     
-        // Menyimpan file gambar ke direktori yang sesuai (misalnya, direktori 'public/images')
-        $fileName = time() . '.' . $file->getClientOriginalExtension();
-        $file->storeAs('public/images', $fileName);
+        // // Menyimpan file gambar ke direktori yang sesuai (misalnya, direktori 'public/images')
+        // $fileName = time() . '.' . $file->getClientOriginalExtension();
+        // $file->storeAs('public/images', $fileName);
     
         // Menyimpan data pengguna ke dalam database dengan nama file gambar yang disimpan
         User::create([
@@ -55,9 +55,9 @@ class UserApiController extends Controller
             'NamaLengkap' => 'required',
             'UserName' => 'required|unique:users,UserName,' . $id,
             'NomorHp' => 'required',
-            'Foto' => 'required',
+            'Foto' => 'foto',
             'Roles' => 'required',
-            'password' => 'required|min:6',
+            // 'password' => 'required|min:6',
         ]);
 
         // Cari user berdasarkan ID
@@ -68,9 +68,10 @@ class UserApiController extends Controller
             'NamaLengkap' => $validatedData['NamaLengkap'],
             'UserName' => $validatedData['UserName'],
             'NomorHp' => $validatedData['NomorHp'],
-            'Foto' => $validatedData['Foto'],
+            'Foto' => 'foto',
+            // 'Foto' => $validatedData['Foto'],
             'Roles' => $validatedData['Roles'],
-            'password' => bcrypt($validatedData['password']),
+            // 'password' => bcrypt($validatedData['password']),
         ]);
 
         // Kirim respons
