@@ -119,6 +119,25 @@ class ArsipApiController extends Controller
             // Cari data arsip berdasarkan ID
             $arsip = Arsip::findOrFail($id);
 
+            $sourceFilePath = 'private/'.$arsip->NamaDokumen."-".$arsip->LokasiPenyimpanan;
+            $destinationFolderPath ='private/'.$request->input('NamaDokumen')."-".$request->input('LokasiPenyimpanan');
+
+            if($sourceFilePath != $destinationFolderPath){
+                if (Storage::exists($sourceFilePath)) {
+
+                    $filePaths = Storage::files($sourceFilePath);
+        
+                    // Move each file to the destination folder
+                    foreach ($filePaths as $filePath) {
+                        $fileName = pathinfo($filePath, PATHINFO_BASENAME);
+                        Storage::move($filePath, $destinationFolderPath . '/' . $fileName);
+                        Storage::deleteDirectory($sourceFilePath);
+                    }
+                } else {
+                    // The source file does not exist
+                }
+            }
+
             // Update data arsip berdasarkan nilai yang diterima dari form
             $arsip->NamaDokumen = $request->input('NamaDokumen');
             $arsip->Keterangan = $request->input('Keterangan');
@@ -134,9 +153,7 @@ class ArsipApiController extends Controller
             // Respon jika terjadi error saat update
             return response()->json(['message' => 'Terjadi kesalahan saat mengupdate arsip', 'error' => $e->getMessage()], 500);
         }
-        // $arsip=Arsip::where('id',$id)->first();
-        // $sourceFilePath = 'private/'.$arsip->NamaDokumen."-".$arsip->LokasiPenyimpanan;
-        // $destinationFolderPath ='private/'.$request->input('NamaDokumen')."-".$request->input('LokasiPenyimpanan');
+
   
         // Check if the source file exists before moving
         // $arsip->NamaDokumen = $request->input('NamaDokumen');
@@ -149,19 +166,19 @@ class ArsipApiController extends Controller
         // // Storage::makeDirectory('private/' . $request->input('NamaDokumen')."-".$request->input('LokasiPenyimpanan'));
 
         // Log::info($request->all());
-        // if (Storage::exists($sourceFilePath)) {
+        if (Storage::exists($sourceFilePath)) {
 
-        //     $filePaths = Storage::files($sourceFilePath);
+            $filePaths = Storage::files($sourceFilePath);
 
-        //     // Move each file to the destination folder
-        //     foreach ($filePaths as $filePath) {
-        //         $fileName = pathinfo($filePath, PATHINFO_BASENAME);
-        //         Storage::move($filePath, $destinationFolderPath . '/' . $fileName);
-        //         Storage::deleteDirectory($sourceFilePath);
-        //     }
-        // } else {
-        //     // The source file does not exist
-        // }
+            // Move each file to the destination folder
+            foreach ($filePaths as $filePath) {
+                $fileName = pathinfo($filePath, PATHINFO_BASENAME);
+                Storage::move($filePath, $destinationFolderPath . '/' . $fileName);
+                Storage::deleteDirectory($sourceFilePath);
+            }
+        } else {
+            // The source file does not exist
+        }
   
         // return response()->json(['message' => $arsip . 'Upload berhasil']);
     }

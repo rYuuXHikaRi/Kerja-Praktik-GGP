@@ -2,28 +2,53 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Auth;
 
 class LoginApiController extends Controller
 {
+
+    public function authenticate(Request $request)
+    {
+        
+        $credentials=$request->validate([
+            'UserName'=> 'required',
+            'password'=> 'required',
+        ]);
+
+        if (Auth::attempt($credentials)) {
+            $user = Auth::user();
+            // The user is authenticated through the session.
+            return response()->json(['user' => $user]);
+        }
+
+        // if (Auth::attempt($credentials) ) {
+        //     $request->session()->regenerate();
+        //     if(auth()->user()->Roles ==1 ){
+        //         return redirect()->intended('/dashboardadmin');
+        //     }
+        //     else{
+        //         return redirect()->intended('/dashboarduser');
+        //     }
+        //     # code...
+        // }
+        return response()->json(['message' => 'Invalid credentials'], 401);
+
+        
+        
+        
+    }
+    public function logout()
+    {
+        Auth::logout();
+        return view('/Login');
+        // Logika lain setelah logout
+    }
     /**
      * Display a listing of the resource.
      */
-    public function login(Request $request)
-{
-    $credentials = $request->only('UserName', 'password');
-
-    if (Auth::attempt($credentials)) {
-        dd('RRR');
-
-       
-    } else {
-        return response()->json(['error' => 'Invalid credentials'], 401);
-    }
-}
     public function index()
     {
         //
@@ -40,7 +65,7 @@ class LoginApiController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(User $user)
+    public function show()
     {
         //
     }
@@ -48,16 +73,5 @@ class LoginApiController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, User $user)
-    {
-        //
-    }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(User $user)
-    {
-        //
-    }
 }
