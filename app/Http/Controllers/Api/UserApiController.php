@@ -5,6 +5,9 @@ namespace App\Http\Controllers\Api;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Session;
 
 class UserApiController extends Controller
 {
@@ -115,5 +118,33 @@ class UserApiController extends Controller
         $users = User::where('id',$id)->first();
         return response()->json($users);
 
+    }
+
+    public function editprofile(Request $request, $id)
+    {
+        $user = User::findOrFail($id);
+        $user->NamaLengkap = $request->input('NamaLengkap');
+        $user->UserName = $request->input('UserName');
+        $user->NomorHp = $request->input('NomorHp');
+        $password_lama = $user->password;
+
+        if ( $request->input('passwordBaru') != '' && $request->input('passwordBaru')!='' ){
+            if (Hash::check($request->input('password'), $password_lama)) {
+                    if ($request->input('passwordBaru') === $request->input('password')) {
+                        // Password baru sama dengan password lama, return an error response
+                        return response()->json(['error' => 'Error: Password baru tidak boleh sama dengan password lama'], 400);
+                    }
+                    // Pembaruan password baru
+                    $user->Password = Hash::make($request->input('passwordBaru'));
+                } else {
+                    // Password lama tidak cocok, return an error response
+                    return response()->json(['error' => 'Error: Password lama tidak cocok'], 400);
+                }
+        }
+    
+        $user->save();
+    
+        // Return the updated user data as a JSON response
+        return response()->json(['message' => 'Profile Berhasil Diubah', 'user' => $user]);
     }
 }
