@@ -27,7 +27,8 @@ Route::get('/users', [UserApiController::class, 'index']);
 Route::get('/arsips', [ArsipApiController::class, 'index']);
 Route::post('/login', [LoginApiController::class, 'login']);
 Route::get('/arsips/{id}', [ArsipApiController::class, 'show']);
-Route::post('/store', [ArsipApiController::class, 'store']);
+Route::post('/arsips/store', [ArsipApiController::class, 'store']);
+Route::put('/arsips/update/{id}', [ArsipApiController::class, 'update']);
 Route::get('/files/{folderName}', function ($folderName) {
     $folderPath = "private/{$folderName}";
     $files = Storage::files($folderPath);
