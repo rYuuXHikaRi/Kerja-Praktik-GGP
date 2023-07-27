@@ -38,3 +38,4 @@ Route::get('/files/{folderName}', function ($folderName) {
 Route::get('/getfiles/{id}', [ArsipApiController::class, 'getFiles']);
 Route::get('/download/{filename}/{id}', [ArsipApiController::class, 'downloadFile'])->name('file.download');
 Route::post('/login', [LoginApiController::class, 'authenticate']);
+Route::get('/users/profile/{id}', [UserApiController::class, 'viewprofile']);
