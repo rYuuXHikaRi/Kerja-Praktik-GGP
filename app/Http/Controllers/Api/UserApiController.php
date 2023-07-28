@@ -92,4 +92,10 @@ class UserApiController extends Controller
             'message' => 'User deleted successfully',
         ]);
     }
+
+    public function viewprofile($id){
+        $users = User::where('id',$id)->first();
+        return response()->json($users);
+
+    }
 }

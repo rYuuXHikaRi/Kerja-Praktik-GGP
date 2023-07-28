@@ -3,6 +3,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\Api\UserApiController;
 use App\Http\Controllers\Api\ArsipApiController;
 use App\Http\Controllers\Api\LoginApiController;
@@ -33,3 +34,14 @@ Route::delete('/users/destroy/{id}', [UserApiController::class, 'destroy']);
 Route::put('/users/update/{id}', [UserApiController::class, 'update']);
 
 
+Route::put('/arsips/update/{id}', [ArsipApiController::class, 'update']);
+Route::get('/files/{folderName}', function ($folderName) {
+    $folderPath = "private/{$folderName}";
+    $files = Storage::files($folderPath);
+    
+    return response()->json($files);
+});
+Route::get('/getfiles/{id}', [ArsipApiController::class, 'getFiles']);
+Route::get('/download/{filename}/{id}', [ArsipApiController::class, 'downloadFile'])->name('file.download');
+Route::post('/login', [LoginApiController::class, 'authenticate']);
+Route::get('/users/profile/{id}', [UserApiController::class, 'viewprofile']);
