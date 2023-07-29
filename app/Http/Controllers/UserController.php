@@ -58,7 +58,7 @@ class UserController extends Controller
         User::create([
             'NamaLengkap' => $request->NamaLengkap,
             'UserName' => $request->UserName,
-            'password' =>  Hash::make($request->Password),
+            'password' =>  Hash::make($request->password),
             'NomorHp' => $request->NomorHp,
             'Foto' => $filename,
             'Roles' => $request->Roles
@@ -164,7 +164,6 @@ class UserController extends Controller
             // Password lama tidak cocok, tampilkan pesan error
             return redirect()->back()->withErrors(['Password_lama' => 'Error: Password lama tidak cocok']);
         }
-
 
         if ($request->hasFile('Foto')) {
 

@@ -51,28 +51,37 @@ class UserApiController extends Controller
     public function update(Request $request, $id)
     {
         // Validasi request jika diperlukan
-        $validatedData = $request->validate([
-            'NamaLengkap' => 'required',
-            'UserName' => 'required|unique:users,UserName,' . $id,
-            'NomorHp' => 'required',
-            'Foto' => 'foto',
-            'Roles' => 'required',
-            // 'password' => 'required|min:6',
-        ]);
+        // $validatedData = $request->validate([
+        //     'NamaLengkap' => 'required',
+        //     'UserName' => 'required|unique:users,UserName,' . $id,
+        //     'NomorHp' => 'required',
+        //     'Foto' => 'foto',
+        //     'Roles' => 'required',
+        //     // 'password' => 'required|min:6',
+        // ]);
 
-        // Cari user berdasarkan ID
+        // // Cari user berdasarkan ID
+        // $user = User::findOrFail($id);
+
+        // // Update data user
+        // $user->update([
+        //     'NamaLengkap' => $validatedData['NamaLengkap'],
+        //     'UserName' => $validatedData['UserName'],
+        //     'NomorHp' => $validatedData['NomorHp'],
+        //     'Foto' => 'foto',
+        //     // 'Foto' => $validatedData['Foto'],
+        //     'Roles' => $validatedData['Roles'],
+        //     // 'password' => bcrypt($validatedData['password']),
+        // ]);
+
         $user = User::findOrFail($id);
+        $user->NamaLengkap = $request->input('NamaLengkap');
+        $user->UserName = $request->input('UserName');
+        $user->password = $request->input('password');
+        $user->NomorHp = $request->input('NomorHp');
+        $user->Roles = $request->input('Roles');
 
-        // Update data user
-        $user->update([
-            'NamaLengkap' => $validatedData['NamaLengkap'],
-            'UserName' => $validatedData['UserName'],
-            'NomorHp' => $validatedData['NomorHp'],
-            'Foto' => 'foto',
-            // 'Foto' => $validatedData['Foto'],
-            'Roles' => $validatedData['Roles'],
-            // 'password' => bcrypt($validatedData['password']),
-        ]);
+        $user->save();
 
         // Kirim respons
         return response()->json([
