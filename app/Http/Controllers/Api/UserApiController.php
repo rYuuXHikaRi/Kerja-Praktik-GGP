@@ -125,12 +125,14 @@ class UserApiController extends Controller
     public function editprofile(Request $request, $id)
     {
         Log::info('Received POST data:', $request->all());
-        $user = User::findOrFail($id);
+        $user = User::where('id',$id)->first();
         $user->NamaLengkap = $request->input('NamaLengkap');
         $user->UserName = $request->input('UserName');
         $user->NomorHp = $request->input('NomorHp');
         $password_lama = $user->password;
         $location = '.../public/assets/images/';
+
+
 
         if ( $request->input('passwordBaru') != '' && $request->input('passwordBaru')!='' ){
             if (Hash::check($request->input('password'), $password_lama)) {
@@ -146,47 +148,25 @@ class UserApiController extends Controller
                 }
         }
 
-        if ($request->has('Foto')){
-            $files = $request->file('Foto');
-            
-                $fileName = $files->getClientOriginalName();
-                Storage::putFileAs(public_path('assets/images/'), $files, $fileName);
- 
-   
-        }
-        else{
-            $folderdirectory=NULL;
-        }
-    
-        
-
         if ($request->hasFile('Foto')) {
-            $user->save();
             $file = $request->file('Foto');
-            $filePath = str_replace('file://', '', $file);
-
-    // Get the original file name from the path
-            $fileName = 'profile.jpg';
-
-            // Get the content of the file
-            $fileContent = file_get_contents($filePath);
-            
-  
-            
-    
-            // Save the file to the desired location using the Storage facade
-            Storage::put(public_path('assets/images/'), $fileName, $fileContent);
 
             // // Simpan file ke penyimpanan "private"
             // $path = $file->store('', 'private/' . $folderName); // Simpan di folder private dengan nama file yang di-generate otomatis
 
             // // Lakukan operasi lain yang diperlukan, misalnya menyimpan data ke database
 
-            // $fileName = 'profil baru.jpg';
-            // Storage::putFileAs($location, $file, $fileName);
-            
+            $fileName = $file->getClientOriginalName();
+            Storage::putFileAs('private/', $file, $fileName);
 
+            $user->save();
+            return response()->json(['message' => $file . 'Upload berhasil']);
         }
+
+        $user->save();
+    
+        
+
     
         // Return the updated user data as a JSON response
         return response()->json(['message' => 'Profile Berhasil Diubah', 'user' => $user]);
