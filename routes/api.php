@@ -42,3 +42,4 @@ Route::post('/users/store', [UserApiController::class, 'store']);
 Route::delete('/users/destroy/{id}', [UserApiController::class, 'destroy']);
 
 Route::post('/login', [LoginApiController::class, 'authenticate']);
+// Route::middleware('auth:sanctum') -> get('/user', [UserApiController::class, 'getUserData']);

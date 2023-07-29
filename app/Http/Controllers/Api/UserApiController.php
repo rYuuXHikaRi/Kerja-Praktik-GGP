@@ -40,7 +40,7 @@ class UserApiController extends Controller
             'Roles' => $request->Roles,
         ]);
     
-        return response()->json(201);
+        return response()->json(['message' => 'Create Account Success'], 201);
     }
     
 
@@ -90,5 +90,9 @@ class UserApiController extends Controller
         return response()->json([
             'message' => 'User deleted successfully',
         ]);
+    }
+
+    public function getUserData(Request $request) {
+        return response()->json($request->user());
     }
 }
