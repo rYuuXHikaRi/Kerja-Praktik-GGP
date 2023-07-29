@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Log;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 
@@ -50,29 +51,8 @@ class UserApiController extends Controller
 
     public function update(Request $request, $id)
     {
-        // Validasi request jika diperlukan
-        // $validatedData = $request->validate([
-        //     'NamaLengkap' => 'required',
-        //     'UserName' => 'required|unique:users,UserName,' . $id,
-        //     'NomorHp' => 'required',
-        //     'Foto' => 'foto',
-        //     'Roles' => 'required',
-        //     // 'password' => 'required|min:6',
-        // ]);
 
-        // // Cari user berdasarkan ID
-        // $user = User::findOrFail($id);
-
-        // // Update data user
-        // $user->update([
-        //     'NamaLengkap' => $validatedData['NamaLengkap'],
-        //     'UserName' => $validatedData['UserName'],
-        //     'NomorHp' => $validatedData['NomorHp'],
-        //     'Foto' => 'foto',
-        //     // 'Foto' => $validatedData['Foto'],
-        //     'Roles' => $validatedData['Roles'],
-        //     // 'password' => bcrypt($validatedData['password']),
-        // ]);
+        Log::info('Received POST data:', $request->all());
 
         $user = User::findOrFail($id);
         $user->NamaLengkap = $request->input('NamaLengkap');
