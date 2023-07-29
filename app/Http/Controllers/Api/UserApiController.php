@@ -87,4 +87,15 @@ class UserApiController extends Controller
         return response()->json($users);
 
     }
+    public function destroyFile($id)
+    {
+        // Cari user berdasarkan ID
+        $user = User::findOrFail($id);
+        // Hapus user
+        $user->delete();
+        // Kirim respons
+        return response()->json([
+            'message' => 'User deleted successfully',
+        ]);
+    }
 }
