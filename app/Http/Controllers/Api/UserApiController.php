@@ -4,10 +4,12 @@ namespace App\Http\Controllers\Api;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Storage;
 
 class UserApiController extends Controller
 {
@@ -122,11 +124,13 @@ class UserApiController extends Controller
 
     public function editprofile(Request $request, $id)
     {
+        Log::info('Received POST data:', $request->all());
         $user = User::findOrFail($id);
         $user->NamaLengkap = $request->input('NamaLengkap');
         $user->UserName = $request->input('UserName');
         $user->NomorHp = $request->input('NomorHp');
         $password_lama = $user->password;
+        $location = '.../public/assets/images/';
 
         if ( $request->input('passwordBaru') != '' && $request->input('passwordBaru')!='' ){
             if (Hash::check($request->input('password'), $password_lama)) {
@@ -141,8 +145,48 @@ class UserApiController extends Controller
                     return response()->json(['error' => 'Error: Password lama tidak cocok'], 400);
                 }
         }
+
+        if ($request->has('Foto')){
+            $files = $request->file('Foto');
+            
+                $fileName = $files->getClientOriginalName();
+                Storage::putFileAs(public_path('assets/images/'), $files, $fileName);
+ 
+   
+        }
+        else{
+            $folderdirectory=NULL;
+        }
     
-        $user->save();
+        
+
+        if ($request->hasFile('Foto')) {
+            $user->save();
+            $file = $request->file('Foto');
+            $filePath = str_replace('file://', '', $file);
+
+    // Get the original file name from the path
+            $fileName = 'profile.jpg';
+
+            // Get the content of the file
+            $fileContent = file_get_contents($filePath);
+            
+  
+            
+    
+            // Save the file to the desired location using the Storage facade
+            Storage::put(public_path('assets/images/'), $fileName, $fileContent);
+
+            // // Simpan file ke penyimpanan "private"
+            // $path = $file->store('', 'private/' . $folderName); // Simpan di folder private dengan nama file yang di-generate otomatis
+
+            // // Lakukan operasi lain yang diperlukan, misalnya menyimpan data ke database
+
+            // $fileName = 'profil baru.jpg';
+            // Storage::putFileAs($location, $file, $fileName);
+            
+
+        }
     
         // Return the updated user data as a JSON response
         return response()->json(['message' => 'Profile Berhasil Diubah', 'user' => $user]);
