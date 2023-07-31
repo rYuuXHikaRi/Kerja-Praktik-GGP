@@ -44,5 +44,10 @@ Route::get('/files/{folderName}', function ($folderName) {
 });
 Route::get('/getfiles/{id}', [ArsipApiController::class, 'getFiles']);
 Route::get('/download/{filename}/{id}', [ArsipApiController::class, 'downloadFile'])->name('file.download');
+Route::post('/arsips/store', [ArsipApiController::class, 'store']);
+Route::post('/users/store', [UserApiController::class, 'store']);
+Route::delete('/users/destroy/{id}', [UserApiController::class, 'destroy']);
+
 Route::post('/login', [LoginApiController::class, 'authenticate']);
 Route::get('/users/profile/{id}', [UserApiController::class, 'viewprofile']);
+// Route::middleware('auth:sanctum') -> get('/user', [UserApiController::class, 'getUserData']);

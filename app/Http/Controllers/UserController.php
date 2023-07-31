@@ -240,5 +240,7 @@ class UserController extends Controller
         return view('Profil',compact('user'));
     }
 
+
+
 }
 
