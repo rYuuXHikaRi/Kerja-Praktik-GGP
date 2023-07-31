@@ -32,7 +32,7 @@ Route::delete('/arsips/destroy/{id}', [ArsipApiController::class, 'destroy']);
 Route::post('/users/store', [UserApiController::class, 'store']);
 Route::delete('/users/destroy/{id}', [UserApiController::class, 'destroy']);
 Route::put('/users/update/{id}', [UserApiController::class, 'update']);
-Route::delete('/arsips/destroy/{id}/{filename}', [ArsipApiController::class, 'destroy']);
+Route::delete('/arsips/destroy/{id}/{fileName}', [ArsipApiController::class, 'destroyFileName']);
 
 
 Route::put('/arsips/update/{id}', [ArsipApiController::class, 'update']);

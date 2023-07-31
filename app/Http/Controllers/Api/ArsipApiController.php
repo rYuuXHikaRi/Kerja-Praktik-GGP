@@ -15,7 +15,7 @@ class ArsipApiController extends Controller
      */
     public function index()
     {
-        
+
         $users = Arsip::all();
         return response()->json($users);
     }
@@ -27,10 +27,10 @@ class ArsipApiController extends Controller
     {
         Log::info('Received POST data:', $request->all());
 
-        $data = $request->only(['NamaDokumen', 'Keterangan', 'Tahun', 'NamaDesa', 'LokasiPenyimpanan','NamaFile']);
+        $data = $request->only(['NamaDokumen', 'Keterangan', 'Tahun', 'NamaDesa', 'LokasiPenyimpanan', 'NamaFile']);
         $createdData = Arsip::create($data);
 
-        $folderName = $request->NamaDokumen."-".$request->LokasiPenyimpanan;
+        $folderName = $request->NamaDokumen . "-" . $request->LokasiPenyimpanan;
         Storage::makeDirectory('private/' . $folderName);
 
         if ($request->hasFile('file')) {
@@ -43,7 +43,7 @@ class ArsipApiController extends Controller
 
             $fileName = $file->getClientOriginalName();
             Storage::putFileAs('private/' . $folderName, $file, $fileName);
-            $folderdirectory='private/'.$folderName;
+            $folderdirectory = 'private/' . $folderName;
 
             return response()->json(['message' => $file . 'Upload berhasil']);
         }
@@ -64,7 +64,7 @@ class ArsipApiController extends Controller
         //     //     // Simpan file ke folder private dengan nama folder $folderName
         //     //     $filename = $index->getClientOriginalName();
         //     //     echo($filename);
-                
+
         //     //     $index->storeAs("private/$folderName", $filename);
         //     //     // Lakukan sesuatu dengan data file, seperti menyimpan informasi file ke database
         //     // }
@@ -73,11 +73,11 @@ class ArsipApiController extends Controller
         //         $fileName = $file->getClientOriginalName();
         //         Storage::putFileAs('private/' . $folderName, $file, $fileName);
         //         $folderdirectory='private/'.$folderName;
-     
+
         //     }
         // }
 
-        
+
 
         // Validasi request jika diperlukan
         // Arsip::create([
@@ -88,12 +88,12 @@ class ArsipApiController extends Controller
         //     'LokasiPenyimpanan' => $request->LokasiPenyimpanan,
         //     'NamaFile'=>$request->NamaFile
 
-         
+
         // ]);
 
         // Kirim respons
         //return response()->json(['message' => 'Data created successfully', 'data' => $createdData]);
-        
+
 
     }
 
@@ -119,14 +119,14 @@ class ArsipApiController extends Controller
             // Cari data arsip berdasarkan ID
             $arsip = Arsip::findOrFail($id);
 
-            $sourceFilePath = 'private/'.$arsip->NamaDokumen."-".$arsip->LokasiPenyimpanan;
-            $destinationFolderPath ='private/'.$request->input('NamaDokumen')."-".$request->input('LokasiPenyimpanan');
+            $sourceFilePath = 'private/' . $arsip->NamaDokumen . "-" . $arsip->LokasiPenyimpanan;
+            $destinationFolderPath = 'private/' . $request->input('NamaDokumen') . "-" . $request->input('LokasiPenyimpanan');
 
-            if($sourceFilePath != $destinationFolderPath){
+            if ($sourceFilePath != $destinationFolderPath) {
                 if (Storage::exists($sourceFilePath)) {
 
                     $filePaths = Storage::files($sourceFilePath);
-        
+
                     // Move each file to the destination folder
                     foreach ($filePaths as $filePath) {
                         $fileName = pathinfo($filePath, PATHINFO_BASENAME);
@@ -154,7 +154,7 @@ class ArsipApiController extends Controller
             return response()->json(['message' => 'Terjadi kesalahan saat mengupdate arsip', 'error' => $e->getMessage()], 500);
         }
 
-  
+
         // Check if the source file exists before moving
         // $arsip->NamaDokumen = $request->input('NamaDokumen');
         // $arsip->Keterangan = $request->input('Keterangan');
@@ -179,7 +179,7 @@ class ArsipApiController extends Controller
         } else {
             // The source file does not exist
         }
-  
+
         // return response()->json(['message' => $arsip . 'Upload berhasil']);
     }
 
@@ -188,31 +188,53 @@ class ArsipApiController extends Controller
      */
     public function destroy($id)
     {
-               // Cari user berdasarkan ID
-               $arsip = Arsip::findOrFail($id);
-               // Hapus user
-               $arsip->delete();
-               // Kirim respons
-               return response()->json([
-                   'message' => 'User deleted successfully',
-               ]);
+        // Cari user berdasarkan ID
+        $arsip = Arsip::findOrFail($id);
+        // Hapus user
+        $arsip->delete();
+        // Kirim respons
+        return response()->json([
+            'message' => 'User deleted successfully',
+        ]);
+    }
+
+    public function destroyFileName($id, $fileName)
+    {
+        $arsip = Arsip::findOrFail($id);
+        $folderName = $arsip->NamaDokumen . '-' . $arsip->LokasiPenyimpanan;
+
+        // Cari file berdasarkan fileName dan folderName
+        $filePath = 'private/'.$folderName . '/' . $fileName;
+
+
+        // Periksa apakah file ada sebelum dihapus
+        if (Storage::exists($filePath)) {
+            // Hapus file fisik dari sistem penyimpanan
+            Storage::delete($filePath);
+
+            // Kirim respons
+            return response()->json(['message' => 'FileName deleted successfully']);
+        } else {
+            // Jika file tidak ditemukan, berikan respons error atau sesuaikan dengan kebutuhan
+            return response()->json(['error' => 'File not found'], 404);
+        }
     }
 
 
     public function getFiles($id)
     {
 
-        $arsip=Arsip::where('id',$id)->first();
+        $arsip = Arsip::where('id', $id)->first();
         // Set the known directory where files are stored (e.g., 'public/')
-        $directory = 'private/'.$arsip->NamaDokumen.'-'.$arsip->LokasiPenyimpanan;
+        $directory = 'private/' . $arsip->NamaDokumen . '-' . $arsip->LokasiPenyimpanan;
 
         // Get all files from the storage directory
         $files = Storage::files($directory);
-        $id=$arsip->id;
+        $id = $arsip->id;
 
         // Map the files to an array of objects containing filename and URL
         $fileList = array_map(function ($file) use ($directory) {
-            
+
             return [
                 'filename' => basename($file),
                 'url' => asset('storage/' . $file), // Assuming you are using the 'public' disk in Laravel
@@ -223,11 +245,11 @@ class ArsipApiController extends Controller
         return response()->json($fileList);
     }
 
-    public function downloadFile($filename,$id)
+    public function downloadFile($filename, $id)
     {
-        $arsip=Arsip::where('id',$id)->first();
+        $arsip = Arsip::where('id', $id)->first();
         // Set the known directory where files are stored (e.g., 'public/')
-        $directory = 'private/'.$arsip->NamaDokumen.'-'.$arsip->LokasiPenyimpanan.'/';
+        $directory = 'private/' . $arsip->NamaDokumen . '-' . $arsip->LokasiPenyimpanan . '/';
         // Set the known directory where files are stored (e.g., 'public/')
 
         // Full path to the file
