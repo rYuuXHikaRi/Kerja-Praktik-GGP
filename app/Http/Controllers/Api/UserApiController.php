@@ -157,7 +157,14 @@ class UserApiController extends Controller
             // // Lakukan operasi lain yang diperlukan, misalnya menyimpan data ke database
 
             $fileName = $file->getClientOriginalName();
-            Storage::putFileAs('private/', $file, $fileName);
+            $location = '/assets/images/';
+            $filePath= public_path('assets/images/'.$user->Foto);
+            File::delete($filePath);
+            $file->move(public_path($location), $fileName);
+
+            $user->Foto = $fileName;
+            // Storage::putFileAs('private/', $file, $fileName);
+            // rename(storage_path('private/'.$fileName), public_path('/assets/images/'.$fileName));
 
             $user->save();
             return response()->json(['message' => $file . 'Upload berhasil']);
@@ -166,8 +173,6 @@ class UserApiController extends Controller
         $user->save();
     
         
-
-    
         // Return the updated user data as a JSON response
         return response()->json(['message' => 'Profile Berhasil Diubah', 'user' => $user]);
     }
