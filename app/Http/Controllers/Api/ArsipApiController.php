@@ -166,19 +166,19 @@ class ArsipApiController extends Controller
         // // Storage::makeDirectory('private/' . $request->input('NamaDokumen')."-".$request->input('LokasiPenyimpanan'));
 
         // Log::info($request->all());
-        if (Storage::exists($sourceFilePath)) {
+        // if (Storage::exists($sourceFilePath)) {
 
-            $filePaths = Storage::files($sourceFilePath);
+        //     $filePaths = Storage::files($sourceFilePath);
 
-            // Move each file to the destination folder
-            foreach ($filePaths as $filePath) {
-                $fileName = pathinfo($filePath, PATHINFO_BASENAME);
-                Storage::move($filePath, $destinationFolderPath . '/' . $fileName);
-                Storage::deleteDirectory($sourceFilePath);
-            }
-        } else {
-            // The source file does not exist
-        }
+        //     // Move each file to the destination folder
+        //     foreach ($filePaths as $filePath) {
+        //         $fileName = pathinfo($filePath, PATHINFO_BASENAME);
+        //         Storage::move($filePath, $destinationFolderPath . '/' . $fileName);
+        //         Storage::deleteDirectory($sourceFilePath);
+        //     }
+        // } else {
+        //     // The source file does not exist
+        // }
   
         // return response()->json(['message' => $arsip . 'Upload berhasil']);
     }
@@ -243,5 +243,26 @@ class ArsipApiController extends Controller
             // File not found, return an error response
             return response()->json(['message' => 'File not found'], 404);
         }
+    }
+
+    public function addFiles( Request $request,$id){
+        $arsip= Arsip::where('id',$id)->first();
+        $folderName= $arsip->NamaDokumen."-".$arsip->LokasiPenyimpanan;
+
+        if ($request->hasFile('file')) {
+            $file = $request->file('file');
+
+            // // Simpan file ke penyimpanan "private"
+            // $path = $file->store('', 'private/' . $folderName); // Simpan di folder private dengan nama file yang di-generate otomatis
+
+            // // Lakukan operasi lain yang diperlukan, misalnya menyimpan data ke database
+
+            $fileName = $file->getClientOriginalName();
+            Storage::putFileAs('private/' . $folderName, $file, $fileName);
+            $folderdirectory='private/'.$folderName;
+
+            return response()->json(['message' => $file . 'Upload berhasil']);
+        }
+
     }
 }

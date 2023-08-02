@@ -36,7 +36,7 @@ Route::get('/files/{folderName}', function ($folderName) {
     return response()->json($files);
 });
 Route::get('/getfiles/{id}', [ArsipApiController::class, 'getFiles']);
-Route::get('/addfiles/{id}', [ArsipApiController::class, 'addFiles']);
+Route::post('/addfiles/{id}', [ArsipApiController::class, 'addFiles']);
 Route::get('/download/{filename}/{id}', [ArsipApiController::class, 'downloadFile'])->name('file.download');
 Route::post('/login', [LoginApiController::class, 'authenticate']);
 Route::get('/users/profile/{id}', [UserApiController::class, 'viewprofile']);
