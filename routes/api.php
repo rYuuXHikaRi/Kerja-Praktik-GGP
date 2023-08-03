@@ -43,3 +43,4 @@ Route::delete('/users/destroy/{id}', [UserApiController::class, 'destroy']);
 
 Route::post('/login', [LoginApiController::class, 'authenticate']);
 // Route::middleware('auth:sanctum') -> get('/user', [UserApiController::class, 'getUserData']);
+Route::get('/getHistory', [ArsipApiController::class, 'getHistory']);
