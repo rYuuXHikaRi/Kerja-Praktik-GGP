@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Models\Arsip;
+use App\Models\History;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use App\Http\Controllers\Controller;
@@ -243,5 +244,10 @@ class ArsipApiController extends Controller
             // File not found, return an error response
             return response()->json(['message' => 'File not found'], 404);
         }
+    }
+
+    public function getHistory() {
+        $histories=History::all();
+        return response()->json($histories);
     }
 }
