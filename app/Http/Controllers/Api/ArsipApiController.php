@@ -249,7 +249,8 @@ class ArsipApiController extends Controller
     public function getHistory() {
         $histories=History::all();
         return response()->json($histories);
-        
+    }
+    
     public function addFiles( Request $request,$id){
         $arsip= Arsip::where('id',$id)->first();
         $folderName= $arsip->NamaDokumen."-".$arsip->LokasiPenyimpanan;

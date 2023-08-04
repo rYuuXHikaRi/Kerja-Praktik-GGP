@@ -98,6 +98,7 @@ class UserApiController extends Controller
 
     public function getUserData(Request $request) {
         return response()->json($request->user());
+    }
     public function viewprofile($id){
         $users = User::where('id',$id)->first();
         return response()->json($users);
