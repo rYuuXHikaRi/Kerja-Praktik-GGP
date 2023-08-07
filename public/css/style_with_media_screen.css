@@ -3,7 +3,6 @@
         width: 145px;
         height: 40px;
         border-radius: 15px;
-
         padding-top: 5px;
         padding-left: 20px;
     }
@@ -11,7 +10,6 @@
     .text-active {
         margin-left: 2px;
         font-size: 10pt;
-    
         color: white;
     }
 
@@ -45,4 +43,20 @@
     .active-main-content {
         margin-left: 70px;
     }
+    .submit-btn-yes {
+        background-color: #4CAF50;
+        color: white; 
+        font-size: 10px; 
+        font-weight:200;
+        width: 65px;
+      }
+      
+      .submit-btn-no {
+        background-color: #FBA919;
+        color: white; 
+        font-size: 10px; 
+        font-weight:200;
+        width: 65px;
+        margin-left: 5px;
+      }
 }

@@ -50,7 +50,7 @@
           <hr>
           <div>
             <button type="submit" class="btn submit-btn submit-btn-yes">Simpan</button>
-            <button href="/cancel" class="btn submit-btn submit-btn-no" style="margin-left:12%;">Batal</button>
+            <button href="/cancel" class="btn submit-btn submit-btn-no" style="margin-left:5%;">Batal</button>
           </div>
         </div>
       </div>
