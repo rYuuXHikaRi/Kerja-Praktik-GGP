@@ -47,6 +47,7 @@
           
                 <label for="PasswordLama">Password Lama:</label>
                 <input class="mb-3" type="PasswordLama" name="Password_lama" value="{{ old('Password_lama') }}" required>
+
           
                 <label for="PasswordBaru">Password Baru:</label>
                 <input class="mb-3" type="PasswordBaru" name="Password" value="{{ old('Password') }}" required>
