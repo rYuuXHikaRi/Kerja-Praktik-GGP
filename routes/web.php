@@ -107,8 +107,25 @@ Route::middleware(['role:2'])->group(function () {
 
 
 
+// Route::get('/LihatDokumen', function () {
 
-// Route::get('/TambahAkun', function () {
-//     return view('TambahAkun');
+// return view('LihatDokumen');
+
 // });
+
+// // Route::get('/Login', function () {
+// //     return view('Login');
+// // });
+
+// Route::get('/Profil', function () {
+// return view('Profil');
+// });
+
+// Route::get('/RiwayatUnduhan', function () {
+//     return view('RiwayatUnduhan');
+// });
+
+Route::get('/TambahAkun', function () {
+    return view('TambahAkun');
+ });
 

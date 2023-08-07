@@ -2,7 +2,7 @@
 <div>
 
   <div class="sidebar bg-white" id="sidebar">
-    <h4 class="text-black" style="margin-left: 7px; margin-top: 7px;"><img src="/img/logo.png" alt="logo" width="45"></h4>
+    <h4 class="text-black" style="margin-left: 7px; margin-top: 7px;"><img src="/img/logo.png" alt="logo" width="70"></h4>
 
     <ul class="p-2">
     @auth
@@ -100,6 +100,5 @@
     </a>
         
     @endif
-
   </div>
 </nav>
