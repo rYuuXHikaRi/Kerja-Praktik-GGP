@@ -46,11 +46,11 @@
                 <input class="mb-3" type="text" name="NomorHp" class="form-control" value="{{ $user->NomorHp }}" placeholder="{{ $user->NomorHp }}">
           
                 <label for="PasswordLama">Password Lama:</label>
-                <input class="mb-3" type="PasswordLama" name="Password_lama" value="{{ old('Password_lama') }}" required>
+                <input class="mb-3" type="password" name="Password_lama" value="{{ old('Password_lama') }}">
 
           
                 <label for="PasswordBaru">Password Baru:</label>
-                <input class="mb-3" type="PasswordBaru" name="Password" value="{{ old('Password') }}" required>
+                <input class="mb-3" type="password" name="Password" value="{{ old('Password') }}">
               </div>
             </div>
             

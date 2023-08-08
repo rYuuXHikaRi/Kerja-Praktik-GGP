@@ -5,7 +5,7 @@
       <h3>Folder</h3>
     </div>
 
-    <div class="card" style="border-radius: 10px;">
+    <div class="card" style="border-radius: 10px; border-color:white;">
       <div class="card-header">
         <h3 class="card-title">Folder</h3>
       </div>
