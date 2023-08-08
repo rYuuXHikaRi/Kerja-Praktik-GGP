@@ -2,7 +2,7 @@
 
 @section('container')
 
-<div class="Kelolaarsip">
+<div class="Kelolaarsip" style="border-color: white;">
   <h3 style="font: bolder;border-radius: 10px;display:flex; border-color:white;">Kelola Arsip</h3>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>

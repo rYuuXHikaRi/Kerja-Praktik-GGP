@@ -2,12 +2,12 @@
 
 @section('container')
 <div id="dashboard-wrapper">
-  <div class="dsbrd">
+  <div class="dsbrd" style="border-color: white;">
     <h3>Dashboard</h3>
   </div>
   <br>
 
-  <div class="card" style="border-radius: 10px;">
+  <div class="card">
     <div class="card-header">
       <h3 class="card-title">Statistik</h3>
     </div>
