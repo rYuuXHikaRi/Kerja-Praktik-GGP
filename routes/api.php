@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\Api\UserApiController;
 use App\Http\Controllers\Api\ArsipApiController;
 use App\Http\Controllers\Api\LoginApiController;
+use App\Http\Controllers\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,3 +48,4 @@ Route::post('/login', [LoginApiController::class, 'authenticate']);
 Route::get('/getHistory', [ArsipApiController::class, 'getHistory']);
 Route::get('/users/profile/{id}', [UserApiController::class, 'viewprofile']);
 Route::put('/users/profile/edit/{id}', [UserApiController::class, 'editprofile']);
+Route::get('/getDashboardStat', [DashboardController::class, 'getDashboardStat']);

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Models\Arsip;
+use App\Models\History;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -28,6 +29,20 @@ class DashboardController extends Controller
         $TotalArsips = Arsip::count();
         
         return view('index',compact('JumlahAdmin','JumlahUser','TotalArsips'));
+    }
+
+    public function getDashboardStat() {
+        $JumlahAdmin = User::where('Roles' , 1)->count();
+        $JumlahUser = User::where('Roles' , 2)->count();
+        $TotalArsips = Arsip::count();
+        $Histories = History::count();
+
+        return response()->json([
+            'jumlahAdmin' => $JumlahAdmin,
+            'jumlahUser' => $JumlahUser,
+            'jumlahArsip' => $TotalArsips,
+            'riwayatUnduhan' => $Histories,
+        ]); 
     }
 
     /**
